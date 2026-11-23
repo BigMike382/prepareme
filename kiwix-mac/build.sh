@@ -168,6 +168,23 @@ EXPORT_NON_EXEMPT="NO"  # the owner's answer, by click, 2026-11-14
 # The store build's version (Unlisted plan, phase 5): above every TestFlight and cable build's (project.yml's 3.17.1),
 # since App Store Connect refuses a version below one it approved. Raised for each new store version.
 STORE_VERSION="4.0"
+# The newest store version Apple has approved (Unlisted plan, phase 7: docs/plans/2026-11-23-unlisted-phase-7-submit.md,
+# part C). Empty until the first. Set by a session's one commit on the owner's word ("Apple approved 4.0"), never ahead,
+# with STORE_VERSION raised to the next (4.0 -> 4.1) in the same commit (test_store_build.py holds the two together).
+# Once set, every family phone build (TestFlight, its check, cable, the kept installer) is that version plus ".1", so
+# App Store Connect still takes TestFlight uploads and the numbers only rise: 3.17.1, 4.0, 4.0.1, 4.1, 4.1.1...
+STORE_APPROVED=""
+family_version=()
+[ -z "$STORE_APPROVED" ] || family_version=(MARKETING_VERSION="$STORE_APPROVED.1")
+family_checked() {   # $1: a built family app; it and every extension inside say STORE_APPROVED.1 (nothing when empty)
+    [ -n "$STORE_APPROVED" ] || return 0
+    local part
+    for part in "$1" "$1"/PlugIns/*.appex; do
+        [ -d "$part" ] || continue
+        [ "$(plutil -extract CFBundleShortVersionString raw "$part/Info.plist" 2>/dev/null)" = "$STORE_APPROVED.1" ] \
+            || { echo "${part##*/} isn't version $STORE_APPROVED.1 (above the approved store version $STORE_APPROVED); stopped." >&2; exit 1; }
+    done
+}
 # A check build's one test folder in iCloud Drive (concept-doc plan, phase A), made-up files only, deleted after
 BACKUP_CHECK="$HOME/Library/Mobile Documents/com~apple~CloudDocs/PrepareMe Backup Check"
 
@@ -564,6 +581,8 @@ if [ "$mode" = --app-testflight ] || [ "$mode" = --app-ios-check ] || [ "$mode" 
     if [ "$channel" = appstore ]; then   # version 4.0 for every target; the store's own rules in the check
         stamps+=(MARKETING_VERSION="$STORE_VERSION")
         check_upload+=(--store)
+    elif [ "$mode" != --dev-testflight ]; then   # the family's: above the approved store version once there is one
+        stamps+=(${family_version[@]+"${family_version[@]}"})
     fi
     stamped() {   # the built app says what was stamped, and the export answer when one was set
         [ "$(plutil -extract CFBundleVersion raw "$1/Info.plist" 2>/dev/null)" = "$version" ] \
@@ -575,6 +594,8 @@ if [ "$mode" = --app-testflight ] || [ "$mode" = --app-ios-check ] || [ "$mode" 
             [ "$(plutil -extract CFBundleShortVersionString raw "$1/Info.plist" 2>/dev/null)" = "$STORE_VERSION" ] \
                 && [ "$(plutil -extract CFBundleIdentifier raw "$1/Info.plist" 2>/dev/null)" = com.bigmike382.prepareme ] \
                 || { echo "The built app isn't version $STORE_VERSION of com.bigmike382.prepareme; not uploaded." >&2; exit 1; }
+        elif [ "$mode" != --dev-testflight ]; then
+            family_checked "$1"
         fi
     }
     if [ "$mode" = --app-ios-check ]; then
@@ -653,6 +674,9 @@ if [ "$mode" = --app-testflight ] || [ "$mode" = --app-ios-check ] || [ "$mode" 
         || { echo "Not uploaded (above). If it asks for an account, sign in to Xcode › Settings › Accounts and run this again." >&2; exit 1; }
     ends=$(date -r "$((now + 90 * 86400))" '+%B %-d, %Y')
     if [ "$mode" = --app-store ]; then
+        # the build and the commit it was made from: source_copy.py --uploaded tags the public source with this build
+        # and refuses any other commit (the pre-submission fixes, 2026-11-23)
+        printf '%s %s\n' "$version" "$(git -C "$REPO" rev-parse HEAD)" > "$out/uploaded.txt"
         echo "Uploaded PrepareMe $STORE_VERSION (build $version) to App Store Connect. Nothing was submitted or released:"
         echo "App Review, the Unlisted request and Release are yours, in App Store Connect. Once Apple has processed it,"
         echo "it also reaches the Owner group in TestFlight by itself; installed that way it opens until $ends."
@@ -681,9 +705,11 @@ if [ "$mode" = --app-phone ]; then   # the owner's step: the device on the cable
     fresh_profile
     xcodebuild build -quiet -scheme PrepareMe -configuration Release -destination "platform=iOS,id=$phone" \
         -derivedDataPath "$TOOLS/derived-app-phone" ${resolved[@]+"${resolved[@]}"} -allowProvisioningUpdates \
-        -allowProvisioningDeviceRegistration DEVELOPMENT_TEAM="$team" ${usda[@]+"${usda[@]}"}
+        -allowProvisioningDeviceRegistration DEVELOPMENT_TEAM="$team" ${usda[@]+"${usda[@]}"} \
+        ${family_version[@]+"${family_version[@]}"}
     rm -f "$USDA_CONFIG"
     app="$TOOLS/derived-app-phone/Build/Products/Release-iphoneos/PrepareMe.app"
+    family_checked "$app"
     xcrun devicectl device install app --device "$phone" "$app" >/dev/null
     echo "Installed PrepareMe on $label. $(fresh_said "$app/embedded.mobileprovision" \
         || echo "Its Downloads screen says how long this install opens.")"
@@ -719,9 +745,10 @@ if [ "$mode" = --app-installer ]; then   # the monthly job's kept cable installe
     # registered by its first --app-phone), so it installs on any of them
     xcodebuild build -quiet -scheme PrepareMe -configuration Release -destination 'generic/platform=iOS' \
         -derivedDataPath "$out" ${resolved[@]+"${resolved[@]}"} -allowProvisioningUpdates DEVELOPMENT_TEAM="$team" \
-        CURRENT_PROJECT_VERSION="$version" ${usda[@]+"${usda[@]}"}
+        CURRENT_PROJECT_VERSION="$version" ${usda[@]+"${usda[@]}"} ${family_version[@]+"${family_version[@]}"}
     rm -f "$USDA_CONFIG"
     app="$out/Build/Products/Release-iphoneos/PrepareMe.app"
+    family_checked "$app"
     ends=$(security cms -D -i "$app/embedded.mobileprovision" 2>/dev/null | plutil -extract ExpirationDate raw -o - - 2>/dev/null) \
         || { echo "Not kept: the built app has no profile end date to read." >&2; exit 1; }
     # swapped in whole: the new copy beside the old, then each moved into place, so a stop midway leaves one that works

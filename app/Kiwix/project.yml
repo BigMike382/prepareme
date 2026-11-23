@@ -179,6 +179,9 @@ targets:
         # Plan phase 5 (D2): the live conditions for where the phone is; Kiwix's own line is about map pages. The map
         # first (Task 11.3; F66): the question now comes only from the street map.
         INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: "PrepareMe shows where you are on the street map and the weather for where you are. For the weather it asks the Weather Service for your area; the place is never kept or sent to the Mac."
+        # iOS asks with the key above; the older key is set to the same words so Kiwix's (the project's) never reaches
+        # the phone's Info.plist (the pre-submission fixes; check_upload.py --store refuses a usage string naming Kiwix)
+        INFOPLIST_KEY_NSLocationUsageDescription: "PrepareMe shows where you are on the street map and the weather for where you are. For the weather it asks the Weather Service for your area; the place is never kept or sent to the Mac."
         # The Mac's own (Mac sidebar plan, task 12): its street map's Where am I, and since 2026-10-28 the hourly job's
         # "where the laptop is" (MacLocation, in place of the deleted shortcut). macOS 11 and later read the When In
         # Use key; the older key is set too, so Kiwix's line (the project's, above) never reaches the Mac's question

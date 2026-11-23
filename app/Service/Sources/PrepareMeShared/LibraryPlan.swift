@@ -388,6 +388,18 @@ public enum InstallExpiry {
         return stamp == testflight || stamp == appstore ? testflight : nil
     }
 
+    /// Days left from which a quiet copy (`quiet`) speaks as a TestFlight copy does: the once-a-day alert's own 30
+    public static let quietDays = 30
+
+    /// Whether this install keeps quiet about TestFlight (the pre-submission fixes, 2026-11-23): a store-stamped build the
+    /// rule doesn't count as a store copy (the store build through TestFlight, or App Review's own install if it is one)
+    /// shows no end date, TestFlight word, Update, "hasn't updated itself" row or notification question until its last
+    /// `quietDays`, then warns as a TestFlight copy does. It still lives by and reports "testflight" with its end, so
+    /// the Mac's lists and the hourly check are unchanged. A build stamped "testflight" (the family's) is never quiet.
+    public static func quiet(stamp: String?, channel: String?, daysLeft: Int?) -> Bool {
+        stamp == appstore && channel == testflight && daysLeft.map { $0 > quietDays } ?? true
+    }
+
     /// When this install stops opening: never for a store copy; a TestFlight build's stamped time plus 90 days (an upload
     /// is never earlier than its build, so never later than Apple's end), and never later than a profile's end; else the
     /// profile's.

@@ -1,9 +1,10 @@
 # PrepareMe 4.0: source
 
 PrepareMe is an offline preparedness reference library for iPhone and iPad, built on the open-source
-[Kiwix](https://github.com/kiwix/kiwix-apple) reader. This repository holds the source of each App Store version of
-PrepareMe, one commit and tag per version (this one: `v4.0`). It is released under the GNU General Public
-License, version 3: see `LICENSE`, and `NOTICE.md` for what was changed from Kiwix and when.
+[Kiwix](https://github.com/kiwix/kiwix-apple) reader. This repository holds the source of each build of PrepareMe sent
+to the App Store, one commit and tag per build (this one: `v4.0-2026.1123.2333`); the main branch holds the newest. It is released
+under the GNU General Public License, version 3: see `LICENSE`, and `NOTICE.md` for what was changed from Kiwix and
+when.
 
 The app's support page and privacy page are in `docs/` and are served at <https://bigmike382.github.io/prepareme/>.
 

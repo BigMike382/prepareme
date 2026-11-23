@@ -166,4 +166,26 @@ struct StoreCopyRuleTests {
         #expect(HomeMacWords.storeLine == "From the App Store. It doesn't expire.")
         #expect(!HomeMacWords.storeLine.contains("TestFlight") && !HomeMacWords.storeLine.contains("Update"))
     }
+
+    /// The pre-submission fixes: only the store build that isn't a store copy keeps quiet, and only before its last 30
+    /// days; the family's TestFlight builds, cable builds and store copies are never quiet
+    @Test func onlyAStoreStampedTestFlightCopyKeepsQuietUntilItsLast30Days() {
+        for stamp in ["appstore", "testflight", nil] as [String?] {
+            for hasProfile in [true, false] {
+                for receipt in ["receipt", "sandboxReceipt", nil] as [String?] {
+                    let channel = InstallExpiry.channel(stamp: stamp, hasProfile: hasProfile, receipt: receipt)
+                    let row = "\(stamp ?? "none"), profile \(hasProfile), \(receipt ?? "none")"
+                    let wanted = stamp == "appstore" && channel == "testflight"
+                    #expect(InstallExpiry.quiet(stamp: stamp, channel: channel, daysLeft: 89) == wanted, "\(row)")
+                    #expect(InstallExpiry.quiet(stamp: stamp, channel: channel, daysLeft: nil) == wanted, "\(row)")
+                    #expect(!InstallExpiry.quiet(stamp: stamp, channel: channel, daysLeft: 30), "\(row): its last 30 days warn")
+                }
+            }
+        }
+        #expect(InstallExpiry.quiet(stamp: "appstore", channel: "testflight", daysLeft: 31))
+        #expect(!InstallExpiry.quiet(stamp: "appstore", channel: "testflight", daysLeft: 0))
+        // it still reports TestFlight's end to the Mac
+        let built = ISO8601DateFormatter().date(from: "2027-01-15T15:30:00Z")!
+        #expect(InstallExpiry.end(channel: "testflight", built: built, profile: nil) == built.addingTimeInterval(90 * 86400))
+    }
 }

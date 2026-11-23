@@ -45,7 +45,7 @@ struct About: View {
             }
             Section(pmTitle: "Kiwix") {
                 about
-                Button("Kiwix's Website") { externalLinkURL = URL(string: "\(Brand.aboutWebsite)") }  // Kiwix's, not ours
+                ourWebsite  // "Kiwix's Website": Kiwix's, not ours
                 release
                 HStack {
                     source
@@ -164,7 +164,7 @@ struct About: View {
     #if PREPAREME_APP
     /// What PrepareMe is, ahead of Kiwix's own words, credits and licenses (owner, 2026-10-16; the beta run's F08)
     private var prepareMe: some View {
-        Text("PrepareMe is this household's own offline library, kept up to date by the Mac at home. "
+        Text("PrepareMe is an offline preparedness library that a household keeps up to date from its own Mac. "
              + "It is built on Kiwix, free software for reading offline.")
     }
     #endif
@@ -184,13 +184,22 @@ struct About: View {
     }
 
     private var ourWebsite: some View {
-        Button(LocalString.settings_about_our_website_button) {
+        Button(Self.websiteTitle) {
             externalLinkURL = URL(string: "\(Brand.aboutWebsite)")
         }
     }
 
+    #if PREPAREME_APP
+    // Kiwix's links named as Kiwix's, beside PrepareMe's own Source row (PrepareMeAboutRows; the pre-submission fixes)
+    private static let websiteTitle = "Kiwix's Website"
+    private static let sourceTitle = "Kiwix's Source"
+    #else
+    private static var websiteTitle: String { LocalString.settings_about_our_website_button }
+    private static var sourceTitle: String { LocalString.settings_about_source_title }
+    #endif
+
     private var source: some View {
-        Button(LocalString.settings_about_source_title) {
+        Button(Self.sourceTitle) {
             externalLinkURL = URL(string: "https://github.com/kiwix/kiwix-apple")
         }
     }

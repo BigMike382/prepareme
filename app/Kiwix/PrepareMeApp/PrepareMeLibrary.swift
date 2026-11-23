@@ -146,7 +146,8 @@ final class PrepareMeLibrary: ObservableObject {
     }
 
     func becameActive() {
-        LocalNetworkPermission.ask()
+        // only a paired device looks for its Mac: an unpaired one is never asked (pairing asks; pre-submission fixes)
+        if MacLink.pairing != nil { LocalNetworkPermission.ask() }
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: Self.whileOpenEvery, repeats: true) { _ in
             Task { @MainActor in await PrepareMeLibrary.shared.check() }

@@ -14,7 +14,8 @@ same name with any other content, or in any other place, and any other file in t
 --store (Unlisted plan, phase 5: `build.sh --app-store` and `--app-store-check`) also refuses any app that isn't the store
 build: its stamp `appstore`; the lookup keys only the project's demo key and nothing (never the owner's); the family's
 app ID; a version of at least 4.0; English only, as the store reads languages (the app's own top-level .lproj folders
-and its Info.plist's CFBundleLocalizations, not a package's resource bundle); and all three sample files present. It
+and its Info.plist's CFBundleLocalizations, not a package's resource bundle); no permission's words (a key ending in
+UsageDescription) naming Kiwix; and all three sample files present. It
 names what is wrong, never a key's value.
 Standard library and guard only.
 """
@@ -83,7 +84,7 @@ def text_of(path: Path) -> str | None:
 
 
 STORE_ID = "com.bigmike382.prepareme"  # decision 12: the app's ID stays the same
-STORE_LOWEST = (4, 0)  # above every TestFlight and cable build's 3.17.1
+STORE_LOWEST = (4, 0)  # a floor only: build.sh reads back the exact STORE_VERSION (4.0, then 4.1 once 4.0 is approved)
 DEMO_KEY = "DEMO_KEY"  # app/Kiwix/project.yml's PREPAREME_USDA_KEY
 ENGLISH = {"en.lproj", "Base.lproj"}
 
@@ -102,6 +103,10 @@ def store_problems(app: Path) -> list:
     except Exception:
         return ["Info.plist: can't be read"]
     found = []
+    # a permission's words are PrepareMe's own: Kiwix's lines live in the project's base settings (pre-submission fixes)
+    kiwix = sorted(k for k, v in info.items() if k.endswith("UsageDescription") and "kiwix" in str(v).lower())
+    if kiwix:
+        found.append(f"Info.plist: {', '.join(kiwix)} names Kiwix (PrepareMe's own words go in project.yml)")
     if info.get("PrepareMeChannel") != "appstore":
         found.append("Info.plist: not stamped as the store build (PrepareMeChannel)")
     if info.get("PrepareMeUSDAKey") != DEMO_KEY:

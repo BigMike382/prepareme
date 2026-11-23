@@ -208,8 +208,7 @@ struct Kiwix: App {
                 RedNightSwitch()  // phase D
             }
             CommandGroup(replacing: .help) {  // the iPad's Help menu (Task 13.3; F48, F60)
-                Button(PrepareMeHelp.menuTitle) { PrepareMeTabs.shared.openHelp() }
-                    .keyboardShortcut("?", modifiers: .command)
+                PrepareMeHelpCommand()  // dimmed while there is no help page to open
             }
             #else
             CommandGroup(replacing: .textFormatting) {

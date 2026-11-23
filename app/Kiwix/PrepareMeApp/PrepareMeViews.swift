@@ -100,7 +100,7 @@ struct HomeMacView: View {
             Section(pmTitle: "This install") {
                 // the build on its own row: Home Mac had no way to tell 1731 from 2049 (owner, 2026-11-14)
                 if let build = InstallInfo.build { Text("Build \(build)") }
-                Text(InstallInfo.line)
+                if !InstallInfo.quiet { Text(InstallInfo.line) }  // a quiet copy: the build row alone (pre-submission fixes)
                 if let update = UpdateSelfCheck.result {  // the update self-check (owner, 2026-11-14)
                     Text(UpdateCheck.words(update))
                         .foregroundStyle(update.dropped.isEmpty ? PrepareMeColors.ink : PrepareMeColors.caution)
@@ -765,9 +765,8 @@ enum UpdateSelfCheck {
 enum InstallInfo {
     static let profile: Data? = Bundle.main.url(forResource: "embedded", withExtension: "mobileprovision")
         .flatMap { try? Data(contentsOf: $0) }
-    /// "appstore", "testflight" or nil (cable), from the stamp build.sh writes (--app-store, --app-testflight) and how
-    /// this copy was installed (InstallExpiry.channel): a store-stamped build that came through TestFlight is "testflight"
-    static let channel: String? = {
+    /// The stamp and the receipt's name this copy was installed with
+    private static let installed: (stamp: String?, receipt: String?) = {
         var stamp = Bundle.main.object(forInfoDictionaryKey: "PrepareMeChannel") as? String
         var receipt = Bundle.main.appStoreReceiptURL?.lastPathComponent
         #if targetEnvironment(simulator)
@@ -779,8 +778,12 @@ enum InstallInfo {
         default: break
         }
         #endif
-        return InstallExpiry.channel(stamp: stamp, hasProfile: profile != nil, receipt: receipt)
+        return (stamp, receipt)
     }()
+    /// "appstore", "testflight" or nil (cable), from the stamp build.sh writes (--app-store, --app-testflight) and how
+    /// this copy was installed (InstallExpiry.channel): a store-stamped build that came through TestFlight is "testflight"
+    static let channel: String? = InstallExpiry.channel(stamp: installed.stamp, hasProfile: profile != nil,
+                                                        receipt: installed.receipt)
     static let built: Date? = {
         #if targetEnvironment(simulator)
         if ProcessInfo.processInfo.environment["PREPAREME_CHECK_INSTALL"] == "testflight" { return Date() }  // a fresh one
@@ -794,6 +797,12 @@ enum InstallInfo {
     static var reported: String? { store ? InstallExpiry.appstore : testflight ? InstallExpiry.testflight : nil }
     static let expiry: Date? = InstallExpiry.end(channel: channel, built: built,
                                                  profile: profile.flatMap(InstallExpiry.date(fromProfile:)))
+    /// The store build not installed by the store (InstallExpiry.quiet): no date line, TestFlight word, Update or
+    /// notification question until its last 30 days (the pre-submission fixes); it still reports TestFlight to the Mac
+    static var quiet: Bool {
+        InstallExpiry.quiet(stamp: installed.stamp, channel: channel,
+                            daysLeft: expiry.map { InstallExpiry.daysLeft($0, now: Date()) })
+    }
 
     static var line: String {
         if store { return HomeMacWords.storeLine }
@@ -806,7 +815,7 @@ enum InstallInfo {
 
     /// Home Mac's and Today's sentence beside Update once a TestFlight build is 21 days old; nil otherwise
     static var notUpdated: String? {
-        guard testflight, let built else { return nil }
+        guard testflight, !quiet, let built else { return nil }
         let days = InstallExpiry.daysOld(built, now: Date())
         return days >= InstallExpiry.staleDays ? HomeMacWords.notUpdated(days: days) : nil
     }
@@ -849,7 +858,7 @@ enum InstallNotices {
 
     static func schedule() {
         let expiry = InstallInfo.expiry
-        let testflight = InstallInfo.testflight
+        let testflight = InstallInfo.testflight, quiet = InstallInfo.quiet
         Task {
             let center = UNUserNotificationCenter.current()
             let old = await center.pendingNotificationRequests().map(\.identifier).filter(isNotice)
@@ -861,7 +870,7 @@ enum InstallNotices {
                 return
             }
             var status = await center.notificationSettings().authorizationStatus
-            if status == .notDetermined && testflight {
+            if status == .notDetermined && testflight && !quiet {  // a quiet copy asks in its last 30 days
                 _ = try? await center.requestAuthorization(options: [.alert, .sound])
                 status = await center.notificationSettings().authorizationStatus
             }

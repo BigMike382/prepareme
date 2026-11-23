@@ -220,6 +220,19 @@ struct PrepareMeTabCommands: View {
     }
 }
 
+/// The iPad's Help menu command: dimmed unless a held library can open the help page, as Settings' Help button is
+/// hidden (the pre-submission fixes, 2026-11-23); it watches the sample and the record so it changes with them
+struct PrepareMeHelpCommand: View {
+    @ObservedObject private var sample = PrepareMeSample.shared
+    @ObservedObject private var store = PrepareMeLibrary.shared.store
+
+    var body: some View {
+        Button(PrepareMeHelp.menuTitle) { PrepareMeTabs.shared.openHelp() }
+            .keyboardShortcut("?", modifiers: .command)
+            .disabled(!PrepareMeTabs.canOpenHelp)
+    }
+}
+
 /// Which tab shows, and the Kiwix tab (a Core Data `Tab`) behind each reading tab, kept by its address in the
 /// defaults. One that has gone (Kiwix drops a tab whose file was removed) is made again, empty.
 @MainActor
@@ -433,6 +446,10 @@ final class PrepareMeTabs: ObservableObject {
     /// PrepareMe's help page, on Guides (Task 13.3; F48, F60): beside the daily library's own front page, as the
     /// Mac finds it (the review: Today's page may have moved on), from the phone's Settings or the iPad's Help menu.
     /// With no daily library on this device yet, Guides says so in its own way (its first page is missing too).
+    /// Whether a held daily library can open the help page: the packer writes it into every daily library, the sample has
+    /// none, and before any library there is nothing beside which to look (the pre-submission fixes)
+    static var canOpenHelp: Bool { !PrepareMeSample.shared.on && heldID(dailyFile) != nil }
+
     func openHelp() {
         Task {
             selected = .guides
@@ -1347,11 +1364,13 @@ private struct HomeMacTab: View {
                 .sheet(isPresented: $settings) {
                     NavigationStack {
                         Settings(scrollToHotspot: false).toolbar {
-                            // the help page from the gear (Task 13.3; F48): it opens on Guides
-                            ToolbarItem(placement: .topBarLeading) {
-                                Button(PrepareMeHelp.menuTitle) {
-                                    settings = false
-                                    PrepareMeTabs.shared.openHelp()
+                            // the help page from the gear (Task 13.3; F48): it opens on Guides, only when there is one
+                            if PrepareMeTabs.canOpenHelp {
+                                ToolbarItem(placement: .topBarLeading) {
+                                    Button(PrepareMeHelp.menuTitle) {
+                                        settings = false
+                                        PrepareMeTabs.shared.openHelp()
+                                    }
                                 }
                             }
                             ToolbarItem(placement: .confirmationAction) { Button("Done") { settings = false } }

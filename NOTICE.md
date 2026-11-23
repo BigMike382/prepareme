@@ -1,6 +1,6 @@
 # Notice
 
-PrepareMe is a modified version of Kiwix for Apple 3.17.1 (https://github.com/kiwix/kiwix-apple, tag 3.17.1), changed by BigMike382. This copy was made on 2026-11-23 from the code that is PrepareMe 4.0 on the App Store.
+PrepareMe is a modified version of Kiwix for Apple 3.17.1 (https://github.com/kiwix/kiwix-apple, tag 3.17.1), changed by BigMike382. This copy was made on 2026-11-23 from the code that is PrepareMe 4.0 (build 2026.1123.2333) on the App Store.
 
 PrepareMe's own files in this copy (everything under app/Service, app/Meaning and app/AppIcon, the street map's scripts and styles under app/StreetMapAssets that are not a third party's, the build scripts under kiwix-mac and the modules under guard) are offered under the GNU General Public License, version 3 or (at your option) any later version, as the combined app must be. The full text is in LICENSE. Third-party parts keep their own licenses, each beside its files: under app/StreetMapAssets (MapLibre GL JS, PMTiles, the Protomaps basemap style, Noto Sans, the Tangram icons) and app/Meaning (the bge-small-en-v1.5 model).
 

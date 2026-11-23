@@ -112,12 +112,14 @@ struct MacSharingSettings: View {
     @AppStorage(RoomSharing.key) private var shareRoom = false
 
     var body: some View {
-        Section(pmTitle: "The Mac") {
-            Toggle(RoomSharing.switchTitle(device: ThisDevice.word), isOn: Binding(get: { shareRoom }, set: {
-                RoomSharing.answer($0)
-            })).pmSwitch()
-            Text(Self.keyLine)
-                .font(.pmNote).foregroundStyle(PrepareMeColors.text2)
+        if MacLink.pairing != nil {  // nothing goes to a Mac this device isn't paired with (the pre-submission fixes)
+            Section(pmTitle: "The Mac") {
+                Toggle(RoomSharing.switchTitle(device: ThisDevice.word), isOn: Binding(get: { shareRoom }, set: {
+                    RoomSharing.answer($0)
+                })).pmSwitch()
+                Text(Self.keyLine)
+                    .font(.pmNote).foregroundStyle(PrepareMeColors.text2)
+            }
         }
     }
 
