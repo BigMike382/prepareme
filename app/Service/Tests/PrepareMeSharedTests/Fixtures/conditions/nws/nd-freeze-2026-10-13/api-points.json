@@ -1,0 +1,112 @@
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "s": "https://schema.org/",
+            "geo": "http://www.opengis.net/ont/geosparql#",
+            "unit": "http://codes.wmo.int/common/unit/",
+            "@vocab": "https://api.weather.gov/ontology#",
+            "geometry": {
+                "@id": "s:GeoCoordinates",
+                "@type": "geo:wktLiteral"
+            },
+            "city": "s:addressLocality",
+            "state": "s:addressRegion",
+            "distance": {
+                "@id": "s:Distance",
+                "@type": "s:QuantitativeValue"
+            },
+            "bearing": {
+                "@type": "s:QuantitativeValue"
+            },
+            "value": {
+                "@id": "s:value"
+            },
+            "unitCode": {
+                "@id": "s:unitCode",
+                "@type": "@id"
+            },
+            "forecastOffice": {
+                "@type": "@id"
+            },
+            "forecastGridData": {
+                "@type": "@id"
+            },
+            "publicZone": {
+                "@type": "@id"
+            },
+            "county": {
+                "@type": "@id"
+            }
+        }
+    ],
+    "id": "https://api.weather.gov/points/48.69,-99.25",
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -99.25,
+            48.69
+        ]
+    },
+    "properties": {
+        "@id": "https://api.weather.gov/points/48.69,-99.25",
+        "@type": "wx:Point",
+        "cwa": "FGF",
+        "type": "land",
+        "forecastOffice": "https://api.weather.gov/offices/FGF",
+        "gridId": "FGF",
+        "gridX": 23,
+        "gridY": 145,
+        "forecast": "https://api.weather.gov/gridpoints/FGF/23,145/forecast",
+        "forecastHourly": "https://api.weather.gov/gridpoints/FGF/23,145/forecast/hourly",
+        "forecastGridData": "https://api.weather.gov/gridpoints/FGF/23,145",
+        "observationStations": "https://api.weather.gov/gridpoints/FGF/23,145/stations",
+        "relativeLocation": {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -99.2458982,
+                    48.7901596
+                ]
+            },
+            "properties": {
+                "city": "Rocklake",
+                "state": "ND",
+                "distance": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 10737.759911509
+                },
+                "bearing": {
+                    "unitCode": "wmoUnit:degree_(angle)",
+                    "value": 181
+                }
+            }
+        },
+        "forecastZone": "https://api.weather.gov/zones/forecast/NDZ006",
+        "county": "https://api.weather.gov/zones/county/NDC095",
+        "fireWeatherZone": "https://api.weather.gov/zones/fire/NDZ006",
+        "timeZone": "America/Chicago",
+        "radarStation": "KMBX",
+        "astronomicalData": {
+            "sunrise": "2026-10-13T07:54:38-05:00",
+            "sunset": "2026-10-13T18:51:41-05:00",
+            "transit": "2026-10-13T13:23:09-05:00",
+            "civilTwilightBegin": "2026-10-13T07:23:06-05:00",
+            "civilTwilightEnd": "2026-10-13T19:23:13-05:00",
+            "nauticalTwilightBegin": "2026-10-13T06:46:42-05:00",
+            "nauticalTwilightEnd": "2026-10-13T19:59:37-05:00",
+            "astronomicalTwilightBegin": "2026-10-13T06:10:11-05:00",
+            "astronomicalTwilightEnd": "2026-10-13T20:36:08-05:00"
+        },
+        "nwr": {
+            "transmitter": "KWN42",
+            "sameCode": "038095",
+            "areaBroadcast": "https://api.weather.gov/radio/KWN42/broadcast",
+            "pointBroadcast": "https://api.weather.gov/points/48.69,-99.25/radio"
+        }
+    }
+}

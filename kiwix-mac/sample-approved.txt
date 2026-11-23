@@ -1,0 +1,7 @@
+# The sample library the owner read (Unlisted plan, phase 4; packer/sample.py), one line per file: its SHA-256, two
+# spaces, its name, as `python -m packer.sample build` prints them. Written by a session only after the owner reads
+# `Sample to read.html` and says so by click; any change to the sample needs a new read. kiwix-mac/build.sh bundles the
+# sample only when all three match, and check_upload.py lets the app carry no other library file.
+2441a9963730e0a46372abccc822a93fbae89cb6d3a40e53bfb70d251435bbd6  sample-library.zim
+1902fd13124039396efdeae898e90f86e75d641b76274be59d30c1c8c9631f9e  sample-street-map.pmtiles
+692c52ac37f60cec0e233155cc6f2b0c2bff88d49d7424dd36fbc86a9dcd726c  sample-inventory.json

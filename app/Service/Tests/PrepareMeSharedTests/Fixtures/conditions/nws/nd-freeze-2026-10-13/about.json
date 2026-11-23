@@ -1,0 +1,33 @@
+{
+ "captured_at": "2026-10-13T19:28:18+00:00",
+ "county": "NDC095",
+ "files": {
+  "api-alerts.json": {
+   "bytes": 5373,
+   "sha256": "7242f65c014d2c1a85a920eba84fe3e55310dc968ebe0c0995d0e477d4ef6b09"
+  },
+  "api-points.json": {
+   "bytes": 3921,
+   "sha256": "ee43e000346101bdfb589c084e10a12c704965785cdbbee7781c8c691e9a8744"
+  },
+  "api-zone-forecast.json": {
+   "bytes": 8443,
+   "sha256": "aedcfc601581e96ea9ab1ff63b7ab0be119bfc177e69b03833330d0b9dac6fe2"
+  },
+  "api-zone.json": {
+   "bytes": 7846,
+   "sha256": "c02d2a0246ee4682f645c6952cf7e1c73ea2487170b5a736c6c3dafa0cfb8b71"
+  },
+  "showsigwx.html": {
+   "bytes": 20037,
+   "sha256": "c0d842e4af40b0f5699272c53186d20198142500ebf8c42227691a53c226f899"
+  }
+ },
+ "spot": [
+  48.69,
+  -99.25
+ ],
+ "spot_zone": "NDZ006",
+ "warning": "Freeze Warning",
+ "zone": "NDZ006"
+}

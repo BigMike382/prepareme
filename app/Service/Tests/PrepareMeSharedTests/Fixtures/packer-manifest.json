@@ -1,0 +1,67 @@
+{
+  "written_at": "2026-10-13T09:30:00+00:00",
+  "files": [
+    {
+      "name": "prepareme-daily.zim",
+      "id": "00000000-0000-4000-8000-000000000001",
+      "kind": "library",
+      "size": 21,
+      "sha256": "a1129a8664b37d1d4eec8c1930b9b16856c25d5f68d7d8f68160ae4b45dda48f",
+      "delivered_at": "2026-10-13T05:30:00-04:00",
+      "library_as_of": "2026-10-12T21:00-04:00",
+      "sources_checked": "2026-10-11T21:00:00-04:00",
+      "fetch": "base"
+    },
+    {
+      "name": "prepareme-maps-roads.zim",
+      "id": "00000000-0000-4000-8000-000000000002",
+      "kind": "map-core",
+      "size": 17,
+      "sha256": "863372caaf2ac6f5162d0c7b59e71af53d8a88bd4633b483d9d9c49de9fe06dc",
+      "delivered_at": "2026-10-13T05:30:00-04:00",
+      "library_as_of": null,
+      "sources_checked": null,
+      "fetch": "room",
+      "order": 1
+    },
+    {
+      "name": "prepareme-maps-today-1.zim",
+      "id": "00000000-0000-4000-8000-000000000003",
+      "kind": "map-optional",
+      "size": 16,
+      "sha256": "418008ff4659121eb7ccec82ab24a09043451acce9735f725d08223ffc660d0f",
+      "delivered_at": "2026-10-13T05:30:00-04:00",
+      "library_as_of": null,
+      "sources_checked": null,
+      "fetch": "room",
+      "order": 300
+    },
+    {
+      "name": "family_en_2026-08.zim",
+      "id": "00000000-0000-4000-8000-000000000004",
+      "kind": "download",
+      "size": 23,
+      "sha256": "28d0682d895011249d45a1886238261ff67cb4985b30d3038e46e3bf8a588f75",
+      "delivered_at": "2026-10-14T12:00:00Z",
+      "library_as_of": null,
+      "sources_checked": null,
+      "family": true,
+      "title": "Made-up family_en_2026-08",
+      "about": "Made-up water documents.",
+      "inside": "3 documents, including A, B and C",
+      "source": "Kiwix \u00b7 example.org"
+    },
+    {
+      "name": "mac_en_2026-08.zim",
+      "id": "00000000-0000-4000-8000-000000000005",
+      "kind": "download",
+      "size": 33,
+      "sha256": "77d0cc581b481b6bdf5561b5b7542ab096300b290f12af991d000daa13393583",
+      "delivered_at": "2026-10-14T12:00:00Z",
+      "library_as_of": null,
+      "sources_checked": null,
+      "family": false,
+      "title": "Made-up mac_en_2026-08"
+    }
+  ]
+}

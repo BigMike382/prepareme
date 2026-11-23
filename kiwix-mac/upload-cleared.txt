@@ -1,0 +1,5 @@
+# Files in the TestFlight build whose ID-check hits the owner ruled false (over-the-air plan, phase 2), by the whole
+# file's SHA-256: check_upload.py skips the ID check for exactly that file, and checks it again after any change. A line
+# is added only after the owner looks and says "false hit" (CLAUDE.md, "Never open a flagged line"), never by a session
+# on its own. Each line: the SHA-256, the file's path in the app, and the ruling's date.
+bf8e39bb0b86c3f824ad032238f909bc8ad04f9347f6293a0de0bd69043b1764  Meaning/bge-small-fp32.mlmodelc/model.mil  owner ruled false hit (8 routing-number lines), 2026-11-14

@@ -1,0 +1,16 @@
+{
+ "captured_at": "2026-10-13T02:41:48+00:00",
+ "county": "CAC105",
+ "files": {
+  "api-alerts.json": {
+   "bytes": 9638,
+   "sha256": "281cfab7ca6628179febdc4f7e9d7ef3fe49d5af90531c4057061f4d59bbc19d"
+  },
+  "showsigwx.html": {
+   "bytes": 21750,
+   "sha256": "a32e230b03305804e5372f7d91b82a5fcece8a47df2ef200c78882f64d0c1f94"
+  }
+ },
+ "warning": "Freeze Warning",
+ "zone": "CAZ108"
+}

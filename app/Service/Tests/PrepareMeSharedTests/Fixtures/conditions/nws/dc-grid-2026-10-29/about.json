@@ -1,0 +1,20 @@
+{
+ "captured_at": "2026-10-29T20:12:00+00:00",
+ "files": {
+  "api-gridpoints.json": {
+   "bytes": 51818,
+   "sha256": "3af3a99e7e1e93aa9d5b8e86c5254f44f85adcc8527bccb613f2cd1d2915f6cf"
+  },
+  "api-points.json": {
+   "bytes": 2952,
+   "sha256": "8cf51c415f50b7ec12a827a7b22189536349011b2915465660d9d402abdafc70"
+  }
+ },
+ "grid": "LWX/97,71",
+ "note": "Washington, DC (the test area, never home): the lookup and its grid forecast, the grid trimmed to the series NWSAPI.hours reads. Dry that day: rain amounts and thunder are made-up edits in the tests.",
+ "spot": [
+  38.89,
+  -77.03
+ ],
+ "zone": "DCZ001"
+}

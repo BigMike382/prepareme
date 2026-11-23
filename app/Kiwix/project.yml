@@ -1,0 +1,380 @@
+name: Kiwix
+options:
+  xcodeVersion: 26.0
+  deploymentTarget: # the three latest major versions should be supported
+    iOS: 17.6
+    macOS: 14.6
+  generateEmptyDirectories: true
+  useTabs: false
+  groupSortPosition: top
+  postGenCommand: cp IDETemplateMacros.plist Kiwix.xcodeproj/xcshareddata/
+
+settings:
+  base:
+    DEVELOPMENT_TEAM: L7HWM3SP3L
+    GENERATE_INFOPLIST_FILE: YES
+    CURRENT_PROJECT_VERSION: 250
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    ENABLE_MODULE_VERIFIER: YES
+    MODULE_VERIFIER_SUPPORTED_LANGUAGES: "objective-c objective-c++"
+    ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: YES
+    CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: YES
+    ENABLE_PREVIEWS: YES
+    INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.reference
+    INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+    INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad: UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight
+    INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: "Kiwix needs permission to save images to your photos app."
+    INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: "Kiwix can share your location with map content from ZIM files you open."
+    INFOPLIST_KEY_NSLocationUsageDescription: "Kiwix can share your location with map content from ZIM files you open."
+    INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace: YES
+    INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents: YES
+    SWIFT_OBJC_INTEROP_MODE: objcxx
+    SWIFT_OBJC_BRIDGING_HEADER: $(PROJECT_DIR)/Support/Kiwix-Bridging-Header.h
+    GCC_C_LANGUAGE_STANDARD: c11
+    CLANG_CXX_LANGUAGE_STANDARD: c++17
+    ENABLE_HARDENED_RUNTIME[sdk=macosx*]: YES
+    APP_STORE_ID: $(APP_STORE_ID)
+    INFOPLIST_KEY_UILaunchScreen_Generation: YES
+    SWIFT_VERSION: 6
+
+  configs:
+    debug:
+      DEAD_CODE_STRIPPING: YES
+      MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS: "gnu11 gnu14++"
+    release:
+      DEAD_CODE_STRIPPING: YES
+      MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS: "gnu11 gnu14++"
+      VALIDATE_PRODUCT: YES
+
+packages:
+  Defaults:
+    url: https://github.com/sindresorhus/Defaults
+    majorVersion: 8.2.0
+  StripeApplePay:
+    url: https://github.com/CodeLikeW/stripe-apple-pay
+    majorVersion: 25.7.2
+  SwiftSystem:
+    url: https://github.com/apple/swift-system
+    revision: b083113aef646d9d35403ca17e9789b750e42d1d
+  # PrepareMe: the household's own package (manifest, pairing, file checks), beside app/Kiwix in the repository;
+  # kiwix-mac/build.sh copies it beside the copy it builds
+  PrepareMeService:
+    path: ../Service
+  # Meaning search (docs/plans/2026-10-28-meaning-search.md, phase 3): app/Meaning, copied beside it the same way
+  Meaning:
+    path: ../Meaning
+
+targetTemplates:
+  ApplicationTemplate:
+    type: application
+    supportedDestinations: [iOS, macOS]
+    entitlements:
+      path: Support/Kiwix.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.files.user-selected.read-write: true
+        com.apple.security.network.client: true
+        com.apple.security.network.server: true
+        com.apple.security.print: true
+    dependencies:
+      - framework: CoreKiwix.xcframework
+        embed: false
+        codeSign: true
+      - sdk: SwiftUI.framework
+      - sdk: MapKit.framework
+      - sdk: WebKit.framework
+      - sdk: NotificationCenter.framework
+      - sdk: QuickLook.framework
+      # PrepareMe (Unlisted plan, phase 4; audit P2d): Kiwix's donation code (Apple Pay and the Stripe package) is the
+      # Kiwix target's alone, below, so the PrepareMe app carries none of it
+      - sdk: SystemConfiguration.framework
+      - package: Defaults
+      - package: SwiftSystem
+        product: SystemPackage
+        destinationFilters:
+          - macOS
+    sources:
+      - path: App
+      - path: Model
+        excludes:
+          - "Payment.swift"
+          - "StripeKiwix.swift"
+      - path: SwiftUI
+      - path: ViewModel
+      - path: Views
+        excludes:
+          - "Payment/**"
+          - "BuildingBlocks/DonationCell.swift"
+
+targets:
+  Kiwix:
+    templates:
+      - ApplicationTemplate
+    # PrepareMe: Kiwix's privacy files are Kiwix's own; PrepareMe has its own, PrepareMeApp/PrivacyInfo.xcprivacy
+    # (Unlisted plan, phase 4), taken in with its folder below; Kiwix's own are in the Kiwix target's sources below
+    entitlements:
+      properties:
+        com.apple.security.files.downloads.read-write: true
+        com.apple.security.personal-information.location: true
+        # PrepareMe: no in-app-payments (it needs Kiwix's own Apple account; their CI removes it the same way)
+    settings:
+      base:
+        MARKETING_VERSION: "3.17.1"
+        # PrepareMe: the Mac signs with Kiwix-macOS.entitlements, which kiwix-mac/build.sh makes from Kiwix.entitlements
+        # plus the one sandbox exception the sidebar's two buttons need (Application Support › PrepareMe › requests,
+        # for the Mac's dashboard job); the App Store would refuse it, and the iPhone build never carries it
+        CODE_SIGN_ENTITLEMENTS[sdk=macosx*]: Support/Kiwix-macOS.entitlements
+        PRODUCT_BUNDLE_IDENTIFIER: self.Kiwix
+        INFOPLIST_KEY_CFBundleDisplayName: Kiwix
+        INFOPLIST_FILE: Support/Info.plist
+        INFOPLIST_KEY_UILaunchStoryboardName: SplashScreenKiwix.storyboard
+    dependencies:  # Kiwix's donation code, left out of the template (Unlisted plan, phase 4)
+      - sdk: PassKit.framework
+      - package: StripeApplePay
+    sources:
+      - path: PrivacyInfo.xcprivacy
+        destinationFilters:
+          - iOS
+      - path: Contents/Resources/PrivacyInfo.xcprivacy
+        destinationFilters:
+          - macOS
+      - path: Model/Payment.swift
+      - path: Model/StripeKiwix.swift
+      - path: Views/Payment
+      - path: Views/BuildingBlocks/DonationCell.swift
+      - path: Support
+        excludes:
+          - "**/qqq.lproj"
+          - "**/igl.lproj"
+          - "**/dag.lproj"
+          - "zimCookieTests/**"
+      - path: Kiwix/SplashScreenKiwix.storyboard
+        destinationFilters:
+          - iOS
+  # PrepareMe: the household's phone app (build plan phase 4): Kiwix for iPhone and iPad under its own bundle ID and
+  # name, built with the PREPAREME_APP flag and PrepareMeApp/ (the library from the home Mac); never published. Its
+  # Info.plist opens no ZIM file from Files and takes no zim: links from other apps, so it never holds a second copy of
+  # a library (FINDINGS F-043, F-057); since D7 it shows its own library in Files (UIFileSharingEnabled, FilesShelf)
+  # for the App Store Kiwix. From plan phase 6 it is the Mac's PrepareMe too: the library from the packer's
+  # local folder (FolderSync), the phones' file service inside it (Contents/Library/LaunchAgents, put there with the
+  # service program by kiwix-mac/build.sh), its own sandbox exceptions (PrepareMe-macOS.entitlements) and Info.plist.
+  PrepareMe:
+    templates:
+      - ApplicationTemplate
+    supportedDestinations: [iOS, macOS]
+    entitlements:
+      path: PrepareMeApp/PrepareMe.entitlements
+    dependencies:
+      - package: PrepareMeService
+        product: PrepareMeShared
+      - package: Meaning
+        product: MeaningSearch
+    settings:
+      base:
+        MARKETING_VERSION: "3.17.1"
+        PRODUCT_BUNDLE_IDENTIFIER: com.bigmike382.prepareme
+        INFOPLIST_KEY_CFBundleDisplayName: PrepareMe
+        # its own words, not Kiwix's (the Apple guidelines audit, 2026-10-22)
+        INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: "PrepareMe saves a picture from a page to Photos only when you ask it to."
+        # Plan phase 5 (D2): the live conditions for where the phone is; Kiwix's own line is about map pages. The map
+        # first (Task 11.3; F66): the question now comes only from the street map.
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription: "PrepareMe shows where you are on the street map and the weather for where you are. For the weather it asks the Weather Service for your area; the place is never kept or sent to the Mac."
+        # The Mac's own (Mac sidebar plan, task 12): its street map's Where am I, and since 2026-10-28 the hourly job's
+        # "where the laptop is" (MacLocation, in place of the deleted shortcut). macOS 11 and later read the When In
+        # Use key; the older key is set too, so Kiwix's line (the project's, above) never reaches the Mac's question
+        INFOPLIST_KEY_NSLocationWhenInUseUsageDescription[sdk=macosx*]: "PrepareMe shows where this Mac is on the street map, and the weather for its area on Today. Only the Weather Service is asked about the place."
+        INFOPLIST_KEY_NSLocationUsageDescription[sdk=macosx*]: "PrepareMe shows where this Mac is on the street map, and the weather for its area on Today. Only the Weather Service is asked about the place."
+        # USDA's key for the barcode lookup (owner, 2026-10-22): its public one here; an install builds in the owner's
+        # from Household Private (kiwix-mac/build.sh), read through Info.plist's PrepareMeUSDAKey
+        PREPAREME_USDA_KEY: DEMO_KEY
+        # UPC Database's key (owner, 2026-10-23): none here, so that source isn't asked; an install builds in the
+        # owner's from Household Private › Keys › upcdatabase-key.txt, read through Info.plist's PrepareMeUPCDBKey
+        PREPAREME_UPCDB_KEY: ""
+        # A TestFlight build's time and channel (over-the-air plan, phase 2): empty here and by cable; kiwix-mac/build.sh
+        # --app-testflight sets both, and the build number (CURRENT_PROJECT_VERSION) from the time
+        PREPAREME_BUILT: ""
+        PREPAREME_CHANNEL: ""
+        INFOPLIST_FILE: PrepareMeApp/Info.plist
+        INFOPLIST_FILE[sdk=macosx*]: PrepareMeApp/Info-macOS.plist
+        CODE_SIGN_ENTITLEMENTS[sdk=macosx*]: PrepareMeApp/PrepareMe-macOS.entitlements
+        # No Kiwix splash: the opening screen is plain black (PrepareMeApp/Info.plist's UILaunchScreen), so the red
+        # night screen never opens on a white flash; iOS draws it before any code runs (phase D; owner, 2026-10-19)
+        # The Today redesign's phase 5 (A9): the phone's tint is the pages' ink, --text (PrepareMe.xcassets;
+        # PaletteTests). Not the Mac's: its sidebars' selected rows keep the Mac's own highlight (owner, 2026-10-15)
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME[sdk=iphone*]: PrepareMeTint
+        # Its own icon, PrepareMeApp/PrepareMeAppIcon.icon (owner, 2026-10-15; Icon Composer since 2026-10-22;
+        # app/AppIcon/make_icon.py writes it). Kiwix (PrepareMe) and Kiwix keep AppIcon
+        ASSETCATALOG_COMPILER_APPICON_NAME: PrepareMeAppIcon
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: $(inherited) PREPAREME_APP
+        CODE_SIGN_STYLE: Automatic
+        IPHONEOS_DEPLOYMENT_TARGET: "18.0" # app/Service's package, as the probe runs
+        MACOSX_DEPLOYMENT_TARGET: "15.0" # app/Service's package
+    sources:
+      - path: Support
+        excludes:
+          - "**/qqq.lproj"
+          - "**/igl.lproj"
+          - "**/dag.lproj"
+          - "zimCookieTests/**"
+          - "Info.plist"
+      - path: Kiwix/SplashScreenKiwix.storyboard
+        destinationFilters:
+          - iOS
+      - path: PrepareMeApp
+        excludes:
+          - "Info.plist"
+          - "Info-macOS.plist"
+          - "PrepareMe.entitlements"
+          - "PrepareMe-macOS.entitlements"
+          - "PrepareMeService.entitlements"
+          - "com.bigmike382.prepareme.service.plist"
+          - "Licenses/**"
+      # The license texts About's Acknowledgements open (Unlisted plan, phase 6), bundled whole as the app's Licenses
+      # folder, so each keeps its own name
+      - path: PrepareMeApp/Licenses
+        type: folder
+        buildPhase: resources
+      # Plan phase 9: the street map's page, engine, styles, fonts and icons, kept in the project (app/StreetMapAssets,
+      # put beside this folder by kiwix-mac/build.sh) and bundled whole as one folder, so the map fetches nothing.
+      - path: ../StreetMapAssets
+        type: folder
+        buildPhase: resources
+      # Meaning search's model (vocab.txt and bge-small-fp32.mlmodelc), put there by kiwix-mac/build.sh from
+      # app/Meaning/make_model.sh's folder, bundled whole as the app's Meaning folder (PrepareMeMeaningModel)
+      - path: ../meaning-model/Meaning
+        type: folder
+        buildPhase: resources
+      # The sample library (Unlisted plan, phase 4), put there by kiwix-mac/build.sh only when the owner approved it,
+      # else an empty folder; the iPhone and iPad app's alone
+      - path: ../sample-files/Sample
+        type: folder
+        buildPhase: resources
+        destinationFilters: [iOS]
+  UnitTests:
+    type: bundle.unit-test
+    supportedDestinations: [iOS, macOS]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: self.kiwix.Tests
+      TEST_HOST: $(BUILT_PRODUCTS_DIR)/Kiwix.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Kiwix
+      BUNDLE_LOADER: $(TEST_HOST)
+    entitlements:
+      path: Support/Kiwix-unitTest.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+        # from macOS 14, sandbox and unit test are not working together on CI
+        # a pop up appears that needs user acceptance
+        # see: https://developer.apple.com/documentation/security/accessing-files-from-the-macos-app-sandbox
+    sources:
+      - path: Tests
+    dependencies:
+      - target: Kiwix
+
+  UITests_macOS:
+    type: bundle.ui-testing
+    supportedDestinations: [macOS]
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: self.Kiwix.UITests.macOS
+      # TEST_HOST: $(BUILT_PRODUCTS_DIR)/Kiwix.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Kiwix
+      BUNDLE_LOADER: $(TEST_HOST)
+    entitlements:
+      path: Support/Kiwix-unitTest.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+        # from macOS 14, sandbox and unit test are not working together on CI
+        # a pop up appears that needs user acceptance
+        # see: https://developer.apple.com/documentation/security/accessing-files-from-the-macos-app-sandbox
+    sources:
+      - path: UITests_macOS
+    dependencies:
+      - target: Kiwix
+
+  UITests_iPhone:
+    type: bundle.ui-testing
+    supportedDestinations: [iOS]
+    settings:
+      # https://developer.apple.com/documentation/xcode/build-settings-reference#Targeted-Device-Families
+      TARGETED_DEVICE_FAMILY: 1
+      SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+      SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: NO
+      PRODUCT_BUNDLE_IDENTIFIER: self.Kiwix.UITests.iPhone
+      BUNDLE_LOADER: $(TEST_HOST)
+    entitlements:
+      path: Support/Kiwix-unitTest.entitlements
+    sources:
+      - path: UITests_iPhone
+      - path: UITests_common
+    dependencies:
+      - target: Kiwix
+
+  UITests_iPad:
+    type: bundle.ui-testing
+    supportedDestinations: [iOS]
+    settings:
+      SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+      SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: NO
+      # https://developer.apple.com/documentation/xcode/build-settings-reference#Targeted-Device-Families
+      TARGETED_DEVICE_FAMILY: 2
+      PRODUCT_BUNDLE_IDENTIFIER: self.Kiwix.UITests.iPad
+      BUNDLE_LOADER: $(TEST_HOST)
+    entitlements:
+      path: Support/Kiwix-unitTest.entitlements
+    sources:
+      - path: UITests_iPad
+      - path: UITests_common
+    dependencies:
+      - target: Kiwix
+
+schemes:
+  PrepareMe:
+    build:
+      targets:
+        PrepareMe: all
+  Kiwix:
+    build:
+      targets:
+        Kiwix: all
+    test:
+      targets:
+        - UnitTests
+      commandLineArguments:
+        testing: true
+      gatherCoverageData: true
+      coverageTargets:
+        - Kiwix
+      preActions:
+        # PrepareMe: only from the simulator the tests run on, never whichever one another session has booted
+        - script: if [ "$PLATFORM_NAME" = iphonesimulator ]; then xcrun simctl uninstall "$TARGET_DEVICE_IDENTIFIER" self.Kiwix; fi
+          settingsTarget: Kiwix
+  UITests_macOS:
+    build:
+      targets:
+        Kiwix: all
+    test:
+      targets:
+        - UITests_macOS
+      commandLineArguments:
+        testing: true
+  UITests_iPhone:
+    build:
+      targets:
+        Kiwix: all
+    test:
+      targets:
+        - UITests_iPhone
+      commandLineArguments:
+        testing: true
+      preActions:
+        - script: xcrun simctl uninstall booted self.Kiwix
+          settingsTarget: Kiwix
+  UITests_iPad:
+    build:
+      targets:
+        Kiwix: all
+    test:
+      targets:
+        - UITests_iPad
+      commandLineArguments:
+        testing: true
+      preActions:
+        - script: xcrun simctl uninstall booted self.Kiwix
+          settingsTarget: Kiwix

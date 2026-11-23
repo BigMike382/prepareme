@@ -1,0 +1,38 @@
+{
+  "phones" : {
+    "phone 1" : [
+      {
+        "at" : "2027-01-15T07:40Z",
+        "feeds" : {
+          "gauges" : {
+            "flood" : 0,
+            "unread" : 1
+          },
+          "home-alerts" : {
+            "alerts" : 1,
+            "events" : 1,
+            "no_vtec" : 0
+          }
+        },
+        "received" : "2027-01-15T08:00:00Z",
+        "unread" : [
+          "outages"
+        ]
+      }
+    ],
+    "phone 2" : [
+      {
+        "at" : "2027-01-15T07:55Z",
+        "feeds" : {
+          "storms" : {
+            "storms" : 2
+          }
+        },
+        "received" : "2027-01-15T08:00:00Z",
+        "unread" : [
+
+        ]
+      }
+    ]
+  }
+}

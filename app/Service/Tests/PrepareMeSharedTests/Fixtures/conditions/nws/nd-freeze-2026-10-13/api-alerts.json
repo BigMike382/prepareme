@@ -1,0 +1,121 @@
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "@vocab": "https://api.weather.gov/ontology#"
+        }
+    ],
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f5c5cf370671b33f5e2e24b265a7aded06d953ad.001.1",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.f5c5cf370671b33f5e2e24b265a7aded06d953ad.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.f5c5cf370671b33f5e2e24b265a7aded06d953ad.001.1",
+                "areaDesc": "Towner; Cavalier; Benson; Ramsey; Eddy; Nelson; Griggs; Barnes; Ransom; Sargent; Western Walsh County",
+                "geocode": {
+                    "SAME": [
+                        "038095",
+                        "038019",
+                        "038005",
+                        "038071",
+                        "038027",
+                        "038063",
+                        "038039",
+                        "038003",
+                        "038073",
+                        "038081",
+                        "038099"
+                    ],
+                    "UGC": [
+                        "NDZ006",
+                        "NDZ007",
+                        "NDZ014",
+                        "NDZ015",
+                        "NDZ024",
+                        "NDZ026",
+                        "NDZ028",
+                        "NDZ038",
+                        "NDZ049",
+                        "NDZ052",
+                        "NDZ054"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/forecast/NDZ006",
+                    "https://api.weather.gov/zones/forecast/NDZ007",
+                    "https://api.weather.gov/zones/forecast/NDZ014",
+                    "https://api.weather.gov/zones/forecast/NDZ015",
+                    "https://api.weather.gov/zones/forecast/NDZ024",
+                    "https://api.weather.gov/zones/forecast/NDZ026",
+                    "https://api.weather.gov/zones/forecast/NDZ028",
+                    "https://api.weather.gov/zones/forecast/NDZ038",
+                    "https://api.weather.gov/zones/forecast/NDZ049",
+                    "https://api.weather.gov/zones/forecast/NDZ052",
+                    "https://api.weather.gov/zones/forecast/NDZ054"
+                ],
+                "references": [],
+                "sent": "2026-10-13T13:41:00-05:00",
+                "effective": "2026-10-13T13:41:00-05:00",
+                "onset": "2026-10-14T01:00:00-05:00",
+                "expires": "2026-10-13T21:45:00-05:00",
+                "ends": "2026-10-14T09:00:00-05:00",
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Severe",
+                "certainty": "Likely",
+                "urgency": "Expected",
+                "event": "Freeze Warning",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Grand Forks ND",
+                "headline": "Freeze Warning issued October 13 at 1:41PM CDT until October 14 at 9:00AM CDT by NWS Grand Forks ND",
+                "description": "* WHAT...Sub-freezing temperatures as low as 29 expected.\n\n* WHERE...Portions of northeast and southeast North Dakota.\n\n* WHEN...From 1 AM to 9 AM CDT Wednesday.\n\n* IMPACTS...Frost and freeze conditions could kill crops, other\nsensitive vegetation and possibly damage unprotected outdoor\nplumbing.\n\n* ADDITIONAL DETAILS...Highest probability for freezing temperatures\nwill be west of the Red River Valley.",
+                "instruction": "Take steps now to protect tender plants from the cold.",
+                "response": "Execute",
+                "note": null,
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "NPWFGF"
+                    ],
+                    "WMOidentifier": [
+                        "WWUS73 KFGF 131841"
+                    ],
+                    "NWSheadline": [
+                        "FREEZE WARNING IN EFFECT FROM 1 AM TO 9 AM CDT WEDNESDAY"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "VTEC": [
+                        "/O.NEW.KFGF.FZ.W.0005.261014T0600Z-261014T1400Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2026-10-14T09:00:00-05:00"
+                    ]
+                },
+                "scope": "Public",
+                "code": "IPAWSv1.0",
+                "language": "en-US",
+                "web": "http://www.weather.gov",
+                "eventCode": {
+                    "SAME": [
+                        "NWS"
+                    ],
+                    "NationalWeatherService": [
+                        "FZW"
+                    ]
+                }
+            }
+        }
+    ],
+    "title": "Current watches, warnings, and advisories",
+    "updated": "2026-10-13T19:27:51+00:00"
+}

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- USDA's key for the barcode lookup (owner, 2026-10-22): project.yml's DEMO_KEY, or the owner's at install -->
+	<key>PrepareMeUSDAKey</key>
+	<string>$(PREPAREME_USDA_KEY)</string>
+	<!-- UPC Database's key for the barcode lookup (owner, 2026-10-23): empty, or the owner's at install -->
+	<key>PrepareMeUPCDBKey</key>
+	<string>$(PREPAREME_UPCDB_KEY)</string>
+	<!-- A TestFlight build's time and channel (over-the-air plan, phase 2), stamped by kiwix-mac/build.sh
+	     --app-testflight; empty by cable, so the install's end stays its profile's (InstallInfo) -->
+	<key>PrepareMeBuilt</key>
+	<string>$(PREPAREME_BUILT)</string>
+	<key>PrepareMeChannel</key>
+	<string>$(PREPAREME_CHANNEL)</string>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.bigmike382.prepareme.refresh</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.bigmike382.prepareme.place</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>prepareme</string>
+			</array>
+		</dict>
+	</array>
+	<!-- Look 3 change 5: External Link and Search snippet are not in Settings; App_iOS fixes them at ask-each-time and on -->
+	<key>SETTINGS_SHOW_EXTERNAL_LINK_OPTION</key>
+	<false/>
+	<key>SETTINGS_SHOW_SEARCH_SNIPPET</key>
+	<false/>
+	<key>HIDE_DONATION</key>
+	<true/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<!-- Search suggests the right word for a misspelling ("bleding": bleeding), from a spelling index Kiwix builds
+	     from each library in the app's caches on its first search (the beta run's F05, 2026-10-16) -->
+	<key>SHOW_SEARCH_SUGGESTIONS_SPELLCHECKED</key>
+	<true/>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>om</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
+	</dict>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_prepareme._tcp</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>PrepareMe reads the pairing code on the Mac screen, bin labels, product barcodes and best-by dates, and scans papers into Essential Documents (never into Photos).</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>PrepareMe unlocks Essential Documents with Face ID, and asks again before a document leaves PrepareMe.</string>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>PrepareMe gets the library from the Mac at home, over your home Wi-Fi.</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+	</array>
+	<key>UIFileSharingEnabled</key>
+	<true/>
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<true/>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>PrepareMeLaunch</string>
+	</dict>
+	<!-- PrepareMe's own pins file (Share my pins, the street map fixes plan, task 4.1): JSON under its own type -->
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.bigmike382.prepareme.pins</string>
+			<key>UTTypeDescription</key>
+			<string>PrepareMe pins</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.json</string>
+			</array>
+		</dict>
+	</array>
+	<!-- KML, as Organic Maps declares it (its OMaps.plist, read 2026-10-19), so the rally points' file goes out as that
+	     type and Organic Maps is offered in the share sheet (the owner's report, 2026-10-19: it wasn't); GPX the same
+	     way, for other map apps (the street map fixes plan, task 3.5) -->
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.google.earth.kml</string>
+			<key>UTTypeDescription</key>
+			<string>KML map file</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.xml</string>
+			</array>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>kml</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/vnd.google-earth.kml+xml</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.topografix.gpx</string>
+			<key>UTTypeDescription</key>
+			<string>GPX map file</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.xml</string>
+			</array>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>gpx</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/gpx+xml</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

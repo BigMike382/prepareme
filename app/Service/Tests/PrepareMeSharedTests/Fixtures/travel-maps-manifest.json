@@ -1,0 +1,21 @@
+{
+  "format": 1,
+  "files": [
+    {
+      "state": "DC",
+      "name": "prepareme-travel-map-dc.pmtiles",
+      "build": "20261014",
+      "size": 1048576,
+      "sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+      "made": "2026-10-20T12:00:00+00:00"
+    },
+    {
+      "state": "WA",
+      "name": "prepareme-travel-map-wa.pmtiles",
+      "build": "20261015",
+      "size": 2097152,
+      "sha256": "fedcba9876543210fedcba9876543210fedcba9876543210fedcba9876543210",
+      "made": "2026-10-20T13:00:00+00:00"
+    }
+  ]
+}

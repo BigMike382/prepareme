@@ -1,0 +1,199 @@
+{
+ "format": 1,
+ "rows": [
+  {
+   "category": "Water",
+   "calculators": [
+    {
+     "page": "calc-water.html",
+     "name": "Water for People and Pets"
+    },
+    {
+     "page": "calc-bleach.html",
+     "name": "Chlorine for Drinking Water"
+    },
+    {
+     "page": "calc-well-shock.html",
+     "name": "Well Shock"
+    }
+   ],
+   "when": []
+  },
+  {
+   "category": "Water",
+   "calculators": [
+    {
+     "page": "calc-rain.html",
+     "name": "Rain Catchment"
+    }
+   ],
+   "when": [
+    "rain barrel",
+    "cistern"
+   ]
+  },
+  {
+   "category": "Food",
+   "calculators": [
+    {
+     "page": "calc-boil-time.html",
+     "name": "Boiling Home-Canned Food"
+    }
+   ],
+   "when": [
+    "home canned",
+    "home-canned",
+    "canning jar"
+   ]
+  },
+  {
+   "category": "Food",
+   "calculators": [
+    {
+     "page": "calc-fridge-timer.html",
+     "name": "Fridge and Freezer Outage Timer"
+    }
+   ],
+   "when": []
+  },
+  {
+   "category": "Pets",
+   "calculators": [
+    {
+     "page": "calc-pet-food.html",
+     "name": "Pet Food Days"
+    },
+    {
+     "page": "calc-water.html",
+     "name": "Water for People and Pets"
+    }
+   ],
+   "when": []
+  },
+  {
+   "category": "Power and fuel",
+   "calculators": [
+    {
+     "page": "calc-propane.html",
+     "name": "Propane Runtime"
+    }
+   ],
+   "when": [
+    "propane"
+   ]
+  },
+  {
+   "category": "Power and fuel",
+   "calculators": [
+    {
+     "page": "calc-generator.html",
+     "name": "Generator Load and Fuel"
+    }
+   ],
+   "when": [
+    "generator"
+   ]
+  },
+  {
+   "category": "Power and fuel",
+   "calculators": [
+    {
+     "page": "calc-outage-load.html",
+     "name": "Outage Loads"
+    },
+    {
+     "page": "calc-solar-fit.html",
+     "name": "Panel Fit"
+    },
+    {
+     "page": "calc-solar-month.html",
+     "name": "Monthly Solar"
+    },
+    {
+     "page": "calc-dc-wire.html",
+     "name": "Cable Loss"
+    }
+   ],
+   "when": []
+  },
+  {
+   "category": "Medical",
+   "calculators": [
+    {
+     "page": "calc-dose-volume.html",
+     "name": "mL of a Liquid Medicine"
+    }
+   ],
+   "when": []
+  },
+  {
+   "category": "Heat and shelter",
+   "calculators": [
+    {
+     "page": "calc-firewood.html",
+     "name": "Firewood for a Winter"
+    }
+   ],
+   "when": [
+    "firewood",
+    "wood stove",
+    "cord"
+   ]
+  },
+  {
+   "category": "Food",
+   "calculators": [
+    {
+     "page": "calc-formula.html",
+     "name": "Baby Formula"
+    }
+   ],
+   "when": [
+    "infant formula",
+    "baby formula"
+   ]
+  },
+  {
+   "category": "Food",
+   "calculators": [
+    {
+     "page": "calc-ferment-salt.html",
+     "name": "Salt for Fermenting"
+    }
+   ],
+   "when": [
+    "pickling salt",
+    "canning salt",
+    "crock"
+   ]
+  },
+  {
+   "category": "Water",
+   "calculators": [
+    {
+     "page": "calc-water-days.html",
+     "name": "Days of Stored Water"
+    }
+   ],
+   "when": [
+    "tote",
+    "barrel",
+    "cistern",
+    "tank"
+   ]
+  },
+  {
+   "category": "Food",
+   "calculators": [
+    {
+     "page": "calc-oxygen-absorbers.html",
+     "name": "Oxygen Absorbers"
+    }
+   ],
+   "when": [
+    "oxygen absorber",
+    "mylar"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1043 @@
+{
+  "alerts-off" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "evacNoneAt" : "2026-10-06T11:57:00-04:00",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts</span></summary>\n<div class=\"panel\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-alerts\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone doesn&#x27;t read the alerts itself yet. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"ok\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations: none ordered</span>\n<span class=\"face\" data-ages=\"pm-row-evacuations\" data-ages-at=\"2026-10-06T11:57:00-04:00\" data-ages-hours=\"2\" data-at=\"2026-10-06T11:57:00-04:00\" hidden>Evacuations: last checked <span class=\"n\">3 minutes</span> ago; may be out of date</span>\n<span class=\"em st\" aria-hidden=\"true\">✅</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"src\" data-source=\"evacuations\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://emergency.example/\">Example Emergency Office</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<p class=\"none mk-none\">No evacuations are ordered as of <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span>.</p>\n</div>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond is-miss\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"miss\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers: not set up yet; set it up on the Mac</span>\n<span class=\"em st sq\" aria-hidden=\"true\"></span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond is-old\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"old\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power: Nothing has been fetched for this panel yet.</span>\n<span class=\"em st\" aria-hidden=\"true\">🕒</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"src\" data-source=\"outages\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://emergency.example/\">Example Emergency Office</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n</div>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"src\" data-source=\"home-forecast\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.weather.gov/\">Home: National Weather Service</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<ul class=\"items\">\n<li><p>Tonight: Clear.</p></li>\n</ul>\n</div>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"ok\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes: no Atlantic storms</span>\n<span class=\"face\" data-ages=\"pm-row-hurricanes\" data-ages-at=\"2026-10-06T11:57:00-04:00\" data-ages-hours=\"2\" data-at=\"2026-10-06T11:57:00-04:00\" hidden>Hurricanes: last checked <span class=\"n\">3 minutes</span> ago; may be out of date</span>\n<span class=\"em st\" aria-hidden=\"true\">✅</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"src\" data-source=\"tropical-outlook\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.nhc.noaa.gov/\">National Hurricane Center</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n</div>\n<div class=\"src\" data-source=\"storms\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.nhc.noaa.gov/\">National Hurricane Center</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<p class=\"none mk-none\">No Atlantic storms as of <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span>.</p>\n</div>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+      "evacuations",
+      "outages",
+      "home-forecast",
+      "tropical-outlook",
+      "storms"
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "all-live-quiet" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "evacNoneAt" : "2026-10-06T11:57:00-04:00",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "homeNoneAt" : "2026-10-06T11:57:00-04:00",
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"ok\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts: none for home</span>\n<span class=\"face\" data-ages=\"pm-row-alerts\" data-ages-at=\"2026-10-06T11:57:00-04:00\" data-ages-hours=\"2\" data-at=\"2026-10-06T11:57:00-04:00\" hidden>Weather alerts: last checked <span class=\"n\">3 minutes</span> ago; may be out of date</span>\n<span class=\"em st\" aria-hidden=\"true\">✅</span></summary>\n<div class=\"panel\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"src\" data-source=\"home-alerts\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.weather.gov/\">Home: National Weather Service</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<p class=\"none mk-none\">No active weather alerts for home as of <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span>.</p>\n</div>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"ok\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations: none ordered</span>\n<span class=\"face\" data-ages=\"pm-row-evacuations\" data-ages-at=\"2026-10-06T11:57:00-04:00\" data-ages-hours=\"2\" data-at=\"2026-10-06T11:57:00-04:00\" hidden>Evacuations: last checked <span class=\"n\">3 minutes</span> ago; may be out of date</span>\n<span class=\"em st\" aria-hidden=\"true\">✅</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"src\" data-source=\"evacuations\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://emergency.example/\">Example Emergency Office</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<p class=\"none mk-none\">No evacuations are ordered as of <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span>.</p>\n</div>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond is-old\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"old\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers: No river gauges set in the dashboard settings.</span>\n<span class=\"em st\" aria-hidden=\"true\">🕒</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"src\" data-source=\"gauge-1\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://water.noaa.gov/gauges/zzzz1\">NWS river gauges</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n</div>\n<div class=\"src\" data-source=\"crest-1\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://water.noaa.gov/gauges/zzzz1\">NWS river gauges</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n</div>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond is-old\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"old\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power: Nothing has been fetched for this panel yet.</span>\n<span class=\"em st\" aria-hidden=\"true\">🕒</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"src\" data-source=\"outages\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://emergency.example/\">Example Emergency Office</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n</div>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"src\" data-source=\"home-forecast\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.weather.gov/\">Home: National Weather Service</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<ul class=\"items\">\n<li><p>Tonight: Clear.</p></li>\n</ul>\n</div>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"ok\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes: no Atlantic storms</span>\n<span class=\"face\" data-ages=\"pm-row-hurricanes\" data-ages-at=\"2026-10-06T11:57:00-04:00\" data-ages-hours=\"2\" data-at=\"2026-10-06T11:57:00-04:00\" hidden>Hurricanes: last checked <span class=\"n\">3 minutes</span> ago; may be out of date</span>\n<span class=\"em st\" aria-hidden=\"true\">✅</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"src\" data-source=\"tropical-outlook\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.nhc.noaa.gov/\">National Hurricane Center</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n</div>\n<div class=\"src\" data-source=\"storms\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.nhc.noaa.gov/\">National Hurricane Center</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<p class=\"none mk-none\">No Atlantic storms as of <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span>.</p>\n</div>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+      "home-alerts",
+      "evacuations",
+      "gauge-1",
+      "crest-1",
+      "outages",
+      "home-forecast",
+      "tropical-outlook",
+      "storms"
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "inventory-old" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts</span></summary>\n<div class=\"panel\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-alerts\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "inventoryAge" : "Inventory copy from Oct 2; the Mac was last reached Oct 2.",
+    "live" : [
+
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "limits-only" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "host" : "phone",
+    "html" : "",
+    "live" : [
+
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "live-advisory" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+      "alerts"
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "homeNoneAt" : "2026-10-06T11:57:00-04:00",
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond is-look\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"look\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts: 1 for home</span>\n<span class=\"face\" data-ages=\"pm-row-alerts\" data-ages-at=\"2026-10-06T11:57:00-04:00\" data-ages-hours=\"2\" data-at=\"2026-10-06T11:57:00-04:00\" hidden>Weather alerts: last checked <span class=\"n\">3 minutes</span> ago; may be out of date</span>\n<span class=\"em st\" aria-hidden=\"true\">🟠</span></summary>\n<div class=\"panel look\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts: 1 for home</span>\n</h2>\n<div class=\"src\" data-source=\"home-alerts\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.weather.gov/\">Home: National Weather Service</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<ul class=\"items\">\n<li class=\"look\" data-expires=\"2026-10-06T18:00:00-04:00\" data-ended=\"This alert&#x27;s own end time, {time}, has passed.\"><p class=\"head mk-look\">Wind Advisory</p>\n<p class=\"until\">until <span class=\"t\" data-t=\"2026-10-06T18:00:00-04:00\">6:00 PM EDT</span></p>\n<details class=\"full\"><summary>Full text from the Weather Service</summary>\n<div class=\"full-text\">\n<div><p>Gusts to 45 mph.</p></div>\n</div>\n</details></li>\n</ul>\n</div>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+      "home-alerts"
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "live-tornado" : {
+    "band" : "<p class=\"alert\" data-band-of=\"pm-live\" data-pm-src=\"home-alerts\" data-band-kind=\"tornado\"><span class=\"em mark\" aria-hidden=\"true\">🌪️</span><span data-expires=\"2026-10-06T13:00:00-04:00\" data-ended=\"This alert&#x27;s own end time, {time}, has passed.\" data-ended-head=\"Ended: {event} (until {time})\">Tornado Warning</span></p>",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+      "alerts"
+    ],
+    "guides" : "<p class=\"guide-go\" data-kind=\"tornado\"><a href=\"tornado.html\"><span class=\"em\" aria-hidden=\"true\">🌪️</span>Tornado guide</a></p>",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"needs\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts</span></summary>\n<div class=\"panel card\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"src\" data-source=\"home-alerts\" data-pm-live=\"1\" data-pm-needs=\"1\">\n<a class=\"label\" href=\"https://www.weather.gov/\">Home: National Weather Service</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<ul class=\"items\">\n<li class=\"warn\" data-expires=\"2026-10-06T13:00:00-04:00\" data-ended=\"This alert&#x27;s own end time, {time}, has passed.\" data-event=\"tornado\" data-event-until=\"2026-10-06T13:00:00-04:00\" data-event-reason=\"a Tornado Warning for home\"><p class=\"head mk-warn\">Tornado Warning</p>\n<p class=\"until\">until <span class=\"t\" data-t=\"2026-10-06T13:00:00-04:00\">1:00 PM EDT</span></p>\n<details class=\"full\"><summary>Full text from the Weather Service</summary>\n<div class=\"full-text\">\n<div><p>Take shelter now.</p></div>\n</div>\n</details></li>\n</ul>\n</div>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+      "home-alerts"
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+      "alerts"
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "live-tornado-told" : {
+    "band" : "<p class=\"alert\" data-band-of=\"pm-live\" data-pm-src=\"home-alerts\" data-band-kind=\"tornado\"><span class=\"em mark\" aria-hidden=\"true\">🌪️</span><span data-expires=\"2026-10-06T13:00:00-04:00\" data-ended=\"This alert&#x27;s own end time, {time}, has passed.\" data-ended-head=\"Ended: {event} (until {time})\">Tornado Warning</span> <span class=\"do\">TAKE COVER NOW! Move to an interior room. Avoid windows.</span></p>",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+      "alerts"
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"needs\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts</span></summary>\n<div class=\"panel card\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"src\" data-source=\"home-alerts\" data-pm-live=\"1\" data-pm-needs=\"1\">\n<a class=\"label\" href=\"https://www.weather.gov/\">Home: National Weather Service</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<ul class=\"items\">\n<li class=\"warn\" data-expires=\"2026-10-06T13:00:00-04:00\" data-ended=\"This alert&#x27;s own end time, {time}, has passed.\" data-event=\"tornado\" data-event-until=\"2026-10-06T13:00:00-04:00\" data-event-reason=\"a Tornado Warning for home\"><p class=\"head mk-warn\">Tornado Warning</p>\n<p class=\"until\">until <span class=\"t\" data-t=\"2026-10-06T13:00:00-04:00\">1:00 PM EDT</span></p>\n<details class=\"full\"><summary>Full text from the Weather Service</summary>\n<div class=\"full-text\">\n<div><p>Take shelter now.</p></div>\n</div>\n</details></li>\n</ul>\n</div>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+      "home-alerts"
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+      "alerts"
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rally" : "Made-up park meeting spot",
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "live-watch" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+      "alerts"
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "homeNoneAt" : "2026-10-06T11:57:00-04:00",
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond is-look\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"look\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts: 1 for home</span>\n<span class=\"face\" data-ages=\"pm-row-alerts\" data-ages-at=\"2026-10-06T11:57:00-04:00\" data-ages-hours=\"2\" data-at=\"2026-10-06T11:57:00-04:00\" hidden>Weather alerts: last checked <span class=\"n\">3 minutes</span> ago; may be out of date</span>\n<span class=\"em st\" aria-hidden=\"true\">🟠</span></summary>\n<div class=\"panel look\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts: 1 for home</span>\n</h2>\n<div class=\"src\" data-source=\"home-alerts\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.weather.gov/\">Home: National Weather Service</a>\n<p class=\"age\" data-at=\"2026-10-06T11:57:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T11:57:00-04:00\">11:57 AM EDT</span> (<span class=\"n\">3 minutes</span>)</p>\n<ul class=\"items\">\n<li class=\"look\" data-expires=\"2026-10-06T15:00:00-04:00\" data-ended=\"This alert&#x27;s own end time, {time}, has passed.\"><p class=\"head mk-look\">Tornado Watch</p>\n<p class=\"until\">until <span class=\"t\" data-t=\"2026-10-06T15:00:00-04:00\">3:00 PM EDT</span></p>\n<details class=\"full\"><summary>Full text from the Weather Service</summary>\n<div class=\"full-text\">\n<div><p>Be ready to take shelter.</p></div>\n</div>\n</details></li>\n</ul>\n</div>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+      "home-alerts"
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "nothing-read" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts</span></summary>\n<div class=\"panel\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-alerts\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "older-quiet" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+      "alerts"
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "homeNoneAt" : "2026-10-06T10:05:00-04:00",
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"ok\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts: none for home</span>\n<span class=\"face\" data-ages=\"pm-row-alerts\" data-ages-at=\"2026-10-06T10:05:00-04:00\" data-ages-hours=\"2\" data-at=\"2026-10-06T10:05:00-04:00\" hidden>Weather alerts: last checked <span class=\"n\">1 hour</span> ago; may be out of date</span>\n<span class=\"em st\" aria-hidden=\"true\">✅</span></summary>\n<div class=\"panel\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"src\" data-source=\"home-alerts\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.weather.gov/\">Home: National Weather Service</a>\n<p class=\"age\" data-at=\"2026-10-06T10:05:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T10:05:00-04:00\">10:05 AM EDT</span> (<span class=\"n\">1 hour</span>)</p>\n<p class=\"none mk-none\">No active weather alerts for home as of <span class=\"t\" data-t=\"2026-10-06T10:05:00-04:00\">10:05 AM EDT</span>.</p>\n</div>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+      "home-alerts"
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "own-newer-than-mac" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+      "alerts"
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"ok\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts: none for home</span>\n<span class=\"face\" data-ages=\"pm-row-alerts\" data-ages-at=\"2026-10-06T09:00:00-04:00\" data-ages-hours=\"2\" data-at=\"2026-10-06T09:00:00-04:00\" hidden>Weather alerts: last checked <span class=\"n\">3 hours</span> ago; may be out of date</span>\n<span class=\"em st\" aria-hidden=\"true\">✅</span></summary>\n<div class=\"panel\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"src\" data-source=\"home-alerts\" data-pm-live=\"1\">\n<a class=\"label\" href=\"https://www.weather.gov/\">Home: National Weather Service</a>\n<p class=\"age\" data-at=\"2026-10-06T09:00:00-04:00\" data-stale-hours=\"2\" data-old=\"Older than 2 hours: there may be newer information.\">fetched <span class=\"t\" data-t=\"2026-10-06T09:00:00-04:00\">9:00 AM EDT</span> (<span class=\"n\">3 hours</span>)</p>\n<p class=\"none mk-none\">No active weather alerts for home as of <span class=\"t\" data-t=\"2026-10-06T09:00:00-04:00\">9:00 AM EDT</span>.</p>\n</div>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+      "home-alerts"
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "read-only" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "host" : "phone-readonly",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts</span></summary>\n<div class=\"panel\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-alerts\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "sky-away" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts</span></summary>\n<div class=\"panel\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-alerts\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "sky" : {
+      "apart" : 5,
+      "at" : [
+        413,
+        1104,
+        1131
+      ],
+      "day" : "2026-10-06",
+      "line" : "Where this phone is: Sunrise 6:53 AM, sunset 6:24 PM, dark by 6:51 PM"
+    },
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  },
+  "stale-quiet" : {
+    "band" : "",
+    "chipLabels" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuations",
+      "hurricanes" : "Hurricanes",
+      "power" : "Power",
+      "rivers" : "Rivers"
+    },
+    "disagree" : "This phone's reading at {mine} finds no warning for home; the Mac's page from {mac} had one. Check the radio or the Weather Service.",
+    "evacDisagree" : "This phone's reading at {mine} finds no evacuation order for home; the Mac's page from {mac} had one. Check the radio or local officials.",
+    "eventEmoji" : {
+      "evacuation" : "🚗",
+      "flash-flood" : "🌊",
+      "hurricane" : "🌀",
+      "tornado" : "🌪️"
+    },
+    "fullyLive" : [
+
+    ],
+    "guides" : "",
+    "headings" : {
+      "alerts" : "Weather alerts",
+      "evacuations" : "Evacuation orders",
+      "forecast" : "Forecast",
+      "hurricanes" : "Hurricane outlook",
+      "power" : "Power outages",
+      "rivers" : "Rivers"
+    },
+    "host" : "phone",
+    "html" : "<div class=\"pm-live\" id=\"pm-live\">\n<p class=\"group\">Read on this phone</p>\n<p class=\"note\">This phone reads these itself while PrepareMe is open. Where the Mac&#x27;s copy is newer, it shows instead, with its age.</p>\n<details class=\"row cond\" id=\"pm-row-alerts\" data-pm-row=\"alerts\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚨</span>\n<span class=\"face\">Weather alerts</span></summary>\n<div class=\"panel\" id=\"pm-panel-alerts\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚨</span>Weather alerts</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-alerts\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"alerts\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-evacuations\" data-pm-row=\"evacuations\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🚗</span>\n<span class=\"face\">Evacuations</span></summary>\n<div class=\"panel\" id=\"pm-panel-evacuations\">\n<h2><span class=\"em\" aria-hidden=\"true\">🚗</span>Evacuation orders</h2>\n<div class=\"pm-mac\" data-pm-mac=\"evacuations\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"evacuations\"></div>\n<p class=\"note\">From the example office&#x27;s list.</p>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-rivers\" data-pm-row=\"rivers\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌊</span>\n<span class=\"face\">Rivers</span></summary>\n<div class=\"panel\" id=\"pm-panel-rivers\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌊</span>Rivers</h2>\n<div class=\"pm-mac\" data-pm-mac=\"gauge-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"crest-1\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"rivers\"></div>\n</div>\n</details>\n<details class=\"row cond\" id=\"pm-row-power\" data-pm-row=\"power\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">⚡</span>\n<span class=\"face\">Power</span></summary>\n<div class=\"panel\" id=\"pm-panel-power\">\n<h2><span class=\"em\" aria-hidden=\"true\">⚡</span>Power outages</h2>\n<div class=\"pm-mac\" data-pm-mac=\"outages\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"power\"></div>\n</div>\n</details>\n<div class=\"panel\" id=\"pm-panel-forecast\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌧️</span>Forecast</h2>\n<div class=\"pm-mac\" data-pm-mac=\"home-forecast\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"forecast\"></div>\n</div>\n<details class=\"row cond\" id=\"pm-row-hurricanes\" data-pm-row=\"hurricanes\" data-pm-status=\"mac\" data-mark-look=\"🟠\" data-mark-old=\"🕒\"><summary><span class=\"em\" aria-hidden=\"true\">🌀</span>\n<span class=\"face\">Hurricanes</span></summary>\n<div class=\"panel\" id=\"pm-panel-hurricanes\">\n<h2><span class=\"em\" aria-hidden=\"true\">🌀</span>Hurricane outlook</h2>\n<div class=\"pm-mac\" data-pm-mac=\"tropical-outlook\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div class=\"pm-mac\" data-pm-mac=\"storms\">\n<p class=\"fail-line mk-miss\">The Mac&#x27;s copy doesn&#x27;t have this one either.</p>\n</div>\n<p class=\"note pm-why\">This phone hasn&#x27;t read it in the last 2 hours. Above is the Mac&#x27;s copy.</p>\n<div data-pm-rest=\"hurricanes\"></div>\n</div>\n</details>\n</div>",
+    "live" : [
+
+    ],
+    "lookMark" : "🟠",
+    "macNewer" : "The Mac's copy, above, is newer than this phone's last reading.",
+    "needs" : [
+
+    ],
+    "needsLine" : "Needs action: {links}.",
+    "nothingNeeds" : "Nothing needs action.",
+    "oldLine" : "Older than {n} hours: there may be newer information.",
+    "order" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "roads",
+      "power",
+      "forecast",
+      "outlook",
+      "hurricanes",
+      "readiness",
+      "todo",
+      "tobuy",
+      "now",
+      "notices"
+    ],
+    "panels" : [
+      "alerts",
+      "evacuations",
+      "rivers",
+      "power",
+      "forecast",
+      "hurricanes"
+    ],
+    "rallyNamed" : "Meet at: {name}",
+    "warnMark" : "⚠️",
+    "weatherWorth" : [
+      "alerts"
+    ],
+    "worth" : "Worth a look"
+  }
+}

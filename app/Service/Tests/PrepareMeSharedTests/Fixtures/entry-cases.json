@@ -1,0 +1,349 @@
+[
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [
+   "water"
+  ],
+  "empty": false,
+  "group": "Water",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Water jugs",
+  "pet_food_for": "",
+  "quantity": 5,
+  "unit": "gallons"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [
+   "water"
+  ],
+  "empty": false,
+  "group": "Water",
+  "holds": 16.9,
+  "holds_unit": "fl oz",
+  "item": "Bottled water",
+  "pet_food_for": "",
+  "quantity": 24,
+  "unit": "bottles"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Water",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Bottled water",
+  "pet_food_for": "",
+  "quantity": 24,
+  "unit": "bottles"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Water",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Water",
+  "pet_food_for": "",
+  "quantity": 40,
+  "unit": "ounces"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [
+   "water once filled"
+  ],
+  "empty": true,
+  "group": "Water",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Empty jug",
+  "pet_food_for": "",
+  "quantity": 5,
+  "unit": "gallons"
+ },
+ {
+  "by_name": true,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Water",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Flush water",
+  "pet_food_for": "",
+  "quantity": 5,
+  "unit": "gallons"
+ },
+ {
+  "by_name": false,
+  "calories": 200,
+  "counted": [
+   "food"
+  ],
+  "empty": false,
+  "group": "Food",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Soup",
+  "pet_food_for": "",
+  "quantity": 12,
+  "unit": "cans"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Food",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Soup",
+  "pet_food_for": "",
+  "quantity": 12,
+  "unit": "cans"
+ },
+ {
+  "by_name": false,
+  "calories": 160,
+  "counted": [
+   "food"
+  ],
+  "empty": false,
+  "group": "Food",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Peanut butter",
+  "pet_food_for": "",
+  "quantity": 20,
+  "unit": "ounces"
+ },
+ {
+  "by_name": true,
+  "calories": null,
+  "counted": [
+   "food (rice, calories per pound from USDA)"
+  ],
+  "empty": false,
+  "group": "Food",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Rice",
+  "pet_food_for": "",
+  "quantity": 20,
+  "unit": "pounds"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Food",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Crackers",
+  "pet_food_for": "",
+  "quantity": 6,
+  "unit": "pounds"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [
+   "dog food"
+  ],
+  "empty": false,
+  "group": "Pets",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Kibble",
+  "pet_food_for": "dog",
+  "quantity": 30,
+  "unit": "pounds"
+ },
+ {
+  "by_name": true,
+  "calories": null,
+  "counted": [
+   "dog food"
+  ],
+  "empty": false,
+  "group": "Pets",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Dog food, dry",
+  "pet_food_for": "",
+  "quantity": 30,
+  "unit": "pounds"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Pets",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Kibble",
+  "pet_food_for": "",
+  "quantity": 30,
+  "unit": "pounds"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Pets",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Kibble",
+  "pet_food_for": "dog",
+  "quantity": 480,
+  "unit": "ounces"
+ },
+ {
+  "by_name": false,
+  "calories": 1500,
+  "counted": [
+   "dog food"
+  ],
+  "empty": false,
+  "group": "Food",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Kibble",
+  "pet_food_for": "dog",
+  "quantity": 30,
+  "unit": "pounds"
+ },
+ {
+  "by_name": false,
+  "calories": 1500,
+  "counted": [],
+  "empty": false,
+  "group": "Food",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Kibble",
+  "pet_food_for": "dog",
+  "quantity": 480,
+  "unit": "ounces"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Tools and equipment",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Flashlight",
+  "pet_food_for": "",
+  "quantity": 3,
+  "unit": "each"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Water",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Spare jugs",
+  "pet_food_for": "",
+  "quantity": null,
+  "unit": "gallons"
+ },
+ {
+  "by_name": false,
+  "calories": 300,
+  "counted": [],
+  "empty": false,
+  "group": "Food",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Chili",
+  "pet_food_for": "",
+  "quantity": null,
+  "unit": "cans"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Pets",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Kibble",
+  "pet_food_for": "Dogs",
+  "quantity": 30,
+  "unit": "pounds"
+ },
+ {
+  "by_name": false,
+  "calories": 1500,
+  "counted": [
+   "food"
+  ],
+  "empty": false,
+  "group": "Food",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Kibble bits",
+  "pet_food_for": "Dogs",
+  "quantity": 30,
+  "unit": "pounds"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Pets",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Leash",
+  "pet_food_for": "",
+  "quantity": 1,
+  "unit": "each"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [],
+  "empty": false,
+  "group": "Pets",
+  "holds": null,
+  "holds_unit": "",
+  "item": "Kibble",
+  "pet_food_for": "",
+  "quantity": 2,
+  "unit": "bags"
+ },
+ {
+  "by_name": false,
+  "calories": null,
+  "counted": [
+   "dog food"
+  ],
+  "empty": false,
+  "group": "Pets",
+  "holds": 20,
+  "holds_unit": "pounds",
+  "item": "Kibble",
+  "pet_food_for": "dog",
+  "quantity": 2,
+  "unit": "bags"
+ }
+]

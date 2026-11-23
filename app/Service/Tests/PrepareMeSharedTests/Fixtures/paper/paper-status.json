@@ -1,0 +1,76 @@
+{
+ "at": "2026-10-21T21:30:00-04:00",
+ "binder": {
+  "changed": [
+   "Making water safe to drink (made-up sample, rewritten)"
+  ],
+  "guides": 2,
+  "new": [],
+  "printed": "2026-10-21",
+  "problems": [],
+  "removed": [],
+  "sections": [
+   {
+    "guides": [
+     {
+      "sheets": 2,
+      "state": "",
+      "title": "Generators and carbon monoxide (made-up sample)"
+     }
+    ],
+    "name": "Fire and carbon monoxide"
+   },
+   {
+    "guides": [
+     {
+      "sheets": 2,
+      "state": "changed",
+      "title": "Making water safe to drink (made-up sample, rewritten)"
+     }
+    ],
+    "name": "Water"
+   }
+  ]
+ },
+ "last": {
+  "exit": 1,
+  "finished": "2026-10-21T21:30:00-04:00",
+  "lines": [
+   "The card wasn't printed. Fix these lines in the card file, then print again:",
+   "- Meeting place 2 is 4 characters too long (at most 40)"
+  ],
+  "pdf": null,
+  "pressed": 1792633000000000001,
+  "request": "print-card",
+  "started": "2026-10-21T21:29:58-04:00"
+ },
+ "results": {
+  "print-binder": {
+   "exit": 0,
+   "finished": "2026-10-21T21:30:00-04:00",
+   "lines": [
+    "Printed /HOME/Library/Mobile Documents/com~apple~CloudDocs/Household Private/Print/booklet.pdf (5 pages: the front pages and 2 guides)"
+   ],
+   "pdf": "booklet.pdf",
+   "pressed": 1792633000000000000,
+   "request": "print-binder",
+   "started": "2026-10-21T21:29:58-04:00"
+  },
+  "print-card": {
+   "exit": 1,
+   "finished": "2026-10-21T21:30:00-04:00",
+   "lines": [
+    "The card wasn't printed. Fix these lines in the card file, then print again:",
+    "- Meeting place 2 is 4 characters too long (at most 40)"
+   ],
+   "pdf": null,
+   "pressed": 1792633000000000001,
+   "request": "print-card",
+   "started": "2026-10-21T21:29:58-04:00"
+  }
+ },
+ "taken": {
+  "print-binder": 1792633000000000000,
+  "print-card": 1792633000000000001
+ }
+}

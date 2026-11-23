@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- The phones' file service as the Mac's PrepareMe runs it (plan phase 6). macOS runs a sandboxed app's background
+     part only when it is sandboxed too (FINDINGS F-067), so it gets exactly what `prepareme-service library` touches:
+     the identity, phone list and bend-once file (service), the phones' counts (jobs), its log (logs), and the packer's
+     local folder, read only (delivery). Plan phase 7: the phones' copy of the inventory, read only (inventory), and the
+     adults' phones' edits, written into its inbox (inventory/inbox) for the app to apply. Plan phase 10: the app's
+     pairing requests and its answers (pairing, read-write; PairingDesk). The app itself never holds the identity.
+     Essential Documents, phase 3: the Mac's encrypted store, read only (documents; it never holds the key, and serves
+     only what the store's list names), and adults' phones' encrypted changes, written into its inbox
+     (documents/inbox). -->
+<plist version="1.0">
+<dict>
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<key>com.apple.security.network.server</key>
+	<true/>
+	<key>com.apple.security.temporary-exception.files.home-relative-path.read-only</key>
+	<array>
+		<string>/Library/Application Support/PrepareMe/delivery/</string>
+		<string>/Library/Application Support/PrepareMe/inventory/</string>
+		<string>/Library/Application Support/PrepareMe/documents/</string>
+	</array>
+	<key>com.apple.security.temporary-exception.files.home-relative-path.read-write</key>
+	<array>
+		<string>/Library/Application Support/PrepareMe/service/</string>
+		<string>/Library/Application Support/PrepareMe/jobs/</string>
+		<string>/Library/Application Support/PrepareMe/logs/</string>
+		<string>/Library/Application Support/PrepareMe/inventory/inbox/</string>
+		<string>/Library/Application Support/PrepareMe/documents/inbox/</string>
+		<string>/Library/Application Support/PrepareMe/pairing/</string>
+	</array>
+</dict>
+</plist>

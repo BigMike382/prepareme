@@ -1,0 +1,1190 @@
+{
+ "activities": [
+  "Sedentary",
+  "Moderately active",
+  "Active"
+ ],
+ "activity_means": {
+  "Active": "Also walking more than 3 miles a day at 3 to 4 miles an hour, or the same.",
+  "Moderately active": "Also walking about 1.5 to 3 miles a day at 3 to 4 miles an hour, or the same.",
+  "Sedentary": "Only the physical activity of independent living."
+ },
+ "ages": [
+  "12 months",
+  "15 months",
+  "18 months",
+  "21 through 23 months",
+  "2 years",
+  "3 years",
+  "4 years",
+  "5 years",
+  "6 years",
+  "7 years",
+  "8 years",
+  "9 years",
+  "10 years",
+  "11 years",
+  "12 years",
+  "13 years",
+  "14 years",
+  "15 years",
+  "16 years",
+  "17 years",
+  "18 years",
+  "19-20 years",
+  "21-25 years",
+  "26-30 years",
+  "31-35 years",
+  "36-40 years",
+  "41-45 years",
+  "46-50 years",
+  "51-55 years",
+  "56-60 years",
+  "61-65 years",
+  "66-70 years",
+  "71-75 years",
+  "76 years and up"
+ ],
+ "calories": [
+  {
+   "activity": "",
+   "age": "12 months",
+   "calories": 800,
+   "sex": "Male"
+  },
+  {
+   "activity": "",
+   "age": "12 months",
+   "calories": 800,
+   "sex": "Female"
+  },
+  {
+   "activity": "",
+   "age": "15 months",
+   "calories": 900,
+   "sex": "Male"
+  },
+  {
+   "activity": "",
+   "age": "15 months",
+   "calories": 800,
+   "sex": "Female"
+  },
+  {
+   "activity": "",
+   "age": "18 months",
+   "calories": 1000,
+   "sex": "Male"
+  },
+  {
+   "activity": "",
+   "age": "18 months",
+   "calories": 900,
+   "sex": "Female"
+  },
+  {
+   "activity": "",
+   "age": "21 through 23 months",
+   "calories": 1000,
+   "sex": "Male"
+  },
+  {
+   "activity": "",
+   "age": "21 through 23 months",
+   "calories": 1000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "2 years",
+   "calories": 1000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "2 years",
+   "calories": 1000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "2 years",
+   "calories": 1000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "2 years",
+   "calories": 1000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "2 years",
+   "calories": 1000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "2 years",
+   "calories": 1000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "3 years",
+   "calories": 1000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "3 years",
+   "calories": 1400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "3 years",
+   "calories": 1400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "3 years",
+   "calories": 1000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "3 years",
+   "calories": 1200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "3 years",
+   "calories": 1400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "4 years",
+   "calories": 1200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "4 years",
+   "calories": 1400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "4 years",
+   "calories": 1600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "4 years",
+   "calories": 1200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "4 years",
+   "calories": 1400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "4 years",
+   "calories": 1400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "5 years",
+   "calories": 1200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "5 years",
+   "calories": 1400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "5 years",
+   "calories": 1600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "5 years",
+   "calories": 1200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "5 years",
+   "calories": 1400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "5 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "6 years",
+   "calories": 1400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "6 years",
+   "calories": 1600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "6 years",
+   "calories": 1800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "6 years",
+   "calories": 1200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "6 years",
+   "calories": 1400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "6 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "7 years",
+   "calories": 1400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "7 years",
+   "calories": 1600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "7 years",
+   "calories": 1800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "7 years",
+   "calories": 1200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "7 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "7 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "8 years",
+   "calories": 1400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "8 years",
+   "calories": 1600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "8 years",
+   "calories": 2000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "8 years",
+   "calories": 1400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "8 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "8 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "9 years",
+   "calories": 1600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "9 years",
+   "calories": 1800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "9 years",
+   "calories": 2000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "9 years",
+   "calories": 1400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "9 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "9 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "10 years",
+   "calories": 1600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "10 years",
+   "calories": 1800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "10 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "10 years",
+   "calories": 1400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "10 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "10 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "11 years",
+   "calories": 1800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "11 years",
+   "calories": 2000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "11 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "11 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "11 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "11 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "12 years",
+   "calories": 1800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "12 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "12 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "12 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "12 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "12 years",
+   "calories": 2200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "13 years",
+   "calories": 2000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "13 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "13 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "13 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "13 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "13 years",
+   "calories": 2200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "14 years",
+   "calories": 2000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "14 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "14 years",
+   "calories": 2800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "14 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "14 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "14 years",
+   "calories": 2400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "15 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "15 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "15 years",
+   "calories": 3000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "15 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "15 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "15 years",
+   "calories": 2400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "16 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "16 years",
+   "calories": 2800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "16 years",
+   "calories": 3200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "16 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "16 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "16 years",
+   "calories": 2400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "17 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "17 years",
+   "calories": 2800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "17 years",
+   "calories": 3200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "17 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "17 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "17 years",
+   "calories": 2400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "18 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "18 years",
+   "calories": 2800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "18 years",
+   "calories": 3200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "18 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "18 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "18 years",
+   "calories": 2400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "19-20 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "19-20 years",
+   "calories": 2800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "19-20 years",
+   "calories": 3000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "19-20 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "19-20 years",
+   "calories": 2200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "19-20 years",
+   "calories": 2400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "21-25 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "21-25 years",
+   "calories": 2800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "21-25 years",
+   "calories": 3000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "21-25 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "21-25 years",
+   "calories": 2200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "21-25 years",
+   "calories": 2400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "26-30 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "26-30 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "26-30 years",
+   "calories": 3000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "26-30 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "26-30 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "26-30 years",
+   "calories": 2400,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "31-35 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "31-35 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "31-35 years",
+   "calories": 3000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "31-35 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "31-35 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "31-35 years",
+   "calories": 2200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "36-40 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "36-40 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "36-40 years",
+   "calories": 2800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "36-40 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "36-40 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "36-40 years",
+   "calories": 2200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "41-45 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "41-45 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "41-45 years",
+   "calories": 2800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "41-45 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "41-45 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "41-45 years",
+   "calories": 2200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "46-50 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "46-50 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "46-50 years",
+   "calories": 2800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "46-50 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "46-50 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "46-50 years",
+   "calories": 2200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "51-55 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "51-55 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "51-55 years",
+   "calories": 2800,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "51-55 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "51-55 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "51-55 years",
+   "calories": 2200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "56-60 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "56-60 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "56-60 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "56-60 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "56-60 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "56-60 years",
+   "calories": 2200,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "61-65 years",
+   "calories": 2000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "61-65 years",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "61-65 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "61-65 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "61-65 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "61-65 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "66-70 years",
+   "calories": 2000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "66-70 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "66-70 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "66-70 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "66-70 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "66-70 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "71-75 years",
+   "calories": 2000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "71-75 years",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "71-75 years",
+   "calories": 2600,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "71-75 years",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "71-75 years",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "71-75 years",
+   "calories": 2000,
+   "sex": "Female"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "76 years and up",
+   "calories": 2000,
+   "sex": "Male"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "76 years and up",
+   "calories": 2200,
+   "sex": "Male"
+  },
+  {
+   "activity": "Active",
+   "age": "76 years and up",
+   "calories": 2400,
+   "sex": "Male"
+  },
+  {
+   "activity": "Sedentary",
+   "age": "76 years and up",
+   "calories": 1600,
+   "sex": "Female"
+  },
+  {
+   "activity": "Moderately active",
+   "age": "76 years and up",
+   "calories": 1800,
+   "sex": "Female"
+  },
+  {
+   "activity": "Active",
+   "age": "76 years and up",
+   "calories": 2000,
+   "sex": "Female"
+  }
+ ],
+ "edition": "Dietary Guidelines for Americans, 2020-2025",
+ "sexes": [
+  "Male",
+  "Female"
+ ],
+ "table": "PrepareMe_Members",
+ "toddler_ages": [
+  "12 months",
+  "15 months",
+  "18 months",
+  "21 through 23 months"
+ ]
+}

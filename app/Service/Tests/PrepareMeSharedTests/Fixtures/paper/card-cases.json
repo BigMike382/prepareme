@@ -1,0 +1,2625 @@
+{
+ "cases": [
+  {
+   "check": {
+    "prints_in": 0,
+    "problems": [],
+    "toml": "# PrepareMe's paper card. Type your household's details between the quotes, save, then print the card.\n# A line left as \"\" prints as a blank line to write on by hand.\n# Never type a code, combination, account, policy or ID number here: the print step refuses them, and any line\n# that mentions a code, password, PIN or lockbox (so write a ZIP as just its number, not \"zip code 12345\").\n# The school code word is always written by hand on the printed card, never typed here.\n\n[household]\ncount = \"4 people, 2 dogs, 1 cat\"          # who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat\naddress = \"100 Sample Lane, Exampleville\"        # what to say to 911\ndirections = \"Gravel drive past the red barn\"     # how to find the house, for example: gravel drive past the red barn\n\n[out_of_area]\nname = \"Aunt C\"           # the person everyone texts when split up\nphone = \"555-0110\"\nwhere = \"Ohio\"          # where they live, for example: Ohio\n\n[rally]\nr1 = \"The big oak by the mailbox\"             # on the property: any alarm, fire or gas smell\nr2 = \"The white church at the crossroads\"             # nearby: if R1 isn't safe, or you can't get home\nr3 = \"Aunt C's house in Ohio\"             # out of the area: when the household leaves\n\n[radio]\nchannel = \"GMRS channel 16\"        # for example: 16 (a number alone prints as Channel 16), or GMRS channel 16\nbackup = \"GMRS channel 18\"         # for example: 18\ncheck_in = \"On the hour, 8 am to 8 pm\"       # for example: on the hour, 8 am to 8 pm\nrepeater = \"\"       # the ham repeater, for licensed adults: frequency, offset and tone\n\n[school]\npickup = [\"Adult A\", \"Adult B\", \"Neighbor D\"]   # who picks up, in order\nnobody_comes = \"Stay at school with your teacher; we will come.\"       # what the kids do if nobody comes\n\n[evacuate]\ntriggers = [\"A chemical spill nearby\", \"Water over the low bridge\", \"\"]   # leave if any one of these is true\nroad_closed = \"Take the back field gate to the county road\"          # what to do if the road out isn't passable\n\n# Up to 12 phone numbers. Copy a [[number]] block for each one.\n[[number]]\nlabel = \"Adult A (cell)\"          # for example: Adult A (cell)\nphone = \"555-0101\"\n\n[[number]]\nlabel = \"Adult B (cell)\"\nphone = \"555-0102\"\n\n[[number]]\nlabel = \"Neighbor D\"\nphone = \"555-0103\"\n\n[[number]]\nlabel = \"County emergency mgmt\"\nphone = \"555-0120\"\n\n[[number]]\nlabel = \"Power outage line\"\nphone = \"555-0122\"\n\n[[number]]\nlabel = \"Vet\"\nphone = \"555-0125\"\n"
+   },
+   "check_exit": 0,
+   "check_input": {
+    "changed": "2026-10-21",
+    "fields": {
+     "evacuate.road_closed": "Take the back field gate to the county road",
+     "evacuate.triggers.1": "A chemical spill nearby",
+     "evacuate.triggers.2": "Water over the low bridge",
+     "evacuate.triggers.3": "",
+     "household.address": "100 Sample Lane, Exampleville",
+     "household.count": "4 people, 2 dogs, 1 cat",
+     "household.directions": "Gravel drive past the red barn",
+     "out_of_area.name": "Aunt C",
+     "out_of_area.phone": "555-0110",
+     "out_of_area.where": "Ohio",
+     "radio.backup": "GMRS channel 18",
+     "radio.channel": "GMRS channel 16",
+     "radio.check_in": "On the hour, 8 am to 8 pm",
+     "radio.repeater": "",
+     "rally.r1": "The big oak by the mailbox",
+     "rally.r2": "The white church at the crossroads",
+     "rally.r3": "Aunt C's house in Ohio",
+     "school.nobody_comes": "Stay at school with your teacher; we will come.",
+     "school.pickup.1": "Adult A",
+     "school.pickup.2": "Adult B",
+     "school.pickup.3": "Neighbor D"
+    },
+    "numbers": [
+     {
+      "label": "Adult A (cell)",
+      "phone": "555-0101"
+     },
+     {
+      "label": "Adult B (cell)",
+      "phone": "555-0102"
+     },
+     {
+      "label": "Neighbor D",
+      "phone": "555-0103"
+     },
+     {
+      "label": "County emergency mgmt",
+      "phone": "555-0120"
+     },
+     {
+      "label": "Power outage line",
+      "phone": "555-0122"
+     },
+     {
+      "label": "Vet",
+      "phone": "555-0125"
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "printed": "2026-10-21"
+   },
+   "name": "the made-up sample",
+   "read": {
+    "fields": [
+     {
+      "entry": null,
+      "hint": "who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat",
+      "id": "household.count",
+      "limit": 28,
+      "name": "Who to count",
+      "section": "household",
+      "section_name": "Household",
+      "value": "4 people, 2 dogs, 1 cat"
+     },
+     {
+      "entry": null,
+      "hint": "what to say to 911",
+      "id": "household.address",
+      "limit": 40,
+      "name": "Address",
+      "section": "household",
+      "section_name": "Household",
+      "value": "100 Sample Lane, Exampleville"
+     },
+     {
+      "entry": null,
+      "hint": "how to find the house, for example: gravel drive past the red barn",
+      "id": "household.directions",
+      "limit": 36,
+      "name": "How to find us",
+      "section": "household",
+      "section_name": "Household",
+      "value": "Gravel drive past the red barn"
+     },
+     {
+      "entry": null,
+      "hint": "the person everyone texts when split up",
+      "id": "out_of_area.name",
+      "limit": 18,
+      "name": "Out-of-area contact's name",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "Aunt C"
+     },
+     {
+      "entry": null,
+      "hint": "",
+      "id": "out_of_area.phone",
+      "limit": 15,
+      "name": "Out-of-area contact's phone",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "555-0110"
+     },
+     {
+      "entry": null,
+      "hint": "where they live, for example: Ohio",
+      "id": "out_of_area.where",
+      "limit": 20,
+      "name": "Where they live",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "Ohio"
+     },
+     {
+      "entry": null,
+      "hint": "on the property: any alarm, fire or gas smell",
+      "id": "rally.r1",
+      "limit": 40,
+      "name": "Meeting place 1",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "The big oak by the mailbox"
+     },
+     {
+      "entry": null,
+      "hint": "nearby: if R1 isn't safe, or you can't get home",
+      "id": "rally.r2",
+      "limit": 40,
+      "name": "Meeting place 2",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "The white church at the crossroads"
+     },
+     {
+      "entry": null,
+      "hint": "out of the area: when the household leaves",
+      "id": "rally.r3",
+      "limit": 40,
+      "name": "Meeting place 3",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "Aunt C's house in Ohio"
+     },
+     {
+      "entry": null,
+      "hint": "for example: 16 (a number alone prints as Channel 16), or GMRS channel 16",
+      "id": "radio.channel",
+      "limit": 18,
+      "name": "Radio channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "GMRS channel 16"
+     },
+     {
+      "entry": null,
+      "hint": "for example: 18",
+      "id": "radio.backup",
+      "limit": 18,
+      "name": "Backup channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "GMRS channel 18"
+     },
+     {
+      "entry": null,
+      "hint": "for example: on the hour, 8 am to 8 pm",
+      "id": "radio.check_in",
+      "limit": 28,
+      "name": "Check-in times",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "On the hour, 8 am to 8 pm"
+     },
+     {
+      "entry": null,
+      "hint": "the ham repeater, for licensed adults: frequency, offset and tone",
+      "id": "radio.repeater",
+      "limit": 28,
+      "name": "Repeater",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": 1,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.1",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Adult A"
+     },
+     {
+      "entry": 2,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.2",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Adult B"
+     },
+     {
+      "entry": 3,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.3",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Neighbor D"
+     },
+     {
+      "entry": null,
+      "hint": "what the kids do if nobody comes",
+      "id": "school.nobody_comes",
+      "limit": 50,
+      "name": "If nobody comes",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Stay at school with your teacher; we will come."
+     },
+     {
+      "entry": 1,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.1",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "A chemical spill nearby"
+     },
+     {
+      "entry": 2,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.2",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Water over the low bridge"
+     },
+     {
+      "entry": 3,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.3",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "what to do if the road out isn't passable",
+      "id": "evacuate.road_closed",
+      "limit": 44,
+      "name": "If the road isn't passable",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Take the back field gate to the county road"
+     }
+    ],
+    "in_form": false,
+    "max_numbers": 12,
+    "number_hints": {
+     "label": "for example: Adult A (cell)",
+     "phone": ""
+    },
+    "number_limits": {
+     "label": 22,
+     "phone": 15
+    },
+    "numbers": [
+     {
+      "label": "Adult A (cell)",
+      "phone": "555-0101"
+     },
+     {
+      "label": "Adult B (cell)",
+      "phone": "555-0102"
+     },
+     {
+      "label": "Neighbor D",
+      "phone": "555-0103"
+     },
+     {
+      "label": "County emergency mgmt",
+      "phone": "555-0120"
+     },
+     {
+      "label": "Power outage line",
+      "phone": "555-0122"
+     },
+     {
+      "label": "Vet",
+      "phone": "555-0125"
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "problems": [],
+    "readable": true
+   },
+   "toml": "# A made-up card for tests and the sample PDF: no real household's details. 555-01xx numbers are reserved for fiction.\n\n[household]\ncount = \"4 people, 2 dogs, 1 cat\"\naddress = \"100 Sample Lane, Exampleville\"\ndirections = \"Gravel drive past the red barn\"\n\n[out_of_area]\nname = \"Aunt C\"\nphone = \"555-0110\"\nwhere = \"Ohio\"\n\n[rally]\nr1 = \"The big oak by the mailbox\"\nr2 = \"The white church at the crossroads\"\nr3 = \"Aunt C's house in Ohio\"\n\n[radio]\nchannel = \"GMRS channel 16\"\nbackup = \"GMRS channel 18\"\ncheck_in = \"On the hour, 8 am to 8 pm\"\nrepeater = \"\"\n\n[school]\npickup = [\"Adult A\", \"Adult B\", \"Neighbor D\"]\nnobody_comes = \"Stay at school with your teacher; we will come.\"\n\n[evacuate]\ntriggers = [\"A chemical spill nearby\", \"Water over the low bridge\", \"\"]\nroad_closed = \"Take the back field gate to the county road\"\n\n[[number]]\nlabel = \"Adult A (cell)\"\nphone = \"555-0101\"\n\n[[number]]\nlabel = \"Adult B (cell)\"\nphone = \"555-0102\"\n\n[[number]]\nlabel = \"Neighbor D\"\nphone = \"555-0103\"\n\n[[number]]\nlabel = \"County emergency mgmt\"\nphone = \"555-0120\"\n\n[[number]]\nlabel = \"Power outage line\"\nphone = \"555-0122\"\n\n[[number]]\nlabel = \"Vet\"\nphone = \"555-0125\"\n"
+  },
+  {
+   "check": {
+    "prints_in": 0,
+    "problems": [],
+    "toml": "# PrepareMe's paper card. Type your household's details between the quotes, save, then print the card.\n# A line left as \"\" prints as a blank line to write on by hand.\n# Never type a code, combination, account, policy or ID number here: the print step refuses them, and any line\n# that mentions a code, password, PIN or lockbox (so write a ZIP as just its number, not \"zip code 12345\").\n# The school code word is always written by hand on the printed card, never typed here.\n\n[household]\ncount = \"\"          # who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat\naddress = \"\"        # what to say to 911\ndirections = \"\"     # how to find the house, for example: gravel drive past the red barn\n\n[out_of_area]\nname = \"\"           # the person everyone texts when split up\nphone = \"\"\nwhere = \"\"          # where they live, for example: Ohio\n\n[rally]\nr1 = \"\"             # on the property: any alarm, fire or gas smell\nr2 = \"\"             # nearby: if R1 isn't safe, or you can't get home\nr3 = \"\"             # out of the area: when the household leaves\n\n[radio]\nchannel = \"\"        # for example: 16 (a number alone prints as Channel 16), or GMRS channel 16\nbackup = \"\"         # for example: 18\ncheck_in = \"\"       # for example: on the hour, 8 am to 8 pm\nrepeater = \"\"       # the ham repeater, for licensed adults: frequency, offset and tone\n\n[school]\npickup = [\"\", \"\", \"\"]   # who picks up, in order\nnobody_comes = \"\"       # what the kids do if nobody comes\n\n[evacuate]\ntriggers = [\"\", \"\", \"\"]   # leave if any one of these is true\nroad_closed = \"\"          # what to do if the road out isn't passable\n\n# Up to 12 phone numbers. Copy a [[number]] block for each one.\n[[number]]\nlabel = \"\"          # for example: Adult A (cell)\nphone = \"\"\n\n[[number]]\nlabel = \"\"\nphone = \"\"\n\n[[number]]\nlabel = \"\"\nphone = \"\"\n"
+   },
+   "check_exit": 0,
+   "check_input": {
+    "changed": "2026-10-21",
+    "fields": {
+     "evacuate.road_closed": "",
+     "evacuate.triggers.1": "",
+     "evacuate.triggers.2": "",
+     "evacuate.triggers.3": "",
+     "household.address": "",
+     "household.count": "",
+     "household.directions": "",
+     "out_of_area.name": "",
+     "out_of_area.phone": "",
+     "out_of_area.where": "",
+     "radio.backup": "",
+     "radio.channel": "",
+     "radio.check_in": "",
+     "radio.repeater": "",
+     "rally.r1": "",
+     "rally.r2": "",
+     "rally.r3": "",
+     "school.nobody_comes": "",
+     "school.pickup.1": "",
+     "school.pickup.2": "",
+     "school.pickup.3": ""
+    },
+    "numbers": [
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "printed": "2026-10-21"
+   },
+   "name": "no card file yet",
+   "read": {
+    "fields": [
+     {
+      "entry": null,
+      "hint": "who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat",
+      "id": "household.count",
+      "limit": 28,
+      "name": "Who to count",
+      "section": "household",
+      "section_name": "Household",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "what to say to 911",
+      "id": "household.address",
+      "limit": 40,
+      "name": "Address",
+      "section": "household",
+      "section_name": "Household",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "how to find the house, for example: gravel drive past the red barn",
+      "id": "household.directions",
+      "limit": 36,
+      "name": "How to find us",
+      "section": "household",
+      "section_name": "Household",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "the person everyone texts when split up",
+      "id": "out_of_area.name",
+      "limit": 18,
+      "name": "Out-of-area contact's name",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "",
+      "id": "out_of_area.phone",
+      "limit": 15,
+      "name": "Out-of-area contact's phone",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "where they live, for example: Ohio",
+      "id": "out_of_area.where",
+      "limit": 20,
+      "name": "Where they live",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "on the property: any alarm, fire or gas smell",
+      "id": "rally.r1",
+      "limit": 40,
+      "name": "Meeting place 1",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "nearby: if R1 isn't safe, or you can't get home",
+      "id": "rally.r2",
+      "limit": 40,
+      "name": "Meeting place 2",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "out of the area: when the household leaves",
+      "id": "rally.r3",
+      "limit": 40,
+      "name": "Meeting place 3",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "for example: 16 (a number alone prints as Channel 16), or GMRS channel 16",
+      "id": "radio.channel",
+      "limit": 18,
+      "name": "Radio channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "for example: 18",
+      "id": "radio.backup",
+      "limit": 18,
+      "name": "Backup channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "for example: on the hour, 8 am to 8 pm",
+      "id": "radio.check_in",
+      "limit": 28,
+      "name": "Check-in times",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "the ham repeater, for licensed adults: frequency, offset and tone",
+      "id": "radio.repeater",
+      "limit": 28,
+      "name": "Repeater",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": 1,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.1",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": ""
+     },
+     {
+      "entry": 2,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.2",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": ""
+     },
+     {
+      "entry": 3,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.3",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "what the kids do if nobody comes",
+      "id": "school.nobody_comes",
+      "limit": 50,
+      "name": "If nobody comes",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": ""
+     },
+     {
+      "entry": 1,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.1",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     },
+     {
+      "entry": 2,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.2",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     },
+     {
+      "entry": 3,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.3",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "what to do if the road out isn't passable",
+      "id": "evacuate.road_closed",
+      "limit": 44,
+      "name": "If the road isn't passable",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     }
+    ],
+    "in_form": true,
+    "max_numbers": 12,
+    "number_hints": {
+     "label": "for example: Adult A (cell)",
+     "phone": ""
+    },
+    "number_limits": {
+     "label": 22,
+     "phone": 15
+    },
+    "numbers": [
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "problems": [],
+    "readable": true
+   },
+   "toml": ""
+  },
+  {
+   "check": {
+    "prints_in": 0,
+    "problems": [],
+    "toml": "# PrepareMe's paper card. Type your household's details between the quotes, save, then print the card.\n# A line left as \"\" prints as a blank line to write on by hand.\n# Never type a code, combination, account, policy or ID number here: the print step refuses them, and any line\n# that mentions a code, password, PIN or lockbox (so write a ZIP as just its number, not \"zip code 12345\").\n# The school code word is always written by hand on the printed card, never typed here.\n\n[household]\ncount = \"Meeting Wagon Road Mailbox C\"          # who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat\naddress = \"Meeting Wagon Road Mailbox Church Window\"        # what to say to 911\ndirections = \"Meeting Wagon Road Mailbox Church Wi\"     # how to find the house, for example: gravel drive past the red barn\n\n[out_of_area]\nname = \"Meeting Wagon Road\"           # the person everyone texts when split up\nphone = \"(555) 555-01000\"\nwhere = \"Meeting Wagon Road M\"          # where they live, for example: Ohio\n\n[rally]\nr1 = \"Meeting Wagon Road Mailbox Church Window\"             # on the property: any alarm, fire or gas smell\nr2 = \"Meeting Wagon Road Mailbox Church Window\"             # nearby: if R1 isn't safe, or you can't get home\nr3 = \"Meeting Wagon Road Mailbox Church Window\"             # out of the area: when the household leaves\n\n[radio]\nchannel = \"Meeting Wagon Road\"        # for example: 16 (a number alone prints as Channel 16), or GMRS channel 16\nbackup = \"Meeting Wagon Road\"         # for example: 18\ncheck_in = \"Meeting Wagon Road Mailbox C\"       # for example: on the hour, 8 am to 8 pm\nrepeater = \"Meeting Wagon Road Mailbox C\"       # the ham repeater, for licensed adults: frequency, offset and tone\n\n[school]\npickup = [\"Meeting WagonM\", \"Meeting WagonM\", \"Meeting WagonM\"]   # who picks up, in order\nnobody_comes = \"Meeting Wagon Road Mailbox Church Window Meeting W\"       # what the kids do if nobody comes\n\n[evacuate]\ntriggers = [\"Meeting Wagon Road Mailbox Churc\", \"Meeting Wagon Road Mailbox Churc\", \"Meeting Wagon Road Mailbox Churc\"]   # leave if any one of these is true\nroad_closed = \"Meeting Wagon Road Mailbox Church Window Mee\"          # what to do if the road out isn't passable\n\n# Up to 12 phone numbers. Copy a [[number]] block for each one.\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"          # for example: Adult A (cell)\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n"
+   },
+   "check_exit": 0,
+   "check_input": {
+    "changed": "2026-10-21",
+    "fields": {
+     "evacuate.road_closed": "Meeting Wagon Road Mailbox Church Window Mee",
+     "evacuate.triggers.1": "Meeting Wagon Road Mailbox Churc",
+     "evacuate.triggers.2": "Meeting Wagon Road Mailbox Churc",
+     "evacuate.triggers.3": "Meeting Wagon Road Mailbox Churc",
+     "household.address": "Meeting Wagon Road Mailbox Church Window",
+     "household.count": "Meeting Wagon Road Mailbox C",
+     "household.directions": "Meeting Wagon Road Mailbox Church Wi",
+     "out_of_area.name": "Meeting Wagon Road",
+     "out_of_area.phone": "(555) 555-01000",
+     "out_of_area.where": "Meeting Wagon Road M",
+     "radio.backup": "Meeting Wagon Road",
+     "radio.channel": "Meeting Wagon Road",
+     "radio.check_in": "Meeting Wagon Road Mailbox C",
+     "radio.repeater": "Meeting Wagon Road Mailbox C",
+     "rally.r1": "Meeting Wagon Road Mailbox Church Window",
+     "rally.r2": "Meeting Wagon Road Mailbox Church Window",
+     "rally.r3": "Meeting Wagon Road Mailbox Church Window",
+     "school.nobody_comes": "Meeting Wagon Road Mailbox Church Window Meeting W",
+     "school.pickup.1": "Meeting WagonM",
+     "school.pickup.2": "Meeting WagonM",
+     "school.pickup.3": "Meeting WagonM"
+    },
+    "numbers": [
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     }
+    ],
+    "printed": "2026-10-21"
+   },
+   "name": "every line at its limit",
+   "read": {
+    "fields": [
+     {
+      "entry": null,
+      "hint": "who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat",
+      "id": "household.count",
+      "limit": 28,
+      "name": "Who to count",
+      "section": "household",
+      "section_name": "Household",
+      "value": "Meeting Wagon Road Mailbox C"
+     },
+     {
+      "entry": null,
+      "hint": "what to say to 911",
+      "id": "household.address",
+      "limit": 40,
+      "name": "Address",
+      "section": "household",
+      "section_name": "Household",
+      "value": "Meeting Wagon Road Mailbox Church Window"
+     },
+     {
+      "entry": null,
+      "hint": "how to find the house, for example: gravel drive past the red barn",
+      "id": "household.directions",
+      "limit": 36,
+      "name": "How to find us",
+      "section": "household",
+      "section_name": "Household",
+      "value": "Meeting Wagon Road Mailbox Church Wi"
+     },
+     {
+      "entry": null,
+      "hint": "the person everyone texts when split up",
+      "id": "out_of_area.name",
+      "limit": 18,
+      "name": "Out-of-area contact's name",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "Meeting Wagon Road"
+     },
+     {
+      "entry": null,
+      "hint": "",
+      "id": "out_of_area.phone",
+      "limit": 15,
+      "name": "Out-of-area contact's phone",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "(555) 555-01000"
+     },
+     {
+      "entry": null,
+      "hint": "where they live, for example: Ohio",
+      "id": "out_of_area.where",
+      "limit": 20,
+      "name": "Where they live",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "Meeting Wagon Road M"
+     },
+     {
+      "entry": null,
+      "hint": "on the property: any alarm, fire or gas smell",
+      "id": "rally.r1",
+      "limit": 40,
+      "name": "Meeting place 1",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "Meeting Wagon Road Mailbox Church Window"
+     },
+     {
+      "entry": null,
+      "hint": "nearby: if R1 isn't safe, or you can't get home",
+      "id": "rally.r2",
+      "limit": 40,
+      "name": "Meeting place 2",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "Meeting Wagon Road Mailbox Church Window"
+     },
+     {
+      "entry": null,
+      "hint": "out of the area: when the household leaves",
+      "id": "rally.r3",
+      "limit": 40,
+      "name": "Meeting place 3",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "Meeting Wagon Road Mailbox Church Window"
+     },
+     {
+      "entry": null,
+      "hint": "for example: 16 (a number alone prints as Channel 16), or GMRS channel 16",
+      "id": "radio.channel",
+      "limit": 18,
+      "name": "Radio channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "Meeting Wagon Road"
+     },
+     {
+      "entry": null,
+      "hint": "for example: 18",
+      "id": "radio.backup",
+      "limit": 18,
+      "name": "Backup channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "Meeting Wagon Road"
+     },
+     {
+      "entry": null,
+      "hint": "for example: on the hour, 8 am to 8 pm",
+      "id": "radio.check_in",
+      "limit": 28,
+      "name": "Check-in times",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "Meeting Wagon Road Mailbox C"
+     },
+     {
+      "entry": null,
+      "hint": "the ham repeater, for licensed adults: frequency, offset and tone",
+      "id": "radio.repeater",
+      "limit": 28,
+      "name": "Repeater",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "Meeting Wagon Road Mailbox C"
+     },
+     {
+      "entry": 1,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.1",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Meeting WagonM"
+     },
+     {
+      "entry": 2,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.2",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Meeting WagonM"
+     },
+     {
+      "entry": 3,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.3",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Meeting WagonM"
+     },
+     {
+      "entry": null,
+      "hint": "what the kids do if nobody comes",
+      "id": "school.nobody_comes",
+      "limit": 50,
+      "name": "If nobody comes",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Meeting Wagon Road Mailbox Church Window Meeting W"
+     },
+     {
+      "entry": 1,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.1",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Meeting Wagon Road Mailbox Churc"
+     },
+     {
+      "entry": 2,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.2",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Meeting Wagon Road Mailbox Churc"
+     },
+     {
+      "entry": 3,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.3",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Meeting Wagon Road Mailbox Churc"
+     },
+     {
+      "entry": null,
+      "hint": "what to do if the road out isn't passable",
+      "id": "evacuate.road_closed",
+      "limit": 44,
+      "name": "If the road isn't passable",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Meeting Wagon Road Mailbox Church Window Mee"
+     }
+    ],
+    "in_form": false,
+    "max_numbers": 12,
+    "number_hints": {
+     "label": "for example: Adult A (cell)",
+     "phone": ""
+    },
+    "number_limits": {
+     "label": 22,
+     "phone": 15
+    },
+    "numbers": [
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     },
+     {
+      "label": "Meeting Wagon Road Mai",
+      "phone": "(555) 555-01000"
+     }
+    ],
+    "problems": [],
+    "readable": true
+   },
+   "toml": "[household]\ncount = \"Meeting Wagon Road Mailbox C\"\naddress = \"Meeting Wagon Road Mailbox Church Window\"\ndirections = \"Meeting Wagon Road Mailbox Church Wi\"\n[out_of_area]\nname = \"Meeting Wagon Road\"\nphone = \"(555) 555-01000\"\nwhere = \"Meeting Wagon Road M\"\n[rally]\nr1 = \"Meeting Wagon Road Mailbox Church Window\"\nr2 = \"Meeting Wagon Road Mailbox Church Window\"\nr3 = \"Meeting Wagon Road Mailbox Church Window\"\n[radio]\nchannel = \"Meeting Wagon Road\"\nbackup = \"Meeting Wagon Road\"\ncheck_in = \"Meeting Wagon Road Mailbox C\"\nrepeater = \"Meeting Wagon Road Mailbox C\"\n[school]\npickup = [\"Meeting WagonM\", \"Meeting WagonM\", \"Meeting WagonM\"]\nnobody_comes = \"Meeting Wagon Road Mailbox Church Window Meeting W\"\n[evacuate]\ntriggers = [\"Meeting Wagon Road Mailbox Churc\", \"Meeting Wagon Road Mailbox Churc\", \"Meeting Wagon Road Mailbox Churc\"]\nroad_closed = \"Meeting Wagon Road Mailbox Church Window Mee\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n[[number]]\nlabel = \"Meeting Wagon Road Mai\"\nphone = \"(555) 555-01000\"\n"
+  },
+  {
+   "check": {
+    "prints_in": 0,
+    "problems": [
+     {
+      "field": "rally.r1",
+      "message": "Meeting place 1 is 1 characters too long (at most 40)"
+     }
+    ],
+    "toml": null
+   },
+   "check_exit": 1,
+   "check_input": {
+    "changed": "2026-10-21",
+    "fields": {
+     "evacuate.road_closed": "Take the back field gate to the county road",
+     "evacuate.triggers.1": "A chemical spill nearby",
+     "evacuate.triggers.2": "Water over the low bridge",
+     "evacuate.triggers.3": "",
+     "household.address": "100 Sample Lane, Exampleville",
+     "household.count": "4 people, 2 dogs, 1 cat",
+     "household.directions": "Gravel drive past the red barn",
+     "out_of_area.name": "Aunt C",
+     "out_of_area.phone": "555-0110",
+     "out_of_area.where": "Ohio",
+     "radio.backup": "GMRS channel 18",
+     "radio.channel": "GMRS channel 16",
+     "radio.check_in": "On the hour, 8 am to 8 pm",
+     "radio.repeater": "",
+     "rally.r1": "Meeting Wagon Road Mailbox Church WindowM",
+     "rally.r2": "The white church at the crossroads",
+     "rally.r3": "Aunt C's house in Ohio",
+     "school.nobody_comes": "Stay at school with your teacher; we will come.",
+     "school.pickup.1": "Adult A",
+     "school.pickup.2": "Adult B",
+     "school.pickup.3": "Neighbor D"
+    },
+    "numbers": [
+     {
+      "label": "Adult A (cell)",
+      "phone": "555-0101"
+     },
+     {
+      "label": "Adult B (cell)",
+      "phone": "555-0102"
+     },
+     {
+      "label": "Neighbor D",
+      "phone": "555-0103"
+     },
+     {
+      "label": "County emergency mgmt",
+      "phone": "555-0120"
+     },
+     {
+      "label": "Power outage line",
+      "phone": "555-0122"
+     },
+     {
+      "label": "Vet",
+      "phone": "555-0125"
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "printed": "2026-10-21"
+   },
+   "name": "a rally point one over",
+   "read": {
+    "fields": [
+     {
+      "entry": null,
+      "hint": "who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat",
+      "id": "household.count",
+      "limit": 28,
+      "name": "Who to count",
+      "section": "household",
+      "section_name": "Household",
+      "value": "4 people, 2 dogs, 1 cat"
+     },
+     {
+      "entry": null,
+      "hint": "what to say to 911",
+      "id": "household.address",
+      "limit": 40,
+      "name": "Address",
+      "section": "household",
+      "section_name": "Household",
+      "value": "100 Sample Lane, Exampleville"
+     },
+     {
+      "entry": null,
+      "hint": "how to find the house, for example: gravel drive past the red barn",
+      "id": "household.directions",
+      "limit": 36,
+      "name": "How to find us",
+      "section": "household",
+      "section_name": "Household",
+      "value": "Gravel drive past the red barn"
+     },
+     {
+      "entry": null,
+      "hint": "the person everyone texts when split up",
+      "id": "out_of_area.name",
+      "limit": 18,
+      "name": "Out-of-area contact's name",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "Aunt C"
+     },
+     {
+      "entry": null,
+      "hint": "",
+      "id": "out_of_area.phone",
+      "limit": 15,
+      "name": "Out-of-area contact's phone",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "555-0110"
+     },
+     {
+      "entry": null,
+      "hint": "where they live, for example: Ohio",
+      "id": "out_of_area.where",
+      "limit": 20,
+      "name": "Where they live",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "Ohio"
+     },
+     {
+      "entry": null,
+      "hint": "on the property: any alarm, fire or gas smell",
+      "id": "rally.r1",
+      "limit": 40,
+      "name": "Meeting place 1",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "Meeting Wagon Road Mailbox Church WindowM"
+     },
+     {
+      "entry": null,
+      "hint": "nearby: if R1 isn't safe, or you can't get home",
+      "id": "rally.r2",
+      "limit": 40,
+      "name": "Meeting place 2",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "The white church at the crossroads"
+     },
+     {
+      "entry": null,
+      "hint": "out of the area: when the household leaves",
+      "id": "rally.r3",
+      "limit": 40,
+      "name": "Meeting place 3",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "Aunt C's house in Ohio"
+     },
+     {
+      "entry": null,
+      "hint": "for example: 16 (a number alone prints as Channel 16), or GMRS channel 16",
+      "id": "radio.channel",
+      "limit": 18,
+      "name": "Radio channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "GMRS channel 16"
+     },
+     {
+      "entry": null,
+      "hint": "for example: 18",
+      "id": "radio.backup",
+      "limit": 18,
+      "name": "Backup channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "GMRS channel 18"
+     },
+     {
+      "entry": null,
+      "hint": "for example: on the hour, 8 am to 8 pm",
+      "id": "radio.check_in",
+      "limit": 28,
+      "name": "Check-in times",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "On the hour, 8 am to 8 pm"
+     },
+     {
+      "entry": null,
+      "hint": "the ham repeater, for licensed adults: frequency, offset and tone",
+      "id": "radio.repeater",
+      "limit": 28,
+      "name": "Repeater",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": 1,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.1",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Adult A"
+     },
+     {
+      "entry": 2,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.2",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Adult B"
+     },
+     {
+      "entry": 3,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.3",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Neighbor D"
+     },
+     {
+      "entry": null,
+      "hint": "what the kids do if nobody comes",
+      "id": "school.nobody_comes",
+      "limit": 50,
+      "name": "If nobody comes",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Stay at school with your teacher; we will come."
+     },
+     {
+      "entry": 1,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.1",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "A chemical spill nearby"
+     },
+     {
+      "entry": 2,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.2",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Water over the low bridge"
+     },
+     {
+      "entry": 3,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.3",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "what to do if the road out isn't passable",
+      "id": "evacuate.road_closed",
+      "limit": 44,
+      "name": "If the road isn't passable",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Take the back field gate to the county road"
+     }
+    ],
+    "in_form": false,
+    "max_numbers": 12,
+    "number_hints": {
+     "label": "for example: Adult A (cell)",
+     "phone": ""
+    },
+    "number_limits": {
+     "label": 22,
+     "phone": 15
+    },
+    "numbers": [
+     {
+      "label": "Adult A (cell)",
+      "phone": "555-0101"
+     },
+     {
+      "label": "Adult B (cell)",
+      "phone": "555-0102"
+     },
+     {
+      "label": "Neighbor D",
+      "phone": "555-0103"
+     },
+     {
+      "label": "County emergency mgmt",
+      "phone": "555-0120"
+     },
+     {
+      "label": "Power outage line",
+      "phone": "555-0122"
+     },
+     {
+      "label": "Vet",
+      "phone": "555-0125"
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "problems": [
+     {
+      "field": "rally.r1",
+      "message": "Meeting place 1 is 1 characters too long (at most 40)"
+     }
+    ],
+    "readable": true
+   },
+   "toml": "# A made-up card for tests and the sample PDF: no real household's details. 555-01xx numbers are reserved for fiction.\n\n[household]\ncount = \"4 people, 2 dogs, 1 cat\"\naddress = \"100 Sample Lane, Exampleville\"\ndirections = \"Gravel drive past the red barn\"\n\n[out_of_area]\nname = \"Aunt C\"\nphone = \"555-0110\"\nwhere = \"Ohio\"\n\n[rally]\nr1 = \"Meeting Wagon Road Mailbox Church WindowM\"\nr2 = \"The white church at the crossroads\"\nr3 = \"Aunt C's house in Ohio\"\n\n[radio]\nchannel = \"GMRS channel 16\"\nbackup = \"GMRS channel 18\"\ncheck_in = \"On the hour, 8 am to 8 pm\"\nrepeater = \"\"\n\n[school]\npickup = [\"Adult A\", \"Adult B\", \"Neighbor D\"]\nnobody_comes = \"Stay at school with your teacher; we will come.\"\n\n[evacuate]\ntriggers = [\"A chemical spill nearby\", \"Water over the low bridge\", \"\"]\nroad_closed = \"Take the back field gate to the county road\"\n\n[[number]]\nlabel = \"Adult A (cell)\"\nphone = \"555-0101\"\n\n[[number]]\nlabel = \"Adult B (cell)\"\nphone = \"555-0102\"\n\n[[number]]\nlabel = \"Neighbor D\"\nphone = \"555-0103\"\n\n[[number]]\nlabel = \"County emergency mgmt\"\nphone = \"555-0120\"\n\n[[number]]\nlabel = \"Power outage line\"\nphone = \"555-0122\"\n\n[[number]]\nlabel = \"Vet\"\nphone = \"555-0125\"\n"
+  },
+  {
+   "check": {
+    "prints_in": 0,
+    "problems": [
+     {
+      "field": "radio.repeater",
+      "message": "Repeater looks like a code or password: take it out (codes and ID numbers never print)"
+     }
+    ],
+    "toml": null
+   },
+   "check_exit": 1,
+   "check_input": {
+    "changed": "2026-10-21",
+    "fields": {
+     "evacuate.road_closed": "Take the back field gate to the county road",
+     "evacuate.triggers.1": "A chemical spill nearby",
+     "evacuate.triggers.2": "Water over the low bridge",
+     "evacuate.triggers.3": "",
+     "household.address": "100 Sample Lane, Exampleville",
+     "household.count": "4 people, 2 dogs, 1 cat",
+     "household.directions": "Gravel drive past the red barn",
+     "out_of_area.name": "Aunt C",
+     "out_of_area.phone": "555-0110",
+     "out_of_area.where": "Ohio",
+     "radio.backup": "GMRS channel 18",
+     "radio.channel": "GMRS channel 16",
+     "radio.check_in": "On the hour, 8 am to 8 pm",
+     "radio.repeater": "Wi-Fi password ducks",
+     "rally.r1": "The big oak by the mailbox",
+     "rally.r2": "The white church at the crossroads",
+     "rally.r3": "Aunt C's house in Ohio",
+     "school.nobody_comes": "Stay at school with your teacher; we will come.",
+     "school.pickup.1": "Adult A",
+     "school.pickup.2": "Adult B",
+     "school.pickup.3": "Neighbor D"
+    },
+    "numbers": [
+     {
+      "label": "Adult A (cell)",
+      "phone": "555-0101"
+     },
+     {
+      "label": "Adult B (cell)",
+      "phone": "555-0102"
+     },
+     {
+      "label": "Neighbor D",
+      "phone": "555-0103"
+     },
+     {
+      "label": "County emergency mgmt",
+      "phone": "555-0120"
+     },
+     {
+      "label": "Power outage line",
+      "phone": "555-0122"
+     },
+     {
+      "label": "Vet",
+      "phone": "555-0125"
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "printed": "2026-10-21"
+   },
+   "name": "a code in the repeater",
+   "read": {
+    "fields": [
+     {
+      "entry": null,
+      "hint": "who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat",
+      "id": "household.count",
+      "limit": 28,
+      "name": "Who to count",
+      "section": "household",
+      "section_name": "Household",
+      "value": "4 people, 2 dogs, 1 cat"
+     },
+     {
+      "entry": null,
+      "hint": "what to say to 911",
+      "id": "household.address",
+      "limit": 40,
+      "name": "Address",
+      "section": "household",
+      "section_name": "Household",
+      "value": "100 Sample Lane, Exampleville"
+     },
+     {
+      "entry": null,
+      "hint": "how to find the house, for example: gravel drive past the red barn",
+      "id": "household.directions",
+      "limit": 36,
+      "name": "How to find us",
+      "section": "household",
+      "section_name": "Household",
+      "value": "Gravel drive past the red barn"
+     },
+     {
+      "entry": null,
+      "hint": "the person everyone texts when split up",
+      "id": "out_of_area.name",
+      "limit": 18,
+      "name": "Out-of-area contact's name",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "Aunt C"
+     },
+     {
+      "entry": null,
+      "hint": "",
+      "id": "out_of_area.phone",
+      "limit": 15,
+      "name": "Out-of-area contact's phone",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "555-0110"
+     },
+     {
+      "entry": null,
+      "hint": "where they live, for example: Ohio",
+      "id": "out_of_area.where",
+      "limit": 20,
+      "name": "Where they live",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "Ohio"
+     },
+     {
+      "entry": null,
+      "hint": "on the property: any alarm, fire or gas smell",
+      "id": "rally.r1",
+      "limit": 40,
+      "name": "Meeting place 1",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "The big oak by the mailbox"
+     },
+     {
+      "entry": null,
+      "hint": "nearby: if R1 isn't safe, or you can't get home",
+      "id": "rally.r2",
+      "limit": 40,
+      "name": "Meeting place 2",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "The white church at the crossroads"
+     },
+     {
+      "entry": null,
+      "hint": "out of the area: when the household leaves",
+      "id": "rally.r3",
+      "limit": 40,
+      "name": "Meeting place 3",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "Aunt C's house in Ohio"
+     },
+     {
+      "entry": null,
+      "hint": "for example: 16 (a number alone prints as Channel 16), or GMRS channel 16",
+      "id": "radio.channel",
+      "limit": 18,
+      "name": "Radio channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "GMRS channel 16"
+     },
+     {
+      "entry": null,
+      "hint": "for example: 18",
+      "id": "radio.backup",
+      "limit": 18,
+      "name": "Backup channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "GMRS channel 18"
+     },
+     {
+      "entry": null,
+      "hint": "for example: on the hour, 8 am to 8 pm",
+      "id": "radio.check_in",
+      "limit": 28,
+      "name": "Check-in times",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "On the hour, 8 am to 8 pm"
+     },
+     {
+      "entry": null,
+      "hint": "the ham repeater, for licensed adults: frequency, offset and tone",
+      "id": "radio.repeater",
+      "limit": 28,
+      "name": "Repeater",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "Wi-Fi password ducks"
+     },
+     {
+      "entry": 1,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.1",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Adult A"
+     },
+     {
+      "entry": 2,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.2",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Adult B"
+     },
+     {
+      "entry": 3,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.3",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Neighbor D"
+     },
+     {
+      "entry": null,
+      "hint": "what the kids do if nobody comes",
+      "id": "school.nobody_comes",
+      "limit": 50,
+      "name": "If nobody comes",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Stay at school with your teacher; we will come."
+     },
+     {
+      "entry": 1,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.1",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "A chemical spill nearby"
+     },
+     {
+      "entry": 2,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.2",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Water over the low bridge"
+     },
+     {
+      "entry": 3,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.3",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "what to do if the road out isn't passable",
+      "id": "evacuate.road_closed",
+      "limit": 44,
+      "name": "If the road isn't passable",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Take the back field gate to the county road"
+     }
+    ],
+    "in_form": false,
+    "max_numbers": 12,
+    "number_hints": {
+     "label": "for example: Adult A (cell)",
+     "phone": ""
+    },
+    "number_limits": {
+     "label": 22,
+     "phone": 15
+    },
+    "numbers": [
+     {
+      "label": "Adult A (cell)",
+      "phone": "555-0101"
+     },
+     {
+      "label": "Adult B (cell)",
+      "phone": "555-0102"
+     },
+     {
+      "label": "Neighbor D",
+      "phone": "555-0103"
+     },
+     {
+      "label": "County emergency mgmt",
+      "phone": "555-0120"
+     },
+     {
+      "label": "Power outage line",
+      "phone": "555-0122"
+     },
+     {
+      "label": "Vet",
+      "phone": "555-0125"
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "problems": [
+     {
+      "field": "radio.repeater",
+      "message": "Repeater looks like a code or password: take it out (codes and ID numbers never print)"
+     }
+    ],
+    "readable": true
+   },
+   "toml": "# A made-up card for tests and the sample PDF: no real household's details. 555-01xx numbers are reserved for fiction.\n\n[household]\ncount = \"4 people, 2 dogs, 1 cat\"\naddress = \"100 Sample Lane, Exampleville\"\ndirections = \"Gravel drive past the red barn\"\n\n[out_of_area]\nname = \"Aunt C\"\nphone = \"555-0110\"\nwhere = \"Ohio\"\n\n[rally]\nr1 = \"The big oak by the mailbox\"\nr2 = \"The white church at the crossroads\"\nr3 = \"Aunt C's house in Ohio\"\n\n[radio]\nchannel = \"GMRS channel 16\"\nbackup = \"GMRS channel 18\"\ncheck_in = \"On the hour, 8 am to 8 pm\"\nrepeater = \"Wi-Fi password ducks\"\n\n[school]\npickup = [\"Adult A\", \"Adult B\", \"Neighbor D\"]\nnobody_comes = \"Stay at school with your teacher; we will come.\"\n\n[evacuate]\ntriggers = [\"A chemical spill nearby\", \"Water over the low bridge\", \"\"]\nroad_closed = \"Take the back field gate to the county road\"\n\n[[number]]\nlabel = \"Adult A (cell)\"\nphone = \"555-0101\"\n\n[[number]]\nlabel = \"Adult B (cell)\"\nphone = \"555-0102\"\n\n[[number]]\nlabel = \"Neighbor D\"\nphone = \"555-0103\"\n\n[[number]]\nlabel = \"County emergency mgmt\"\nphone = \"555-0120\"\n\n[[number]]\nlabel = \"Power outage line\"\nphone = \"555-0122\"\n\n[[number]]\nlabel = \"Vet\"\nphone = \"555-0125\"\n"
+  },
+  {
+   "check": {
+    "prints_in": 0,
+    "problems": [],
+    "toml": "# PrepareMe's paper card. Type your household's details between the quotes, save, then print the card.\n# A line left as \"\" prints as a blank line to write on by hand.\n# Never type a code, combination, account, policy or ID number here: the print step refuses them, and any line\n# that mentions a code, password, PIN or lockbox (so write a ZIP as just its number, not \"zip code 12345\").\n# The school code word is always written by hand on the printed card, never typed here.\n\n[household]\ncount = \"4 people, 2 dogs, 1 cat\"          # who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat\naddress = \"100 Sample Lane, Exampleville\"        # what to say to 911\ndirections = \"Gravel drive past the red barn\"     # how to find the house, for example: gravel drive past the red barn\n\n[out_of_area]\nname = \"Aunt C\"           # the person everyone texts when split up\nphone = \"555-0110\"\nwhere = \"Ohio\"          # where they live, for example: Ohio\n\n[rally]\nr1 = \"The big oak by the mailbox\"             # on the property: any alarm, fire or gas smell\nr2 = \"The white church at the crossroads\"             # nearby: if R1 isn't safe, or you can't get home\nr3 = \"Aunt C's house in Ohio\"             # out of the area: when the household leaves\n\n[radio]\nchannel = \"GMRS channel 16\"        # for example: 16 (a number alone prints as Channel 16), or GMRS channel 16\nbackup = \"GMRS channel 18\"         # for example: 18\ncheck_in = \"On the hour, 8 am to 8 pm\"       # for example: on the hour, 8 am to 8 pm\nrepeater = \"\"       # the ham repeater, for licensed adults: frequency, offset and tone\n\n[school]\npickup = [\"Adult A\", \"Adult B\", \"Neighbor D\"]   # who picks up, in order\nnobody_comes = \"Stay at school with your teacher; we will come.\"       # what the kids do if nobody comes\n\n[evacuate]\ntriggers = [\"A chemical spill nearby\", \"Water over the low bridge\", \"\"]   # leave if any one of these is true\nroad_closed = \"Take the back field gate to the county road\"          # what to do if the road out isn't passable\n\n# Up to 12 phone numbers. Copy a [[number]] block for each one.\n[[number]]\nlabel = \"Adult A (cell)\"          # for example: Adult A (cell)\nphone = \"555-0101\"\n\n[[number]]\nlabel = \"Adult B (cell)\"\nphone = \"555-0102\"\n\n[[number]]\nlabel = \"Neighbor D\"\nphone = \"555-0103\"\n\n[[number]]\nlabel = \"County emergency mgmt\"\nphone = \"555-0120\"\n\n[[number]]\nlabel = \"Power outage line\"\nphone = \"555-0122\"\n\n[[number]]\nlabel = \"Vet\"\nphone = \"555-0125\"\n"
+   },
+   "check_exit": 0,
+   "check_input": {
+    "changed": "2026-10-21",
+    "fields": {
+     "evacuate.road_closed": "Take the back field gate to the county road",
+     "evacuate.triggers.1": "A chemical spill nearby",
+     "evacuate.triggers.2": "Water over the low bridge",
+     "evacuate.triggers.3": "",
+     "household.address": "100 Sample Lane, Exampleville",
+     "household.count": "4 people, 2 dogs, 1 cat",
+     "household.directions": "Gravel drive past the red barn",
+     "out_of_area.name": "Aunt C",
+     "out_of_area.phone": "555-0110",
+     "out_of_area.where": "Ohio",
+     "radio.backup": "GMRS channel 18",
+     "radio.channel": "GMRS channel 16",
+     "radio.check_in": "On the hour, 8 am to 8 pm",
+     "radio.repeater": "",
+     "rally.r1": "The big oak by the mailbox",
+     "rally.r2": "The white church at the crossroads",
+     "rally.r3": "Aunt C's house in Ohio",
+     "school.nobody_comes": "Stay at school with your teacher; we will come.",
+     "school.pickup.1": "Adult A",
+     "school.pickup.2": "Adult B",
+     "school.pickup.3": "Neighbor D"
+    },
+    "numbers": [
+     {
+      "label": "Adult A (cell)",
+      "phone": "555-0101"
+     },
+     {
+      "label": "Adult B (cell)",
+      "phone": "555-0102"
+     },
+     {
+      "label": "Neighbor D",
+      "phone": "555-0103"
+     },
+     {
+      "label": "County emergency mgmt",
+      "phone": "555-0120"
+     },
+     {
+      "label": "Power outage line",
+      "phone": "555-0122"
+     },
+     {
+      "label": "Vet",
+      "phone": "555-0125"
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "printed": "2026-10-21"
+   },
+   "name": "a line the card doesn't know",
+   "read": {
+    "fields": [
+     {
+      "entry": null,
+      "hint": "who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat",
+      "id": "household.count",
+      "limit": 28,
+      "name": "Who to count",
+      "section": "household",
+      "section_name": "Household",
+      "value": "4 people, 2 dogs, 1 cat"
+     },
+     {
+      "entry": null,
+      "hint": "what to say to 911",
+      "id": "household.address",
+      "limit": 40,
+      "name": "Address",
+      "section": "household",
+      "section_name": "Household",
+      "value": "100 Sample Lane, Exampleville"
+     },
+     {
+      "entry": null,
+      "hint": "how to find the house, for example: gravel drive past the red barn",
+      "id": "household.directions",
+      "limit": 36,
+      "name": "How to find us",
+      "section": "household",
+      "section_name": "Household",
+      "value": "Gravel drive past the red barn"
+     },
+     {
+      "entry": null,
+      "hint": "the person everyone texts when split up",
+      "id": "out_of_area.name",
+      "limit": 18,
+      "name": "Out-of-area contact's name",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "Aunt C"
+     },
+     {
+      "entry": null,
+      "hint": "",
+      "id": "out_of_area.phone",
+      "limit": 15,
+      "name": "Out-of-area contact's phone",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "555-0110"
+     },
+     {
+      "entry": null,
+      "hint": "where they live, for example: Ohio",
+      "id": "out_of_area.where",
+      "limit": 20,
+      "name": "Where they live",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": "Ohio"
+     },
+     {
+      "entry": null,
+      "hint": "on the property: any alarm, fire or gas smell",
+      "id": "rally.r1",
+      "limit": 40,
+      "name": "Meeting place 1",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "The big oak by the mailbox"
+     },
+     {
+      "entry": null,
+      "hint": "nearby: if R1 isn't safe, or you can't get home",
+      "id": "rally.r2",
+      "limit": 40,
+      "name": "Meeting place 2",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "The white church at the crossroads"
+     },
+     {
+      "entry": null,
+      "hint": "out of the area: when the household leaves",
+      "id": "rally.r3",
+      "limit": 40,
+      "name": "Meeting place 3",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": "Aunt C's house in Ohio"
+     },
+     {
+      "entry": null,
+      "hint": "for example: 16 (a number alone prints as Channel 16), or GMRS channel 16",
+      "id": "radio.channel",
+      "limit": 18,
+      "name": "Radio channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "GMRS channel 16"
+     },
+     {
+      "entry": null,
+      "hint": "for example: 18",
+      "id": "radio.backup",
+      "limit": 18,
+      "name": "Backup channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "GMRS channel 18"
+     },
+     {
+      "entry": null,
+      "hint": "for example: on the hour, 8 am to 8 pm",
+      "id": "radio.check_in",
+      "limit": 28,
+      "name": "Check-in times",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": "On the hour, 8 am to 8 pm"
+     },
+     {
+      "entry": null,
+      "hint": "the ham repeater, for licensed adults: frequency, offset and tone",
+      "id": "radio.repeater",
+      "limit": 28,
+      "name": "Repeater",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": 1,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.1",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Adult A"
+     },
+     {
+      "entry": 2,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.2",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Adult B"
+     },
+     {
+      "entry": 3,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.3",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Neighbor D"
+     },
+     {
+      "entry": null,
+      "hint": "what the kids do if nobody comes",
+      "id": "school.nobody_comes",
+      "limit": 50,
+      "name": "If nobody comes",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": "Stay at school with your teacher; we will come."
+     },
+     {
+      "entry": 1,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.1",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "A chemical spill nearby"
+     },
+     {
+      "entry": 2,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.2",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Water over the low bridge"
+     },
+     {
+      "entry": 3,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.3",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "what to do if the road out isn't passable",
+      "id": "evacuate.road_closed",
+      "limit": 44,
+      "name": "If the road isn't passable",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": "Take the back field gate to the county road"
+     }
+    ],
+    "in_form": false,
+    "max_numbers": 12,
+    "number_hints": {
+     "label": "for example: Adult A (cell)",
+     "phone": ""
+    },
+    "number_limits": {
+     "label": 22,
+     "phone": 15
+    },
+    "numbers": [
+     {
+      "label": "Adult A (cell)",
+      "phone": "555-0101"
+     },
+     {
+      "label": "Adult B (cell)",
+      "phone": "555-0102"
+     },
+     {
+      "label": "Neighbor D",
+      "phone": "555-0103"
+     },
+     {
+      "label": "County emergency mgmt",
+      "phone": "555-0120"
+     },
+     {
+      "label": "Power outage line",
+      "phone": "555-0122"
+     },
+     {
+      "label": "Vet",
+      "phone": "555-0125"
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "problems": [
+     {
+      "field": null,
+      "message": "card.toml has a section it doesn't know: [pets]"
+     }
+    ],
+    "readable": true
+   },
+   "toml": "# A made-up card for tests and the sample PDF: no real household's details. 555-01xx numbers are reserved for fiction.\n\n[household]\ncount = \"4 people, 2 dogs, 1 cat\"\naddress = \"100 Sample Lane, Exampleville\"\ndirections = \"Gravel drive past the red barn\"\n\n[out_of_area]\nname = \"Aunt C\"\nphone = \"555-0110\"\nwhere = \"Ohio\"\n\n[rally]\nr1 = \"The big oak by the mailbox\"\nr2 = \"The white church at the crossroads\"\nr3 = \"Aunt C's house in Ohio\"\n\n[radio]\nchannel = \"GMRS channel 16\"\nbackup = \"GMRS channel 18\"\ncheck_in = \"On the hour, 8 am to 8 pm\"\nrepeater = \"\"\n\n[school]\npickup = [\"Adult A\", \"Adult B\", \"Neighbor D\"]\nnobody_comes = \"Stay at school with your teacher; we will come.\"\n\n[evacuate]\ntriggers = [\"A chemical spill nearby\", \"Water over the low bridge\", \"\"]\nroad_closed = \"Take the back field gate to the county road\"\n\n[[number]]\nlabel = \"Adult A (cell)\"\nphone = \"555-0101\"\n\n[[number]]\nlabel = \"Adult B (cell)\"\nphone = \"555-0102\"\n\n[[number]]\nlabel = \"Neighbor D\"\nphone = \"555-0103\"\n\n[[number]]\nlabel = \"County emergency mgmt\"\nphone = \"555-0120\"\n\n[[number]]\nlabel = \"Power outage line\"\nphone = \"555-0122\"\n\n[[number]]\nlabel = \"Vet\"\nphone = \"555-0125\"\n\n[pets]\nnames = \"Rex\"\n"
+  },
+  {
+   "check": {
+    "prints_in": 0,
+    "problems": [],
+    "toml": "# PrepareMe's paper card. Type your household's details between the quotes, save, then print the card.\n# A line left as \"\" prints as a blank line to write on by hand.\n# Never type a code, combination, account, policy or ID number here: the print step refuses them, and any line\n# that mentions a code, password, PIN or lockbox (so write a ZIP as just its number, not \"zip code 12345\").\n# The school code word is always written by hand on the printed card, never typed here.\n\n[household]\ncount = \"\"          # who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat\naddress = \"\"        # what to say to 911\ndirections = \"\"     # how to find the house, for example: gravel drive past the red barn\n\n[out_of_area]\nname = \"\"           # the person everyone texts when split up\nphone = \"\"\nwhere = \"\"          # where they live, for example: Ohio\n\n[rally]\nr1 = \"\"             # on the property: any alarm, fire or gas smell\nr2 = \"\"             # nearby: if R1 isn't safe, or you can't get home\nr3 = \"\"             # out of the area: when the household leaves\n\n[radio]\nchannel = \"\"        # for example: 16 (a number alone prints as Channel 16), or GMRS channel 16\nbackup = \"\"         # for example: 18\ncheck_in = \"\"       # for example: on the hour, 8 am to 8 pm\nrepeater = \"\"       # the ham repeater, for licensed adults: frequency, offset and tone\n\n[school]\npickup = [\"\", \"\", \"\"]   # who picks up, in order\nnobody_comes = \"\"       # what the kids do if nobody comes\n\n[evacuate]\ntriggers = [\"\", \"\", \"\"]   # leave if any one of these is true\nroad_closed = \"\"          # what to do if the road out isn't passable\n\n# Up to 12 phone numbers. Copy a [[number]] block for each one.\n[[number]]\nlabel = \"\"          # for example: Adult A (cell)\nphone = \"\"\n\n[[number]]\nlabel = \"\"\nphone = \"\"\n\n[[number]]\nlabel = \"\"\nphone = \"\"\n"
+   },
+   "check_exit": 0,
+   "check_input": {
+    "changed": "2026-10-21",
+    "fields": {
+     "evacuate.road_closed": "",
+     "evacuate.triggers.1": "",
+     "evacuate.triggers.2": "",
+     "evacuate.triggers.3": "",
+     "household.address": "",
+     "household.count": "",
+     "household.directions": "",
+     "out_of_area.name": "",
+     "out_of_area.phone": "",
+     "out_of_area.where": "",
+     "radio.backup": "",
+     "radio.channel": "",
+     "radio.check_in": "",
+     "radio.repeater": "",
+     "rally.r1": "",
+     "rally.r2": "",
+     "rally.r3": "",
+     "school.nobody_comes": "",
+     "school.pickup.1": "",
+     "school.pickup.2": "",
+     "school.pickup.3": ""
+    },
+    "numbers": [
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "printed": "2026-10-21"
+   },
+   "name": "a file that isn't TOML",
+   "read": {
+    "fields": [
+     {
+      "entry": null,
+      "hint": "who to count at the meeting spot, for example: 4 people, 2 dogs, 1 cat",
+      "id": "household.count",
+      "limit": 28,
+      "name": "Who to count",
+      "section": "household",
+      "section_name": "Household",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "what to say to 911",
+      "id": "household.address",
+      "limit": 40,
+      "name": "Address",
+      "section": "household",
+      "section_name": "Household",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "how to find the house, for example: gravel drive past the red barn",
+      "id": "household.directions",
+      "limit": 36,
+      "name": "How to find us",
+      "section": "household",
+      "section_name": "Household",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "the person everyone texts when split up",
+      "id": "out_of_area.name",
+      "limit": 18,
+      "name": "Out-of-area contact's name",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "",
+      "id": "out_of_area.phone",
+      "limit": 15,
+      "name": "Out-of-area contact's phone",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "where they live, for example: Ohio",
+      "id": "out_of_area.where",
+      "limit": 20,
+      "name": "Where they live",
+      "section": "out_of_area",
+      "section_name": "Out-of-area contact",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "on the property: any alarm, fire or gas smell",
+      "id": "rally.r1",
+      "limit": 40,
+      "name": "Meeting place 1",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "nearby: if R1 isn't safe, or you can't get home",
+      "id": "rally.r2",
+      "limit": 40,
+      "name": "Meeting place 2",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "out of the area: when the household leaves",
+      "id": "rally.r3",
+      "limit": 40,
+      "name": "Meeting place 3",
+      "section": "rally",
+      "section_name": "Meeting places",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "for example: 16 (a number alone prints as Channel 16), or GMRS channel 16",
+      "id": "radio.channel",
+      "limit": 18,
+      "name": "Radio channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "for example: 18",
+      "id": "radio.backup",
+      "limit": 18,
+      "name": "Backup channel",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "for example: on the hour, 8 am to 8 pm",
+      "id": "radio.check_in",
+      "limit": 28,
+      "name": "Check-in times",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "the ham repeater, for licensed adults: frequency, offset and tone",
+      "id": "radio.repeater",
+      "limit": 28,
+      "name": "Repeater",
+      "section": "radio",
+      "section_name": "Radio",
+      "value": ""
+     },
+     {
+      "entry": 1,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.1",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": ""
+     },
+     {
+      "entry": 2,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.2",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": ""
+     },
+     {
+      "entry": 3,
+      "hint": "who picks up, in order",
+      "id": "school.pickup.3",
+      "limit": 14,
+      "name": "School pickup",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "what the kids do if nobody comes",
+      "id": "school.nobody_comes",
+      "limit": 50,
+      "name": "If nobody comes",
+      "section": "school",
+      "section_name": "School pickup",
+      "value": ""
+     },
+     {
+      "entry": 1,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.1",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     },
+     {
+      "entry": 2,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.2",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     },
+     {
+      "entry": 3,
+      "hint": "leave if any one of these is true",
+      "id": "evacuate.triggers.3",
+      "limit": 32,
+      "name": "Evacuate if",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     },
+     {
+      "entry": null,
+      "hint": "what to do if the road out isn't passable",
+      "id": "evacuate.road_closed",
+      "limit": 44,
+      "name": "If the road isn't passable",
+      "section": "evacuate",
+      "section_name": "Leave if",
+      "value": ""
+     }
+    ],
+    "in_form": false,
+    "max_numbers": 12,
+    "number_hints": {
+     "label": "for example: Adult A (cell)",
+     "phone": ""
+    },
+    "number_limits": {
+     "label": 22,
+     "phone": 15
+    },
+    "numbers": [
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     },
+     {
+      "label": "",
+      "phone": ""
+     }
+    ],
+    "problems": [
+     {
+      "field": null,
+      "message": "card.toml can't be read: the text at line 2, column 15 isn't in the card file's form (each line is name = \"text\", under a [section])"
+     }
+    ],
+    "readable": false
+   },
+   "toml": "[rally]\nr1 = \"unclosed\n"
+  }
+ ],
+ "counts": [
+  {
+   "count": 8,
+   "text": "Oak tree"
+  },
+  {
+   "count": 10,
+   "text": "  two   spaces  "
+  },
+  {
+   "count": 8,
+   "text": "tab\there"
+  },
+  {
+   "count": 4,
+   "text": "Café"
+  },
+  {
+   "count": 5,
+   "text": "Café"
+  },
+  {
+   "count": 6,
+   "text": "🌳 tree"
+  },
+  {
+   "count": 12,
+   "text": "👨‍👩‍👧 family"
+  },
+  {
+   "count": 8,
+   "text": "no break"
+  },
+  {
+   "count": 10,
+   "text": "line\nbreak"
+  },
+  {
+   "count": 8,
+   "text": " em space"
+  },
+  {
+   "count": 3,
+   "text": "x\u001cy"
+  },
+  {
+   "count": 0,
+   "text": ""
+  }
+ ]
+}

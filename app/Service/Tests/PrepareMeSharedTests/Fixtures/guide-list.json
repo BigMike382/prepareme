@@ -1,0 +1,13 @@
+{
+ "format": 1,
+ "guides": [
+  {
+   "page": "generator-co.html",
+   "title": "SAMPLE generators"
+  },
+  {
+   "page": "utility-shutoff.html",
+   "title": "SAMPLE Shutting off"
+  }
+ ]
+}

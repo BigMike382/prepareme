@@ -1,0 +1,174 @@
+{
+ "base": 2,
+ "digest": "fae84f4d658da4bd7e3625690407407d84b2fd64a810685b3820718ae39494b8",
+ "format": 1,
+ "mac_only_recalls": {},
+ "sheets": {
+  "Bought": [],
+  "Proposed": [],
+  "Recalls": [],
+  "Settings": [
+   {
+    "Setting": "Event mode",
+    "Value": "Auto"
+   },
+   {
+    "Setting": "Water target (days)",
+    "Value": 30.0
+   },
+   {
+    "Setting": "Food target (days)",
+    "Value": 90.0
+   },
+   {
+    "Setting": "Pet food target (days)",
+    "Value": 90.0
+   },
+   {
+    "Setting": "Calories per person per day",
+    "Value": 2000.0
+   },
+   {
+    "Setting": "Upkeep heads-up (days)",
+    "Value": 14.0
+   }
+  ],
+  "Targets": [],
+  "To buy": [
+   {
+    "Bought": false,
+    "Category": "Water",
+    "Cost": null,
+    "Expires": null,
+    "Horizon": "two weeks",
+    "ID": "S-G-water-n1",
+    "Item": "Water: 1.3 of 30 days; 126 gallons short",
+    "Life-safety": true,
+    "Need": 126.0,
+    "Not needed": false,
+    "Notes": "",
+    "Qty bought": null,
+    "Unit": "gallons",
+    "Why": "Short of the target: Owner's target, 30 days of stored water (2026-10-05), with the water calculator's rule."
+   },
+   {
+    "Bought": false,
+    "Category": "Food",
+    "Cost": null,
+    "Expires": null,
+    "Horizon": "90 days",
+    "ID": "S-G-food-n1",
+    "Item": "Food: 0.0 of 90 days; 720,000 calories short",
+    "Life-safety": false,
+    "Need": 720000.0,
+    "Not needed": false,
+    "Notes": "",
+    "Qty bought": null,
+    "Unit": "calories",
+    "Why": "Short of the target: Owner's target, 90 days of food (2026-10-04)."
+   },
+   {
+    "Bought": false,
+    "Category": "Pets",
+    "Cost": null,
+    "Expires": null,
+    "Horizon": "90 days",
+    "ID": "S-G-dog-food-n1",
+    "Item": "Dog food: 0.0 of 90 days; 135 pounds short",
+    "Life-safety": false,
+    "Need": 135.0,
+    "Not needed": false,
+    "Notes": "",
+    "Qty bought": null,
+    "Unit": "pounds",
+    "Why": "Short of the target: Owner's target, 90 days of dog food (2026-10-05), with the pet food calculator's rule."
+   }
+  ],
+  "To do": [
+   {
+    "Category": "Tools and equipment",
+    "Cost": null,
+    "Done": false,
+    "Done on": null,
+    "Due": null,
+    "Horizon": "two weeks",
+    "ID": "X-upkeep-dates",
+    "Life-safety": false,
+    "Notes": "",
+    "Task": "Type the last-done dates you know for 1 upkeep schedules in the Upkeep list's Last done; each then comes back on its own schedule.",
+    "Why": "1 active rows on the Upkeep list have no Last done date, so they can't be scheduled yet."
+   },
+   {
+    "Category": "Documents and plans",
+    "Cost": null,
+    "Done": false,
+    "Done on": null,
+    "Due": null,
+    "Horizon": "two weeks",
+    "ID": "X-private",
+    "Life-safety": false,
+    "Notes": "",
+    "Task": "1 inventory rows are still ticked Mac only, so their names are kept off the lists; untick them, or keep them out of the inventory.",
+    "Why": "1 inventory items are ticked in its Mac only column."
+   },
+   {
+    "Category": "Water",
+    "Cost": null,
+    "Done": false,
+    "Done on": null,
+    "Due": null,
+    "Horizon": "open-ended",
+    "ID": "X-open-water",
+    "Life-safety": false,
+    "Notes": "",
+    "Task": "Add your open-ended water target on the Targets list: the well bucket and hand pump beyond the 30 days of stored water (owner's target, 2026-10-05).",
+    "Why": "No row on the Targets list has Water with the horizon open-ended."
+   },
+   {
+    "Category": "Skills and training",
+    "Cost": null,
+    "Done": false,
+    "Done on": null,
+    "Due": null,
+    "Horizon": "open-ended",
+    "ID": "R-review-never",
+    "Life-safety": false,
+    "Notes": "",
+    "Task": "No capabilities review has run yet: ask a Claude Code session opened in the PrepareMe folder for a capabilities review",
+    "Why": "The capabilities review runs every two weeks, with the gap review, and proposes what the lists lack."
+   },
+   {
+    "Category": "Water",
+    "Cost": null,
+    "Done": false,
+    "Done on": null,
+    "Due": null,
+    "Horizon": null,
+    "ID": "O-1",
+    "Life-safety": false,
+    "Notes": "",
+    "Task": "Label the shutoff valve",
+    "Why": ""
+   }
+  ],
+  "Upkeep": [
+   {
+    "Active": true,
+    "Category": "Water",
+    "Check": "not checked yet",
+    "Every": 6.0,
+    "Horizon": "first hour",
+    "ID": "K-2",
+    "Last done": null,
+    "Life-safety": false,
+    "Next due": "",
+    "Quote": "",
+    "Source": "",
+    "Source says": "",
+    "Task": "Rotate stored water",
+    "Unit": "months"
+   }
+  ]
+ },
+ "stamp": "2026-10-07T15:07:00-04:00"
+}

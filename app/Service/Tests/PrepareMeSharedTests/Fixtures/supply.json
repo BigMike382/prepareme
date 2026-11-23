@@ -1,0 +1,253 @@
+{
+ "calculators": {
+  "counted": "2026-10-07T02:37:00-04:00",
+  "firewood_weigh": false,
+  "gasoline_weigh": false,
+  "pages": {
+   "calc-pet-food.html": {
+    "dday": 1.5,
+    "dlb": 30
+   },
+   "calc-water.html": {
+    "days": 30,
+    "dog": 50,
+    "people": 4
+   }
+  },
+  "propane_weigh": false
+ },
+ "counted_toward": [
+  {
+   "item": "246b99a8862b",
+   "kinds": [
+    "water"
+   ],
+   "private": false,
+   "row": 2
+  },
+  {
+   "item": "f1d57d0bcf02",
+   "kinds": [
+    "water"
+   ],
+   "private": false,
+   "row": 3
+  },
+  {
+   "item": "fe8a30b56b4f",
+   "kinds": [],
+   "private": false,
+   "row": 4,
+   "why": "expired"
+  },
+  {
+   "item": "209f76418ece",
+   "kinds": [
+    "food"
+   ],
+   "private": false,
+   "row": 6
+  },
+  {
+   "item": "324fae7ea1c6",
+   "kinds": [
+    "dog food"
+   ],
+   "private": false,
+   "row": 8
+  },
+  {
+   "item": "d373c883072a",
+   "kinds": [
+    "water"
+   ],
+   "private": true,
+   "row": 9
+  },
+  {
+   "item": "e37f62806bc3",
+   "kinds": [
+    "water"
+   ],
+   "private": false,
+   "row": 10
+  },
+  {
+   "item": "64d41300c7d5",
+   "kinds": [
+    "water once filled"
+   ],
+   "private": false,
+   "row": 11
+  }
+ ],
+ "format": 1,
+ "left_out": [
+  {
+   "item": "fe8a30b56b4f",
+   "kind": "water",
+   "private": false,
+   "row": 4,
+   "why": "expired"
+  },
+  {
+   "item": "b743e9de8ec1",
+   "kind": "food",
+   "private": false,
+   "row": 7,
+   "why": "calories"
+  }
+ ],
+ "supplies": [
+  {
+   "days": 8.2,
+   "fillable": 5.0,
+   "fillable_days": 1.1,
+   "kind": "water",
+   "other": [
+    {
+     "amount": 4.0,
+     "expires": "2027-10-07"
+    },
+    {
+     "amount": 6.0,
+     "expires": "2027-10-07"
+    }
+   ],
+   "per_day": 4.390625,
+   "private_rows": [
+    {
+     "item": "d373c883072a",
+     "per": 1.0,
+     "row": 9
+    }
+   ],
+   "rows": [
+    {
+     "each": 1.0,
+     "expires": "2027-10-07",
+     "item": "246b99a8862b",
+     "per": 1.0,
+     "row": 2,
+     "unit": "gallons"
+    },
+    {
+     "each": 1.0,
+     "expires": "2027-10-07",
+     "item": "f1d57d0bcf02",
+     "per": 0.26417205235814845,
+     "row": 3,
+     "unit": "liters"
+    },
+    {
+     "each": 1.0,
+     "expires": "2026-10-07",
+     "item": "fe8a30b56b4f",
+     "per": 1.0,
+     "row": 4,
+     "unit": "gallons"
+    },
+    {
+     "each": 1.0,
+     "expires": null,
+     "item": "e37f62806bc3",
+     "per": 1.0,
+     "row": 10,
+     "unit": "gallons"
+    }
+   ],
+   "target": 30,
+   "unit": "gallons"
+  },
+  {
+   "days": 2.0,
+   "kind": "food",
+   "other": [],
+   "per_day": 8000,
+   "private_rows": [],
+   "rows": [
+    {
+     "each": 1.0,
+     "expires": "2027-10-07",
+     "item": "209f76418ece",
+     "per": 1600,
+     "row": 6,
+     "unit": "bags"
+    }
+   ],
+   "target": 90,
+   "unit": "bags"
+  },
+  {
+   "days": 20.0,
+   "kind": "dog food",
+   "other": [],
+   "per_day": 1.5,
+   "private_rows": [],
+   "rows": [
+    {
+     "each": 1.0,
+     "expires": "2027-10-07",
+     "item": "324fae7ea1c6",
+     "per": 1.0,
+     "row": 8,
+     "unit": "lb"
+    }
+   ],
+   "target": 90,
+   "unit": "lb"
+  },
+  {
+   "days": null,
+   "kind": "cat food",
+   "other": [],
+   "per_day": null,
+   "private_rows": [],
+   "rows": [],
+   "target": null,
+   "unit": "pounds"
+  }
+ ],
+ "today": "2026-10-07",
+ "uncounted_rows": [
+  {
+   "item": "2cde8d18812e",
+   "private": false,
+   "row": 5
+  },
+  {
+   "item": "b743e9de8ec1",
+   "private": false,
+   "row": 7
+  },
+  {
+   "item": "64d41300c7d5",
+   "private": false,
+   "row": 11
+  }
+ ],
+ "units": {
+  "calories": [
+   "calorie",
+   "calories"
+  ],
+  "pounds": [
+   "pound",
+   "pounds",
+   "lb",
+   "lbs"
+  ],
+  "water": [
+   "gallon",
+   "gallons",
+   "gal",
+   "liter",
+   "liters",
+   "litre",
+   "litres",
+   "fl oz",
+   "fluid ounce",
+   "fluid ounces"
+  ]
+ }
+}

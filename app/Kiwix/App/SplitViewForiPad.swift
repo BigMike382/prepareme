@@ -1,0 +1,367 @@
+// This file is part of Kiwix for iOS & macOS.
+//
+// Kiwix is free software; you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// any later version.
+//
+// Kiwix is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Kiwix; If not, see https://www.gnu.org/licenses/.
+
+#if os(iOS)
+import CoreData
+import Foundation
+import SwiftUI
+import Defaults
+
+struct SplitViewForiPadContainer: View {
+    @EnvironmentObject var navigation: NavigationViewModel
+    var body: some View {
+        if case .loading = navigation.currentItem {
+            LoadingDataView()
+                .task { [weak navigation] in
+                    navigation?.observeOpeningFiles()
+                }
+        } else {
+            SplitViewForiPad()
+        }
+    }
+}
+
+@MainActor
+struct SplitViewForiPad: View { // swiftlint:disable:this type_body_length
+    @EnvironmentObject var navigation: NavigationViewModel
+    @State private var columnVisibility: NavigationSplitViewVisibility = Defaults[.ipadSplitViewVisibility]
+    @State private var allSections: [MenuSection] = MenuSection.allMenuSections
+    @State private var menuDict: [MenuSection: [MenuItem]] = MenuSection.staticDictionary
+    @State private var selection: MenuItem? {
+        didSet {
+            Log.Navigation.debug("\(#file) \(#function): \(selection.debugDescription)")
+        }
+    }
+    @Default(.libraryLanguageCodes) private var languages
+    @State private var selectedLang: String = Defaults[.libraryLanguageCodes].first ?? "eng"
+    @State private var navPath = NavigationPath()
+    @State private var titleUpdate: (NSManagedObjectID, String)?
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(key: "created", ascending: true)],
+        predicate: Tab.Predicate.notMissing(),
+        animation: .easeInOut
+    ) private var tabs: FetchedResults<Tab>
+    private let selectFileById = NotificationCenter.default.publisher(for: .selectFile)
+    @State private var hasZimFiles: Bool?
+    @State private var navigateToHotspotSettingsTask: Task<Void, Never>?
+    @Environment(\.scenePhase) private var scenePhase
+
+    var body: some View {
+        NavigationSplitView(columnVisibility: $columnVisibility) {
+            List(selection: $selection) {
+                ForEach(allSections) { (section: MenuSection) in
+                    sectionFor(section)
+                }
+            }
+            .listStyle(.sidebar)
+            .navigationTitle(Brand.appName)
+            .toolbar {
+                if hasNonEmptyTab() {
+                    Menu {
+                        Button(role: .destructive) {
+                            Task { [weak navigation] in
+                                await navigation?.deleteAllTabs(keepEmpty: true)
+                            }
+                        } label: {
+                            Label(LocalString.common_tab_menu_close_all, systemImage: "xmark.square.fill")
+                        }
+                    } label: {
+                        Label(LocalString.common_tab_menu_close_all, systemImage: "xmark.square")
+                    }
+                }
+            }
+        } detail: {
+            NavigationStack(path: $navPath) {
+                switch selection {
+                case .tab(let tabID):
+                    BrowserTab(tabID: tabID, didChangeTitle: { (updatedTabId: NSManagedObjectID, newTitle: String) in
+                        titleUpdate = (updatedTabId, newTitle)
+                    }).id(tabID)
+                case .bookmarks:
+                    Bookmarks()
+                case .opened:
+                    ZimFilesOpened()
+                case .categories:
+                    ZimFilesCategories(languageCode: $selectedLang, dismiss: nil)
+                        .toolbar {
+                            ToolbarItem(placement: .topBarTrailing) {
+                                ToggleAroundLanguageButton(items: $languages, selection: $selectedLang)
+                                    .disabled(languages.count <= 1)
+                            }
+                        }
+                case .new:
+                    ZimFilesNew(dismiss: nil)
+                case .downloads:
+                    ZimFilesDownloads(dismiss: nil)
+                case let .settings(scrollToHotspot):
+                    Settings(scrollToHotspot: scrollToHotspot)
+                case .donation:
+                    // this won't be triggered
+                    EmptyView()
+                case .hotspot:
+                    HotspotZimFilesSelection()
+                case nil:
+                    LoadingDataView()
+                }
+            }
+        }
+        .task {
+            if let currentItem = navigation.currentItem {
+                // set up the default selection
+                // as direct opening a file (when the app is not launched)
+                // won't trigger .onChange(of: navigation.currentItem)
+                Log.Navigation.debug("\(#file) set up the default selection")
+                updateSelection(currentItem)
+            } else if let navItem = Defaults[.savedMenuNavigation]?.navigationItem {
+                // restore navigation point from saved selection
+                Log.Navigation.debug("\(#file) restore navigation point from saved selection")
+                updateSelection(navItem)
+            } else {
+                Log.Navigation.error("\(#file) no navigation item found")
+            }
+            if case let .tab(selectedTabId) = selection {
+                BrowserTabPreloader.shared.start(with: tabs, selectedTabId: selectedTabId)
+            }
+            await observeHasZimFiles()
+            await loadDonations()
+            observeNavigateToHotspotSettings()
+        }
+        .onChange(of: navigation.currentItem) { _, newValue in
+            Log.Navigation.debug("\(#file) \(#function) update selection")
+            updateSelection(newValue)
+        }
+        // open file details, after importing file
+        .onReceive(selectFileById, perform: { notification in
+            guard let fileId = notification.userInfo?["fileId"] as? UUID else {
+                return
+            }
+            navPath.append(fileId)
+        })
+        .onChange(of: columnVisibility) {
+            Defaults[.ipadSplitViewVisibility] = columnVisibility
+        }
+        .onChange(of: scenePhase) { old, new in
+            switch (old, new) {
+            case (.active, .inactive):
+                Defaults[.ipadSplitViewVisibility] = columnVisibility
+                if let selection {
+                    Defaults[.savedMenuNavigation] = selection
+                }
+            case (_, .inactive):
+                columnVisibility = Defaults[.ipadSplitViewVisibility]
+            default:
+                break
+            }
+        }
+        .onChange(of: languages) { (_, new: [String]) in
+            if !new.contains(selectedLang) {
+                selectedLang = new.first ?? "eng"
+            }
+        }
+    }
+    
+    private func hasNonEmptyTab() -> Bool {
+        tabs.contains { tab in
+            tab.zimFile != nil
+        }
+    }
+    
+    @ViewBuilder
+    private func sectionFor(_ section: MenuSection) -> some View {
+        if section == .tabs {
+            Section {
+                ForEach(tabs) { (tab: Tab) in
+                    NavigationLink(value: MenuItem.tab(objectID: tab.objectID)) {
+                        labelFor(tab: tab)
+                    }
+                    .id(tab.id)
+                    .accessibilityIdentifier(tab.title ?? LocalString.common_tab_menu_new_tab)
+                    .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                        if tab.zimFile != nil {
+                            Button(role: .destructive) {
+                                Task { [weak navigation] in
+                                    await navigation?.deleteTab(tabID: tab.objectID)
+                                }
+                            } label: {
+                                Label(LocalString.sidebar_view_navigation_button_close, systemImage: "xmark")
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            if let sectionItems: [MenuItem] = menuDict[section] {
+                Section {
+                    ForEach(sectionItems, id: \.id) { (item: MenuItem) in
+                        navigationLinkFor(item: item)
+                            .id(item.id)
+                            .accessibilityIdentifier(item.accessibilityIdentifier)
+                    }
+                } header: {
+                    if let headerText = section.header {
+                        Text(headerText)
+                    }
+                }
+            }
+        }
+    }
+    
+    @ViewBuilder
+    private func navigationLinkFor(item: MenuItem) -> some View {
+        if case .donation = item {
+            Button {
+                // trigger the donation pop-up, but do not select the menu item itself
+                NotificationCenter.openDonations()
+            } label: {
+                labelFor(item: .donation)
+            }
+        } else {
+            NavigationLink(value: item) {
+                labelFor(item: item)
+            }
+            .id(item.id)
+        }
+    }
+    
+    @ViewBuilder
+    private func labelFor(tab: Tab) -> some View {
+        let labelText: String = {
+            if let (updatedTabId, updatedTabTitle) = titleUpdate,
+               updatedTabId == tab.objectID {
+                return updatedTabTitle
+            } else {
+                return tab.title ?? LocalString.common_tab_menu_new_tab
+            }
+        }()
+
+        Label {
+            Text(labelText)
+                .lineLimit(1)
+                .truncationMode(.tail)
+        } icon: {
+            iconImageFor(tab: tab)
+                .resizable()
+                .frame(maxWidth: 22, maxHeight: 22)
+                .clipShape(RoundedRectangle(cornerSize: CGSize(width: 3, height: 3)))
+        }
+        .accessibilityIdentifier(labelText)
+    }
+
+    private func iconImageFor(tab: Tab) -> Image {
+        let categoryImage: UIImage?
+        if let zimFile = tab.zimFile, let category = Category(rawValue: zimFile.category) {
+            if let imgData = zimFile.faviconData,
+               let image = UIImage(data: imgData) {
+                categoryImage = image
+            } else {
+                categoryImage = UIImage(named: category.icon)
+            }
+        } else {
+            categoryImage = nil
+        }
+        
+        if let categoryImage {
+            return Image(uiImage: categoryImage)
+        } else {
+            return Image(systemName: "square")
+        }
+    }
+    
+    @ViewBuilder
+    private func labelFor(item: MenuItem) -> some View {
+        let isSelected: Bool = item == selection
+        switch item {
+        case .tab:
+            // we use labelFor(tab:) instead
+            EmptyView()
+        case .donation:
+            Label {
+                Text(item.name)
+            } icon: {
+                Image(systemName: item.icon)
+                    .foregroundStyle(Color.red)
+                    .symbolVariant(isSelected ? .fill : .none)
+                    .modifier(Symbol26Vairant())
+            }
+        default:
+            Label(item.name, systemImage: item.icon)
+                .symbolVariant(isSelected ? .fill : .none)
+                .modifier(Symbol26Vairant())
+        }
+    }
+    
+    private static func allItems() -> [MenuItem] {
+        #if PREPAREME_APP
+        return [.bookmarks, .opened, .settings(scrollToHotspot: false)] // plan phase 4: no catalog, no hotspot
+        #else
+        if FeatureFlags.hasLibrary {
+            return [.bookmarks, .opened, .categories, .downloads, .new, .hotspot, .settings(scrollToHotspot: false)]
+        } else {
+            return [.bookmarks, .hotspot, .settings(scrollToHotspot: false)]
+        }
+        #endif
+    }
+    
+    private func loadDonations() async {
+        #if !PREPAREME_APP // Kiwix's donation code isn't in PrepareMe (Unlisted plan, phase 4; audit P2d)
+        guard allSections.contains(.donation) else { return }
+        if await Payment.paymentButtonTypeAsync() != nil {
+            menuDict[.donation] = [.donation]
+        }
+        #endif
+    }
+    
+    private func updateSelection(_ newNavItem: NavigationItem?) {
+        if let newNavItem, let newSelection = MenuItem(from: newNavItem) {
+            if selection != newSelection {
+                selection = newSelection
+                Defaults[.savedMenuNavigation] = selection
+                navPath = NavigationPath([newSelection])
+            }
+        }
+    }
+    
+    private func observeHasZimFiles() async {
+         let newValue = await Database.shared.viewContext.perform {
+            let request = ZimFile.fetchRequest(predicate: ZimFile.openedPredicate())
+            let context = Database.shared.viewContext
+            if let count = try? context.count(for: request) {
+                return count > 0
+            }
+            return false
+        }
+        hasZimFiles = newValue
+    }
+    
+    private func observeNavigateToHotspotSettings() {
+        navigateToHotspotSettingsTask = Task {
+            for await _ in NotificationCenter.default.notifications(named: .navigateToHotspotSettings) {
+                navigation.currentItem = .settings(scrollToHotspot: true)
+            }
+        }
+    }
+}
+
+private struct Symbol26Vairant: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 26, *) {
+            content.symbolColorRenderingMode(.gradient)
+        } else {
+            content
+        }
+    }
+}
+
+#endif

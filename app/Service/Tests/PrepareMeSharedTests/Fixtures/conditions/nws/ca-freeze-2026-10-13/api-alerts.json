@@ -1,0 +1,198 @@
+{
+    "@context": [
+        "https://geojson.org/geojson-ld/geojson-context.jsonld",
+        {
+            "@version": "1.1",
+            "wx": "https://api.weather.gov/ontology#",
+            "@vocab": "https://api.weather.gov/ontology#"
+        }
+    ],
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3cb5de00b32cfa69ef4cdf2eed87092d27228e25.001.2",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3cb5de00b32cfa69ef4cdf2eed87092d27228e25.001.2",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.3cb5de00b32cfa69ef4cdf2eed87092d27228e25.001.2",
+                "areaDesc": "Southern Trinity; Northwestern Interior Mendocino; Northeastern Interior Mendocino; Northern Lake; Northwestern and Central Trinity; Northeastern Trinity",
+                "geocode": {
+                    "SAME": [
+                        "006105",
+                        "006045",
+                        "006033"
+                    ],
+                    "UGC": [
+                        "CAZ108",
+                        "CAZ110",
+                        "CAZ111",
+                        "CAZ114",
+                        "CAZ116",
+                        "CAZ117"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/forecast/CAZ108",
+                    "https://api.weather.gov/zones/forecast/CAZ110",
+                    "https://api.weather.gov/zones/forecast/CAZ111",
+                    "https://api.weather.gov/zones/forecast/CAZ114",
+                    "https://api.weather.gov/zones/forecast/CAZ116",
+                    "https://api.weather.gov/zones/forecast/CAZ117"
+                ],
+                "references": [
+                    {
+                        "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.8d96ced13e90837f416602a5070bdb13f4b522d7.001.1",
+                        "identifier": "urn:oid:2.49.0.1.840.0.8d96ced13e90837f416602a5070bdb13f4b522d7.001.1",
+                        "sender": "w-nws.webmaster@noaa.gov",
+                        "sent": "2026-10-12T12:38:00-07:00"
+                    }
+                ],
+                "sent": "2026-10-12T12:47:00-07:00",
+                "effective": "2026-10-12T12:47:00-07:00",
+                "onset": "2026-10-13T01:00:00-07:00",
+                "expires": "2026-10-12T21:00:00-07:00",
+                "ends": "2026-10-13T08:00:00-07:00",
+                "status": "Actual",
+                "messageType": "Update",
+                "category": "Met",
+                "severity": "Minor",
+                "certainty": "Likely",
+                "urgency": "Expected",
+                "event": "Frost Advisory",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Eureka CA",
+                "headline": "Frost Advisory issued October 12 at 12:47PM PDT until October 13 at 8:00AM PDT by NWS Eureka CA",
+                "description": "* WHAT...For the Freeze Warning, sub-freezing temperatures as low as\n29 expected. For the Frost Advisory, temperatures as low as 34 will\nresult in frost formation.\n\n* WHERE...Trinity County, Northern Mendocino Interior, and Northern\nLake.\n\n* WHEN...From 1 AM to 8 AM PDT Tuesday.\n\n* IMPACTS...Frost and freeze conditions could kill crops, other\nsensitive vegetation and possibly damage unprotected outdoor\nplumbing. Frost could harm sensitive outdoor vegetation. Sensitive\noutdoor plants may be killed if left uncovered.",
+                "instruction": "Take steps now to protect tender plants from the cold.",
+                "response": "Prepare",
+                "note": null,
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "NPWEKA"
+                    ],
+                    "WMOidentifier": [
+                        "WWUS76 KEKA 121947"
+                    ],
+                    "NWSheadline": [
+                        "FREEZE WARNING IN EFFECT FROM 1 AM TO 8 AM PDT TUESDAY... ...FROST ADVISORY REMAINS IN EFFECT FROM 1 AM TO 8 AM PDT TUESDAY"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "VTEC": [
+                        "/O.CON.KEKA.FR.Y.0021.261013T0800Z-261013T1500Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2026-10-13T08:00:00-07:00"
+                    ]
+                },
+                "scope": "Public",
+                "code": "IPAWSv1.0",
+                "language": "en-US",
+                "web": "http://www.weather.gov",
+                "eventCode": {
+                    "SAME": [
+                        "NWS"
+                    ],
+                    "NationalWeatherService": [
+                        "FRY"
+                    ]
+                }
+            }
+        },
+        {
+            "id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3cb5de00b32cfa69ef4cdf2eed87092d27228e25.001.1",
+            "type": "Feature",
+            "geometry": null,
+            "properties": {
+                "@id": "https://api.weather.gov/alerts/urn:oid:2.49.0.1.840.0.3cb5de00b32cfa69ef4cdf2eed87092d27228e25.001.1",
+                "@type": "wx:Alert",
+                "id": "urn:oid:2.49.0.1.840.0.3cb5de00b32cfa69ef4cdf2eed87092d27228e25.001.1",
+                "areaDesc": "Southern Trinity; Northwestern Interior Mendocino; Northeastern Interior Mendocino; Northern Lake; Northwestern and Central Trinity; Northeastern Trinity",
+                "geocode": {
+                    "SAME": [
+                        "006105",
+                        "006045",
+                        "006033"
+                    ],
+                    "UGC": [
+                        "CAZ108",
+                        "CAZ110",
+                        "CAZ111",
+                        "CAZ114",
+                        "CAZ116",
+                        "CAZ117"
+                    ]
+                },
+                "affectedZones": [
+                    "https://api.weather.gov/zones/forecast/CAZ108",
+                    "https://api.weather.gov/zones/forecast/CAZ110",
+                    "https://api.weather.gov/zones/forecast/CAZ111",
+                    "https://api.weather.gov/zones/forecast/CAZ114",
+                    "https://api.weather.gov/zones/forecast/CAZ116",
+                    "https://api.weather.gov/zones/forecast/CAZ117"
+                ],
+                "references": [],
+                "sent": "2026-10-12T12:47:00-07:00",
+                "effective": "2026-10-12T12:47:00-07:00",
+                "onset": "2026-10-13T01:00:00-07:00",
+                "expires": "2026-10-12T21:00:00-07:00",
+                "ends": "2026-10-13T08:00:00-07:00",
+                "status": "Actual",
+                "messageType": "Alert",
+                "category": "Met",
+                "severity": "Severe",
+                "certainty": "Likely",
+                "urgency": "Expected",
+                "event": "Freeze Warning",
+                "sender": "w-nws.webmaster@noaa.gov",
+                "senderName": "NWS Eureka CA",
+                "headline": "Freeze Warning issued October 12 at 12:47PM PDT until October 13 at 8:00AM PDT by NWS Eureka CA",
+                "description": "* WHAT...For the Freeze Warning, sub-freezing temperatures as low as\n29 expected. For the Frost Advisory, temperatures as low as 34 will\nresult in frost formation.\n\n* WHERE...Trinity County, Northern Mendocino Interior, and Northern\nLake.\n\n* WHEN...From 1 AM to 8 AM PDT Tuesday.\n\n* IMPACTS...Frost and freeze conditions could kill crops, other\nsensitive vegetation and possibly damage unprotected outdoor\nplumbing. Frost could harm sensitive outdoor vegetation. Sensitive\noutdoor plants may be killed if left uncovered.",
+                "instruction": "Take steps now to protect tender plants from the cold.",
+                "response": "Execute",
+                "note": null,
+                "parameters": {
+                    "AWIPSidentifier": [
+                        "NPWEKA"
+                    ],
+                    "WMOidentifier": [
+                        "WWUS76 KEKA 121947"
+                    ],
+                    "NWSheadline": [
+                        "FREEZE WARNING IN EFFECT FROM 1 AM TO 8 AM PDT TUESDAY... ...FROST ADVISORY REMAINS IN EFFECT FROM 1 AM TO 8 AM PDT TUESDAY"
+                    ],
+                    "BLOCKCHANNEL": [
+                        "EAS",
+                        "NWEM",
+                        "CMAS"
+                    ],
+                    "VTEC": [
+                        "/O.NEW.KEKA.FZ.W.0008.261013T0800Z-261013T1500Z/"
+                    ],
+                    "eventEndingTime": [
+                        "2026-10-13T08:00:00-07:00"
+                    ]
+                },
+                "scope": "Public",
+                "code": "IPAWSv1.0",
+                "language": "en-US",
+                "web": "http://www.weather.gov",
+                "eventCode": {
+                    "SAME": [
+                        "NWS"
+                    ],
+                    "NationalWeatherService": [
+                        "FZW"
+                    ]
+                }
+            }
+        }
+    ],
+    "title": "Current watches, warnings, and advisories",
+    "updated": "2026-10-13T02:34:53+00:00"
+}

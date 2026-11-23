@@ -1,0 +1,184 @@
+{
+  "fill-specializations": [
+    {
+      "value": {
+        "linear-gradient": [
+          "srgb:0.48627,0.22745,0.92941,1.00000",
+          "srgb:0.23137,0.02745,0.39216,1.00000"
+        ],
+        "orientation": {
+          "start": {
+            "x": 0.5,
+            "y": 0
+          },
+          "stop": {
+            "x": 0.5,
+            "y": 1
+          }
+        }
+      }
+    },
+    {
+      "appearance": "dark",
+      "value": {
+        "linear-gradient": [
+          "srgb:0.48627,0.22745,0.92941,1.00000",
+          "srgb:0.23137,0.02745,0.39216,1.00000"
+        ],
+        "orientation": {
+          "start": {
+            "x": 0.5,
+            "y": 0
+          },
+          "stop": {
+            "x": 0.5,
+            "y": 1
+          }
+        }
+      }
+    }
+  ],
+  "groups": [
+    {
+      "layers": [
+        {
+          "name": "letters",
+          "image-name": "letters.png",
+          "glass": false,
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:0.08235,0.10588,0.13333,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:0.08235,0.10588,0.13333,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "name": "band",
+          "image-name": "band.png",
+          "glass": false,
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:0.98039,0.80000,0.08235,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:0.98039,0.80000,0.08235,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "name": "roof",
+          "image-name": "roof.png",
+          "glass": false,
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:0.96078,0.61961,0.04314,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:0.96078,0.61961,0.04314,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "name": "pages",
+          "image-name": "pages.png",
+          "glass": false,
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:0.70588,0.32549,0.03529,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:0.70588,0.32549,0.03529,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "name": "route",
+          "image-name": "route.png",
+          "glass": false,
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:0.08235,0.10588,0.13333,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:0.08235,0.10588,0.13333,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "name": "middle",
+          "image-name": "middle.png",
+          "glass": false,
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:0.52549,0.93725,0.67451,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:0.52549,0.93725,0.67451,1.00000"
+              }
+            }
+          ]
+        },
+        {
+          "name": "panels",
+          "image-name": "panels.png",
+          "glass": false,
+          "fill-specializations": [
+            {
+              "value": {
+                "solid": "srgb:0.74902,0.85882,0.99608,1.00000"
+              }
+            },
+            {
+              "appearance": "dark",
+              "value": {
+                "solid": "srgb:0.74902,0.85882,0.99608,1.00000"
+              }
+            }
+          ]
+        }
+      ],
+      "shadow": {
+        "kind": "neutral",
+        "opacity": 0.5
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.4
+      }
+    }
+  ],
+  "supported-platforms": {
+    "squares": "shared"
+  }
+}

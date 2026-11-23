@@ -1,0 +1,870 @@
+<!doctype html><html lang="en"><head><meta charset='utf-8'><meta name='viewport' content='width=device-width, initial-scale=1'><title>Today</title></head><body><h1>Today</h1><section id="conditions" data-mode="event" data-switch="auto" data-event-stale-hours="24" data-banner="Older than 12 hours: don&#x27;t rely on these conditions; check other sources. Oldest: {headings}." data-banner-mac="Roads and notices are from the Mac&#x27;s page of {date}; this phone&#x27;s own weather, river, outage, evacuation and hurricane readings are current." data-event-line="Event mode is on: {reasons}." data-reason-join="; " data-reason-stale="none of the conditions has been refreshed for over 24 hours, so this may be a long outage" data-reason-on="switched on by hand" data-needs-marked="1">
+<style>
+/* Identity (owner, 2026-10-15; look 3, owner 2026-11-11): a lightly tinted ground from the icon's folded map, and
+   color only where it means something: red danger or needs action, amber caution or worth a look (--accent, its text
+   --caution), blue a key fact, green fine. PrepareMe's teal marks what you can press and where you are, never a
+   status: links (--link, underlined), a teal button (--id-fill, its words --on-id), the row or tab you're on
+   (--id-tint); the band at a page's top is --band with --band-text, or --ev with --ev-text when something needs
+   action. Bullets and step numbers neutral. */
+body{
+  --bg:#e7ece3;--panel:#fbfcf8;--text:#16191d;--text2:#3c463f;--line:#cbd3c4;--edge:#69727c;
+  --link:#0c5d57;--caution:#92400e;--accent:#b45309;--accent-bg:#fffbeb;
+  --red:#991b1b;--red-mark:#b91c1c;--red-bg:#fef2f2;--miss:#dfe6d9;--fill:#991b1b;
+  --ok-mark:#15803d;--ok-bg:#f0fdf4;--ev:#7f1d1d;--ev-text:#fff;
+  --info:#1e3a8a;--info-mark:#1d4ed8;--info-bg:#eff6ff;--on-fill:#fff;
+  --id-fill:#0c5d57;--on-id:#ffffff;--id-tint:#d6e8e1;--band:#0e4a48;--band-text:#f2fbf9;
+  max-width:46rem;margin:0 auto;padding:16px 16px 48px;
+  font:17px/1.5 -apple-system,system-ui,sans-serif;color:var(--text);background:var(--bg);
+  -webkit-text-size-adjust:100%;
+}
+@media (prefers-color-scheme:dark){body{
+  --bg:#0d171c;--panel:#15242a;--text:#eef1f4;--text2:#c6ced6;--line:#263c45;--edge:#8d99a6;
+  --link:#6fdccf;--caution:#fcd34d;--accent:#f59e0b;--accent-bg:#2e2208;
+  --red:#fca5a5;--red-mark:#f87171;--red-bg:#3a1717;--miss:#1d323a;
+  --ok-mark:#4ade80;--ok-bg:#10261a;--ev:#5c1414;--ev-text:#fff5f5;
+  --info:#bfdbfe;--info-mark:#60a5fa;--info-bg:#14213b;
+  --id-fill:#5fd0c2;--on-id:#07211f;--id-tint:#143630;--band:#0e4443;--band-text:#f2fbf9;color-scheme:dark;
+}}
+/* Increase Contrast (remaining-findings plan, Task 9.2; F65): grey text, edges and rules darken to the ink */
+@media (prefers-contrast:more){body{--text2:var(--text);--edge:var(--text);--line:var(--text)}}
+/* Red night (look 3 phase 0, proving.md question 4): the app's red layer keeps only a color's red part, and the
+   dark teal's is dim (1.6:1 on black), so while red the teal takes the ink, the bright red links had before; a danger
+   box takes the page's ground, whose red part is darker than its own (phase 8: its words had fallen to 3.9:1) */
+html[data-pm-red] body{--link:var(--text);--id-fill:var(--text);--on-id:var(--bg);--red-bg:var(--bg)}
+*,::before,::after{box-sizing:border-box}
+/* An emoji: text in the system's emoji font, in a fixed-width box beside its words, so the words line up */
+.em{display:inline-block;flex:none;width:1.5em;text-align:center;font-style:normal;line-height:1;
+  -webkit-text-size-adjust:none;text-size-adjust:none}
+
+/* Type: nothing under 15px (.8824em of 17px). Look 3 (spec section 2): titles in the book typeface and numbers in
+   the rounded one, both already on every Apple device (New York, SF Rounded), each stack ending in a generic family */
+body{--serif:ui-serif,"New York","Iowan Old Style",Charter,Georgia,serif;
+  --round:ui-rounded,"SF Pro Rounded",-apple-system,system-ui,sans-serif}
+h1,h2{font-family:var(--serif)}
+h1{font-size:1.53em;line-height:1.2;margin:4px 0 12px}
+h2{font-size:1.235em;line-height:1.3;margin:0 0 8px}
+p,ul,ol{margin:0}
+a{color:var(--link);text-underline-offset:.15em}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--link);outline-offset:2px}
+code{font-size:.8824em}
+/* Look 3's contour lines (packer.contour), written once and used by both bands through --contour */
+body{--contour:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 500' fill='none' stroke='white' stroke-opacity='.12' stroke-width='1.2'%3E%3Cpolygon points='345,250 348,254 348,259 345,262 341,264 335,265 331,266 327,267 324,267 320,268 316,267 313,266 309,266 305,265 300,264 295,262 292,258 292,254 295,250 298,247 301,244 302,242 303,238 304,235 307,232 311,230 316,230 320,230 324,230 329,230 332,232 335,235 336,239 337,242 338,244 341,247'/%3E%3Cpolygon points='371,250 376,258 377,267 372,275 361,279 350,280 340,279 333,279 327,282 320,285 312,287 304,287 296,285 288,282 280,278 273,273 268,266 267,258 271,250 277,244 283,239 286,233 286,226 288,218 293,211 301,206 311,206 320,209 328,213 335,215 342,218 349,222 354,226 357,232 361,238 365,243'/%3E%3Cpolygon points='399,250 402,262 402,275 394,286 381,292 364,294 349,292 338,292 330,296 320,303 307,310 293,312 280,308 270,300 262,290 256,281 250,271 247,261 248,250 253,240 260,232 265,224 268,214 271,201 278,189 290,182 306,182 320,189 331,198 340,204 349,208 360,210 372,214 382,220 389,229 394,239'/%3E%3Cpolygon points='428,250 425,265 419,280 410,293 396,303 378,308 360,308 345,308 333,313 320,322 303,332 282,337 263,332 250,319 244,303 242,288 238,275 232,263 227,250 226,236 231,223 238,211 246,198 254,185 265,171 282,162 301,162 320,170 334,182 345,193 356,198 371,199 391,201 410,207 423,219 429,234'/%3E%3Cpolygon points='459,250 445,268 432,284 420,298 407,311 392,322 374,328 356,332 338,336 320,344 298,353 273,357 249,352 233,336 227,315 228,294 227,278 219,265 207,250 197,232 196,212 204,194 220,180 237,168 256,157 276,149 298,147 320,154 338,166 351,178 365,185 384,186 410,187 438,193 459,208 465,229'/%3E%3Cpolygon points='488,250 466,271 443,287 426,301 416,317 406,335 390,351 369,362 345,367 320,370 294,372 267,372 240,365 220,349 211,326 210,303 210,283 203,267 186,250 168,228 160,201 168,177 191,160 220,151 248,146 273,143 297,140 320,141 342,147 361,156 379,164 402,169 431,173 463,181 489,199 498,224'/%3E%3Cpolygon points='511,250 487,275 458,292 437,307 427,325 420,349 407,376 383,395 352,402 320,399 291,389 263,380 237,369 214,355 197,336 188,313 184,291 176,271 159,250 139,223 128,192 136,162 164,141 203,134 241,136 272,139 296,138 320,132 346,127 373,128 399,136 425,146 453,157 483,172 508,193 520,221'/%3E%3Cpolygon points='526,250 508,278 482,299 459,317 445,337 436,365 422,398 396,425 359,435 320,427 287,407 261,385 237,369 212,357 185,344 162,326 147,303 135,277 124,250 111,219 105,185 114,151 144,127 188,119 233,124 269,133 295,133 320,123 350,107 386,98 423,102 453,117 478,140 499,164 518,190 529,219'/%3E%3Cpolygon points='533,250 529,281 514,309 493,333 473,357 456,385 436,417 406,446 364,459 320,450 283,424 258,393 237,370 210,359 174,352 135,339 103,316 85,285 80,250 82,215 90,180 106,147 135,121 177,108 223,109 262,117 292,119 320,107 355,87 399,70 445,70 482,89 504,121 514,157 520,189 528,219'/%3E%3C/svg%3E")}
+/* The Mac and an iPad: a wider page for the two columns (spec section 7), never a page of the guide list's own
+   (body.guides-page) but those marked body.wide (below); 16 px side gutters on a phone */
+@media (min-width:760px){body:not(.guides-page){max-width:80rem;padding:16px 24px 48px}}
+/* "Go to the guides", Maps and Inventory (the packer's three buttons, owner 2026-10-12), in one nav right after the
+   date line (the Today redesign's phase 3): full-width buttons, their emoji beside their words, as tall as the top
+   link, Maps' note under its button; a row of three in a wide window. Hidden where the page is marked as the phone
+   app's (data-host, set by the app before the page draws), whose tab bar holds them: never by width, since App
+   Store Kiwix on a phone has no tab bar */
+h1+p{margin-bottom:12px}
+.host-links{display:flex;flex-direction:column;gap:12px}
+.host-links>p{margin:0}
+.host-links>p>a{display:flex;align-items:center;gap:12px;min-height:56px;padding:12px 16px;
+  border:2px solid var(--edge);border-radius:12px;background:var(--panel);font-weight:700;line-height:1.3;
+  text-decoration:none}
+.host-links .em{font-size:28px}
+[data-host=phone] .host-links,[data-host=phone-readonly] .host-links{display:none}
+@media (min-width:900px){.host-links{flex-direction:row;flex-wrap:wrap}.host-links>p{flex:1 1 0}}
+
+/* The block: one column of regions, spaced by its gap. The date, the top link and the event
+   band come first, then the columns: on a phone their wrappers vanish, so the regions stack in
+   page order, except What to do now, which stands right after the band in the page and is placed by its
+   order value; on the Mac, two columns (below). Event mode sorts the same regions by order */
+#conditions{display:flex;flex-direction:column;gap:16px}
+.cols,.col-a,.col-b{display:contents}
+.now-region{display:contents}
+/* The household (the Today redesign's ruling 9) under its heading, and the notices' row, each spaced by
+   its gap; the quiet notes last. In a wide window both stand in the right column (design note D7) */
+.household,.notices-region{display:flex;flex-direction:column;gap:8px;min-width:0}
+.region-h{margin:0}
+#conditions:not([data-mode=event]) .quiet{order:2}
+/* The News link stands in the page just before the Household (owner, 2026-10-21; it ended the page before): at the default
+   order, after the other regions at order 0 and ahead of the household, which follows it in the page; event mode keeps it last.
+   Official Notices' row follows it, with no heading of its own (owner, 2026-10-29) */
+[data-mode=event] .news-foot{order:7}
+.news-foot{margin:0}
+.news-foot>a{display:flex;align-items:center;gap:12px;min-height:44px;padding:12px 16px;border:1px solid var(--line);
+  border-radius:12px;background:var(--panel);font-weight:600}
+.news-foot .em{font-size:20px}
+[data-host=mac-app] .news-foot{display:none}
+/* News's important story in Worth a look (news plan Task 3.3; the pictures' Today line, the owner's pick 2026-11-18):
+   amber, worth a look, never red; the Mac app's alone until phase 4, so hidden elsewhere with a group holding only it */
+.news-today,.worth.news-only{display:none}
+[data-host=mac-app] .worth.news-only{display:flex}
+[data-host=mac-app] .news-today{display:flex;align-items:flex-start;gap:8px;padding:12px 16px;border-radius:14px;
+  background:var(--accent-bg);box-shadow:inset 0 0 0 1.5px var(--accent);color:var(--text);text-decoration:none}
+.news-today>.t{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.news-today .says{color:var(--caution);font-size:.8824em}
+.news-today>.chev{color:var(--link);font-weight:700;font-size:1.176em;line-height:1}
+/* Our Home (Task 4.2, boards 14 to 17): the household's own pages right above Our Supplies, after News and Official
+   Notices (owner, 2026-11-16; above News until then, which parted the two), each a tile with its
+   title, two a row (across the row for one page, and at the largest text); "Not finished" amber, worth a look. Event
+   mode drops the pages What to do now's face holds (.on-face, set by the packer) and sets the rest as rows, before
+   the household; the block goes when none is left. The block is a plain box, never a flex column: an iPhone's WebKit
+   (15 Pro Max, 2026-11-18) sized the tiles' grid as a column's child at its narrowest width, one letter a line, and
+   stretched one tile two-thirds of the screen tall; break-word, not anywhere, keeps that narrowest width a word */
+.our-home{min-width:0}
+.oh-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+.oh-tiles.one,[data-large] .oh-tiles,[data-mode=event] .oh-tiles{grid-template-columns:minmax(0,1fr)}
+.oh-tile{display:flex;flex-direction:column;align-items:flex-start;gap:4px;min-height:84px;padding:12px;
+  border:1px solid var(--line);border-radius:14px;background:var(--panel);font-weight:700;line-height:1.25;
+  text-decoration:none;overflow-wrap:break-word}
+.oh-tiles.one>.oh-tile{min-height:56px;justify-content:center}
+.oh-tile>.nf{padding:0 8px;border:1px solid var(--accent);border-radius:99px;color:var(--caution);
+  font-size:.8824em}
+[data-mode=event] .our-home{order:2}
+[data-mode=event] .oh-tile{flex-direction:row;flex-wrap:wrap;align-items:center;min-height:48px;padding:8px 12px;
+  border-radius:12px}
+[data-mode=event] .oh-tile.on-face{display:none}
+[data-mode=event] .our-home:not(:has(.oh-tile:not(.on-face))){display:none}
+#panel-readiness{padding:0;border:0;background:none}
+#panel-readiness>h2{display:none}
+.row.tally>summary>.face>.count{font-family:var(--round);font-size:1em;font-weight:700}
+/* "Today" and its long date on their own line, then the quiet link to What to do now (the Today
+   redesign's part 1 and design note D1: a link line, never a button competing with the answer) */
+body:not(.guides-page)>h1{font-size:1.235em;line-height:1.25;margin:4px 0}
+.date-line{font-size:.8824em;font-weight:600;color:var(--text2)}
+/* Look 3's band (spec sections 3 and 4): on a calm day the date, the packer's three buttons where they show, and the
+   top link, on the band's teal with its contour lines (a background, so VoiceOver never meets them); never red, even
+   while the answer box says Needs action, which keeps its place under the weather (owner, 2026-11-11, after Ship A).
+   No fixed height: its lines wrap and it grows. In event mode it steps aside (display:contents) and the date line and
+   top link stand as they did, the event band under them being the red band */
+#conditions:not([data-mode=event]) .day-band{display:flex;flex-direction:column;gap:4px;padding:12px 16px 4px;
+  border-radius:14px;color:var(--band-text);
+  background:var(--band) var(--contour) right -150px top -170px/640px 500px no-repeat}
+[data-mode=event] .day-band{display:contents}
+[data-mode=event] .date-line{margin-top:-8px}
+#conditions:not([data-mode=event]) .day-band>.date-line{font-family:var(--serif);font-size:1.412em;line-height:1.2;
+  color:inherit}
+#conditions:not([data-mode=event]) .day-band a{color:inherit}
+/* The focus ring sits on the band past its gap, so it takes the band's word color (the host buttons' teal would vanish) */
+#conditions:not([data-mode=event]) .day-band a:focus-visible{outline-color:var(--band-text)}
+.band a:focus-visible{outline-color:var(--ev-text)}
+.day-band .host-links{margin:8px 0 4px}
+#conditions:not([data-mode=event]) .day-band .host-links>p>a{border-color:var(--panel);color:var(--link)}
+#conditions:not([data-mode=event]) .day-band .note{color:inherit}
+/* Red night: the band on the black ground with an edge */
+[data-pm-red] #conditions .day-band{background-color:var(--bg);box-shadow:inset 0 0 0 2px var(--line)}
+.now-link a,.wx-calc a{display:flex;align-items:center;gap:8px;min-height:48px;color:var(--link);font-weight:600;
+  line-height:1.3;text-decoration:underline;text-underline-offset:.2em}
+/* The heat index and wind chill under the weather alerts while home has a heat or cold alert (step 8c, section 3):
+   the same quiet link line, in both modes (the owner, 2026-10-20) */
+.wx-calc{margin:0}
+.now-link .em{font-size:20px}
+/* The event band: in normal mode only its event line shows (the switch's Off line, quiet) */
+.band{display:contents}
+.band>.marks,.band>.alert,.band>.sos,.band>.aid-go,#band-banner,.band [hidden]{display:none}
+.rally{display:none}
+#event-line{padding:12px 16px;border:1px solid var(--edge);border-radius:12px;background:var(--panel);
+  font-weight:600}
+#event-line:empty{display:none}
+/* "tap" or "click" by the pointer (Task 13.5; F50) */
+/* Where to switch event mode on this device (ruling 8): the host mark picks one; with none, the
+   "anywhere else" words. Shown only while the event line says something */
+.dir{margin:0;font-size:.8824em}
+.dir>span{display:none}
+.dir>.d-any{display:inline}
+[data-host=phone] .dir>.d-any,[data-host=phone-readonly] .dir>.d-any,[data-host=mac-app] .dir>.d-any{display:none}
+[data-host=phone] .dir>.d-phone,[data-host=phone-readonly] .dir>.d-ro,[data-host=mac-app] .dir>.d-mac{display:inline}
+#event-line:empty~.dir{display:none}
+.note{margin-top:4px;font-size:.8824em;color:var(--text2)}
+/* The answer, the page's one bold element: green with its check only when nothing needs action
+   and no main reading is past 12 hours; filled red with "Needs action:" and its links when a panel
+   holds a red-box warning (in event mode, where the band is the bold element, a red edge on the
+   faint red ground); over old readings, the panel's ground, a gray edge and the clock. Under the
+   words, the oldest reading's line and the closed Sources and ages fold */
+.answer{display:flex;align-items:flex-start;gap:12px;padding:16px;border:2px solid var(--ok-mark);border-radius:14px;
+  background:var(--ok-bg)}
+.answer>.em{width:48px;font-size:36px;line-height:1.05}
+/* At the largest text sizes the mark stands over the words, so the words have the box's whole width (look 3: the
+   book typeface's words are wider) */
+[data-large] .answer{flex-direction:column;gap:4px}
+.said{display:flex;flex:1;flex-direction:column;gap:4px;min-width:0}
+.all-clear,.needs{font-family:var(--serif);font-size:1.412em;font-weight:700;line-height:1.15;text-wrap:balance}
+.needs a{color:inherit}
+.top-line{font-size:.8824em;color:var(--text2)}
+.said>.note{margin:0}
+.answer.is-old{border-color:var(--edge);background:var(--panel)}
+.answer.is-bad{border-color:var(--fill);background:var(--fill);color:var(--on-fill)}
+[data-mode=event] .answer.is-bad{border-color:var(--red-mark);background:var(--red-bg);color:var(--text)}
+.banner{padding:8px 12px;border:2px solid var(--accent);border-radius:12px;
+  background:var(--accent-bg);font-weight:700}
+/* Too old to rely on (design note D8; the owner's "All at the bottom", 2026-10-16): the red line
+   stands in the oldest line's place among the quiet notes at the page's end, and the box's
+   "Nothing needs action." goes quiet, never an all-clear louder than old readings */
+.quiet>#banner{padding:0;border:0;border-radius:0;background:none;color:var(--caution);font-weight:700}
+.quiet>.banner.mk-old::before{color:inherit}
+.quiet:has(>#banner)>.top-line{display:none}
+.answer.is-old .all-clear{font-size:.8824em;font-weight:600;color:var(--text2)}
+/* Sources and ages: a quiet fold among the notes at the page's end; opened, its list stands on
+   the panel's ground, each source's age on its own quieter line */
+.ages{margin:4px 0 0;border:0;background:none}
+#conditions .ages>summary{padding:0;font-size:.8824em;font-weight:700}
+.ages>summary{color:var(--text2)}
+.srcs{display:flex;flex-direction:column;gap:12px;padding:12px;border-radius:12px;background:var(--panel);
+  color:var(--text)}
+.srcs>ul{display:flex;flex-direction:column;gap:8px;margin:0;padding:0;list-style:none}
+.srcs li{display:flex;flex-direction:column}
+.srcs .label{font-size:.8824em}
+.srcs .age.is-old{color:var(--caution);font-weight:700}
+.srcs>.note{margin:0}
+.col-a>.fail-line,.col-a>.phones{margin:0}
+
+/* The forecast strip: cells of one width, on rows shared across the strip (subgrid), so every
+   name, weather mark, temperature, short words and rain chance line up; four on a phone, seven once its
+   region is 672 px wide (the Mac's wider windows), where a cell holds "Wednesday" whole. A name
+   breaks only at the soft hyphens the page writes in it ("Wednes-day"), never mid-word.
+   Past the forecast's own limit it takes the old look: each cell's red edge (kept to its size,
+   as a chip's), and its old line; with no cells, the line itself has the edge */
+.fc{display:flex;flex-direction:column;gap:8px;container-type:inline-size}
+.fc>p{margin:0}
+.fc.is-old .cell{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.fc.is-old>p:first-child{padding:8px 12px;border:2px solid var(--accent);border-radius:14px}
+.strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(5,auto);gap:0 8px}
+.cell{grid-row:1/span 5;display:grid;grid-template-rows:subgrid;row-gap:4px;justify-items:center;
+  align-items:start;padding:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--panel);
+  text-align:center}
+.cell>span{max-width:100%;overflow-wrap:anywhere;hyphens:auto;-webkit-hyphens:auto}
+.cell>.name{grid-row:1;font-size:.8824em;font-weight:700;line-height:1.25;color:var(--text2);
+  overflow-wrap:normal}
+.cell>.em{grid-row:2;width:auto;font-size:28px}
+.cell>.temp{grid-row:3;font-family:var(--round);font-size:1.176em;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.cell>.temp>small{display:block;font-size:.75em;font-weight:600;color:var(--text2)}
+.cell>.w{grid-row:4;font-size:.8824em;line-height:1.25}
+.cell>.pop{grid-row:5;font-size:.8824em;font-weight:700;line-height:1.25;font-variant-numeric:tabular-nums}
+.cell>.pop>.em{width:auto;margin-right:.15em}
+.cell.mac{display:none}
+a.cell{color:var(--text);text-decoration:none}
+/* The hours (forecast-detail plan; its design pass, owner 2026-10-29). Under the boxes a quiet hint, then the rain
+   line and the cold night line in the same type, the cold one amber (worth a look). A box opens its day's fold
+   under the sky's lines, one at a time, the box outlined while it is open (aria-expanded, the page's script); a
+   closed fold shows nowhere, though with no script a box's link still shows its own. A fold holds the day's and the
+   night's headings, each with the forecast's words under it, then a row an hour: the time, the chance with a bar of
+   it in tenths (key-fact blue), the temperature and the wind, each second line smaller and quieter; the column
+   names are VoiceOver's alone. The Mac's days show where its seven boxes do */
+.fc>.hint{font-size:.8824em;color:var(--text2)}
+.fc>.cold-line{color:var(--caution)}
+a.cell[aria-expanded=true]{border-color:var(--text);box-shadow:inset 0 0 0 1px var(--text)}
+.hours{display:flex;flex-direction:column;gap:8px;container-type:inline-size}
+#conditions:not([data-mode=event]) .ev-fold>.hours:has(>[open],>:target,>p:not([hidden])){margin-top:8px}
+.hours>p{margin:0}
+.day-hours{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:0 16px}
+.day-hours:not([open]):not(:target){display:none}
+.hours.is-old .day-hours{border-color:var(--accent)}
+#conditions .day-hours>summary{padding:12px 0;font-weight:700}
+.day-hours>p{margin:0;font-size:.8824em;color:var(--text2)}
+.day-hours.mac{display:none}
+.hrs{width:100%;max-width:32em;border-collapse:collapse;margin:0 0 12px;font-variant-numeric:tabular-nums}
+.hrs thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.hrs th,.hrs td{padding:8px 4px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+.hrs tbody th{width:4.25em;white-space:nowrap}
+.hrs td:nth-child(2){width:6.5em;white-space:nowrap}
+.hrs td:nth-child(3){width:5em}
+.hrs td:nth-child(4){white-space:nowrap}
+@media (max-width:359px){.hrs .bar{display:none}.hrs td:nth-child(2){width:auto}}
+.hrs .part>th{width:auto;padding:12px 0 4px;border-top:0;white-space:normal}
+.hrs .part>th>span{display:block;font-size:.8824em;font-weight:400;color:var(--text2)}
+.hrs .pct{display:inline-block;min-width:2.25em}
+.bar{display:inline-block;width:2em;height:.375em;margin-left:4px;vertical-align:middle;border-radius:99px;
+  background:var(--line);overflow:hidden}
+.bar>b{display:block;height:100%;background:var(--info-mark)}
+.bar>.p0{width:0}.bar>.p1{width:10%}.bar>.p2{width:20%}.bar>.p3{width:30%}.bar>.p4{width:40%}.bar>.p5{width:50%}
+.bar>.p6{width:60%}.bar>.p7{width:70%}.bar>.p8{width:80%}.bar>.p9{width:90%}.bar>.p10{width:100%}
+.hrs small{display:block;font-size:.8824em;font-weight:400;color:var(--text2)}
+/* At the largest text sizes four columns don't fit a phone: each hour is its time on a line of its own, then its
+   chance, temperature and wind side by side, wrapping as they need */
+[data-large] .hrs,[data-large] .hrs tbody{display:block}
+[data-large] .hrs tr{display:flex;flex-wrap:wrap;gap:0 12px;padding:8px 0;border-top:1px solid var(--line)}
+[data-large] .hrs tr.part{border-top:0}
+[data-large] .hrs th,[data-large] .hrs td{display:block;width:auto;padding:0;border:0;white-space:normal}
+[data-large] .hrs tbody th{flex-basis:100%}
+.hrs .em{width:auto;margin-right:.15em}
+/* Under 360 px a cell in a row of four is too narrow for "Wednes-" at 15 px: the four cells go in two
+   rows of two, an 8 px track between them, the words at the page's 15 px floor (the Today redesign's
+   phase 6, owner 2026-10-15, by click; it replaced 13 px words there, 2026-10-11) */
+@media (max-width:359px){.strip{grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:repeat(5,auto) 8px repeat(5,auto)}.cell:nth-child(n+3){grid-row:7/span 5}}
+@container (min-width:672px){.strip{grid-template-columns:repeat(7,minmax(0,1fr))}.cell.mac{display:grid}
+  .day-hours.mac{display:block}}
+/* At the largest text sizes ([data-large], TextSizeZoom) a box in a row of two or four broke its day's name ("To-day")
+   on the Pro Max and iPad (beta run 3; the owner's click, 2026-10-21): one day per row, left-aligned, in the same
+   box, in the page's own order (VoiceOver's): the day's name on a line of its own, the mark leading the short words,
+   then "High 75°" at the right. Plain lines, not a grid: WebKit enlarges the text after it has sized a grid's
+   tracks, so cells in a grid kept their small sizes (words broken, lines on top of each other: seen on the SE's
+   simulator at three times the text) */
+[data-large] .strip{display:flex;flex-direction:column;gap:8px}
+[data-large] .cell{display:block;padding:8px 12px;text-align:left}
+[data-large] .cell.mac{display:none}
+@container (min-width:672px){[data-large] .cell.mac{display:block}}
+[data-large] .cell>.name{display:block}
+[data-large] .cell>.temp{display:block;text-align:right}  /* the temperatures in one column down the right edge */
+[data-large] .cell>.pop{display:block;text-align:right}
+[data-large] .cell>.em{margin-right:.3em}
+[data-large] .cell>.temp>small{display:inline;margin-right:.3em}
+
+/* The condition rows (the Today redesign's ruling 4): plain lines on the page's ground, 1 px lines
+   between them, each its emoji, its short words, its status mark and the fold's chevron; open, its
+   panel stands on the panel's ground under it. 🕒 and 🟠 words amber (F10: red is for danger alone), ◼ (a gray square,
+   drawn) quiet. A face the Mac wrote hidden is the script's, shown in the first one's place once
+   due. The outage count's row is hidden while its panel is a card (event mode), and the cards'
+   box while it is empty */
+/* Look 3 (spec section 4): each group of rows in one panel; a row's line drawn above it as a shadow, which the
+   panel clips at its top edge, so the first row shown never doubles the edge */
+.conds{display:flex;flex-direction:column;padding:0 12px;border:1px solid var(--line);border-radius:14px;
+  background:var(--panel);overflow:hidden}
+.conds>.row{border-top:0;box-shadow:0 -1px var(--line)}
+.conds .row>summary>.em:first-child{display:inline-flex;align-items:center;justify-content:center;width:1.6em;height:1.6em;
+  border-radius:12px;background:var(--miss)}
+/* The Forecast fold right under the 4-day boxes (the owner's fix 7, 2026-10-16), a row like the others; since the
+   design pass (owner, 2026-10-29) The week ahead: a day a row, its name, mark, chance and low to high on one line,
+   its words and the night's under it, quieter, then home's outlook with its heading. A day only a Mac fold gives
+   words for hides where the Mac's boxes show */
+.conds.wx{margin-top:8px;container-type:inline-size}
+.week{margin:12px 0 0;padding:0;list-style:none}
+.week>li{padding:12px 0;border-top:1px solid var(--line)}
+.week>li:first-child{padding-top:0;border-top:0}
+.week p{margin:4px 0 0;font-size:.8824em;color:var(--text2)}
+.week .top{display:flex;align-items:center;gap:8px;margin:0;font-size:1em;color:var(--text)}
+.week .top>b{flex:1;min-width:0}
+.week .top>.pop{font-size:.8824em;font-variant-numeric:tabular-nums}
+.week .top>.pop>.em{width:auto;margin-right:.15em}
+.week .top>.lh{min-width:5.5em;font-family:var(--round);text-align:right;font-variant-numeric:tabular-nums}
+@container (min-width:672px){.week>.on-card{display:none}}
+#fold-forecast>#panel-outlook>h2{display:block;margin:0 0 8px}
+/* The sunrise, sunset and moon lines under the 4-day boxes: the same 8 px the Forecast row has under them and the boxes'
+   own gap (the owner, 2026-10-21: they touched the boxes); not in event mode, whose fold gives every part its 16 px */
+#conditions:not([data-mode=event]) .ev-fold>.sky:has(>p:not([hidden])){margin-top:8px}
+.group{font-size:.8824em;font-weight:700;color:var(--text2)}
+.row[hidden],.problems[hidden],.fc>[hidden],.day-hours[hidden],.row.cond>summary>[hidden]{display:none}
+.row.cond{background:none}
+#conditions .row.cond>summary{padding:8px 0}
+.row.cond>summary>.em,.row.hz-fold>summary>.em{font-size:20px}
+.row.cond>summary>.face{flex:1;min-width:0}
+.row.cond>summary>.st{width:1.4em}
+.row.cond.is-old>summary>.face{color:var(--caution);font-weight:600}
+.row.cond.is-look>summary>.face{color:var(--caution);font-weight:600}
+.row.cond.is-miss>summary>.face{color:var(--text2);font-weight:600}
+.st.sq::before{content:"";display:inline-block;width:.7em;height:.7em;background:var(--edge)}
+.row.cond>.panel,.row.more-fold>.panel{margin:0 0 12px;padding:12px 16px 16px;border-radius:12px;
+  background:var(--bg)}
+.row.more-fold,.row.hz-fold,.row.more-guides{background:none}
+#conditions .row.more-fold>summary,#conditions .row.hz-fold>summary,#conditions .row.more-guides>summary{
+  padding:8px 0}
+.row.more-fold>summary>.face,.row.hz-fold>summary>.face{flex:1;min-width:0}
+.row.hz-fold>.hz,.row.hz-fold>.ready,.row.more-guides>.go,.row.more-guides>.group{margin:0 0 12px}
+
+/* Shape markers: color is never the only signal */
+.mk-warn::before,.mk-old::before,.mk-miss::before,.missing::before,.mk-none::before{
+  content:"";display:inline-block;margin-right:.45em}
+.mk-warn::before{border:solid transparent;border-width:0 .5em .86em;border-bottom-color:var(--red-mark);vertical-align:-.05em}
+.mk-old::before{width:.8em;height:.8em;border:2px solid currentColor;border-radius:50%;
+  background:conic-gradient(currentColor 0 25%,transparent 0);vertical-align:-.1em}
+.banner.mk-old::before{color:var(--accent)}
+.mk-miss::before,.missing::before{width:.7em;height:.7em;background:currentColor}
+.mk-none::before{width:.75em;height:.75em;border:2px solid currentColor;border-radius:50%;vertical-align:-.05em}
+
+/* Panels, and the problem cards: a panel moved up whole, with its emoji; a red edge only for what is danger (a
+   warning, an evacuation order, a river at flood stage: F10, owner 2026-10-18), the outage count's card a plain one */
+.panel{padding:12px 16px 16px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.problems{display:flex;flex-direction:column;gap:8px}
+.panel.card{border:2px solid var(--edge)}
+#panel-alerts.card,#panel-evacuations.card,#panel-rivers.card{border-color:var(--red-mark)}
+.panel>.note,.note.gap{margin-top:12px}
+.panel>.note+.note{margin-top:4px}
+
+/* Source blocks: the label, then its age on its own quieter line, no middle dot (R15) */
+.src+.src{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+.label{font-weight:700}
+/* Block, so a wrapped label's second line keeps a notice fold's side margin (owner's phone, 2026-10-28) */
+.src>.label{display:block;font-size:.8824em}
+.age{font-size:.8824em;color:var(--text2)}
+.src>.age{display:block}
+.items{list-style:none;padding:0;margin:8px 0 0}
+.items>li+li{margin-top:12px}
+.when{display:block;font-size:.8824em;color:var(--text2)}
+/* A feed's own text can hold a run with no space (an alert's /O.NEW.KCHS.CF.Y... code): it breaks
+   anywhere rather than push the page past a 320 px phone */
+.detail{margin-top:4px;font-size:.8824em;overflow-wrap:anywhere}
+.none{margin-top:8px}
+.head{font-weight:700}
+.ended{margin-top:4px;font-weight:600}
+.old-line,.fail-line{margin-top:8px;font-weight:700}
+.old-line{color:var(--caution)}
+.src.is-old{padding:12px;border:2px dashed var(--accent);border-radius:12px}
+.src.is-old>.age{color:var(--caution);font-weight:600}
+.src.is-failed{padding:12px;border:2px solid var(--edge);border-radius:12px;background:var(--miss)}
+/* An old reading stops looking current: quieter numbers, and "nothing" gets the clock */
+.src.is-old .none,.src.is-old .level,.src.is-old .count,.src.is-old .gauge>.n>b,.src.is-old .hz td.ls{color:var(--text2)}
+.src.is-old .level,.src.is-old .count,.src.is-old .gauge>.n>b{font-size:1em;font-weight:600}
+.src.is-old .gauge .meter>i{background:var(--text2)}
+.src.is-old .mk-none::before{background:conic-gradient(currentColor 0 25%,transparent 0)}
+/* When the 12-hour banner shows, it carries the message; the blocks stop shouting */
+#conditions:has(.answer.is-old) .src.is-old{padding:0;border:0;border-radius:0}
+#conditions:has(.answer.is-old) .src+.src.is-old{padding-top:16px;border-top:1px solid var(--line)}
+
+/* Warnings, two tiers. A red box only for what is danger now (F10, owner 2026-10-18): home alerts, evacuations,
+   a gauge at flood stage (.flood), or .box; an official notice is worth a look, amber. A warn item anywhere else
+   (a list item, action stage, the outage count) keeps its own words and marks, no box. */
+#panel-alerts .warn,#panel-evacuations .warn,.warn.flood,.warn.box{
+  padding:12px;border:2px solid var(--red-mark);border-radius:12px;background:var(--red-bg)}
+.warn .when{color:var(--text)}
+.warn.is-ended,#panel-alerts .warn.is-ended{border-style:dashed;background:var(--panel)}
+
+/* The Today redesign's phase 2 (rulings 1 to 3): an alert worth a look (an advisory, watch or statement for home)
+   keeps the panel's ground with a thin amber edge, its headline in --caution beside a round amber mark, so color is
+   never the only signal (identity pass); the panels worth a look stand under the problem cards in a group of their
+   own, each with a thin amber edge. An alert's end sits under its headline, and its tidied full text in a quiet
+   fold, its kept breaks and a table's columns as written. In event mode the band ends with one big button to the
+   event's guide */
+.worth{display:flex;flex-direction:column;gap:8px}
+.worth-title{display:flex;align-items:center;color:var(--caution)}
+.panel.look{border-color:var(--accent)}
+#panel-alerts .look,#panel-notices .look,.look.box{padding:12px;border:1px solid var(--accent);border-radius:12px;background:var(--panel)}
+.look>.head{color:var(--caution)}
+.mk-look::before{content:"";display:inline-block;width:.75em;height:.75em;margin-right:.45em;border-radius:50%;
+  background:var(--accent);vertical-align:-.05em}
+.until{margin-top:4px;font-size:.8824em;color:var(--text2)}
+.warn .until{color:var(--text)}
+details.full{margin:8px 0 0;border:0;border-top:1px solid var(--line);border-radius:0;background:none}
+#conditions details.full>summary{padding:12px 0;font-weight:600}
+details.full>:not(summary){margin-left:0;margin-right:0}
+.full-text{display:flex;flex-direction:column;gap:8px;font-size:.8824em;overflow-wrap:anywhere}
+.full-text p{margin:0;white-space:pre-wrap}
+
+/* Rivers, power */
+.level{font-family:var(--round);font-size:1.235em;font-weight:700;white-space:nowrap}
+.stage{padding:0 .35em;border:2px solid var(--accent);border-radius:99px;background:var(--accent-bg);font-weight:700}
+.stage-flood{border-color:var(--red-mark);background:var(--red-bg)}
+.impact{margin-top:4px}
+.count{font-family:var(--round);font-size:1.412em;font-weight:700;line-height:1.2}
+.rule{margin-top:12px;padding:12px;border-radius:12px;background:var(--bg);font-size:.8824em}
+
+/* Readiness: the supplies first, under their group label: the water and food gauges side by
+   side, one width and height (a lone one spans both), each with its days in tabular figures,
+   "of {target} days" and a bar (2 px red edge and a red bar when short; widths in steps of 5);
+   then the pet food line and when the inventory was entered, small. Then the horizons as a table,
+   the counts lined up right; a horizon not assessed keeps its sentence across the row, shaded */
+.block-body{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.block-body>*{margin:0}
+.supplies{display:flex;flex-direction:column;gap:8px}
+.supplies>.unassessed{padding:8px 12px;border:2px solid var(--edge);border-radius:14px;background:var(--miss)}
+/* Water and food as two boxes side by side, one to a row at large text, on every device and in event mode too
+   (owner, 2026-11-16: look 3's one panel in two halves stood everywhere but the Mac's calm day until then, where two
+   short ones' red edges met) */
+.gauges{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.gauge:last-child:nth-child(odd){grid-column:1/-1}
+.gauge{display:flex;flex-direction:column;gap:8px;padding:12px;border:1px solid var(--line);border-radius:14px;
+  background:var(--panel)}
+[data-large] .gauges{grid-template-columns:minmax(0,1fr)}
+.gauge.short{box-shadow:inset 0 0 0 2px var(--red-mark)}
+.gauge>.top{display:flex;align-items:center;font-weight:700}
+.gauge>.n>b{overflow-wrap:anywhere;font-family:var(--round);font-size:1.765em;font-weight:800;line-height:1.1;
+  font-variant-numeric:tabular-nums}
+.gauge>.n>span{display:block;font-size:.8824em;color:var(--text2)}
+.gauge .h{font-weight:700}
+.meter{height:12px;border-radius:99px;background:var(--miss);overflow:hidden}
+.meter>i{display:block;height:100%;border-radius:99px;background:var(--edge)}
+.gauge.short .meter>i{background:var(--red-mark)}
+/* The Pet food box (owner, 2026-11-14): a half for each pet, side by side, one to a row at large text */
+.halves{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.half{display:flex;flex-direction:column;gap:8px;min-width:0}
+.half:only-child{grid-column:1/-1}
+.half+.half{padding-left:12px;border-left:1px solid var(--line)}
+.half>.who{font-weight:600}
+.half>.n>b{overflow-wrap:anywhere;font-family:var(--round);font-size:1.412em;font-weight:800;line-height:1.1;
+  font-variant-numeric:tabular-nums}
+.half>.n>span{display:block;font-size:.8824em;color:var(--text2)}
+.half.short .meter>i{background:var(--red-mark)}
+.src.is-old .half>.n>b{font-size:1em;font-weight:600;color:var(--text2)}
+[data-large] .halves{grid-template-columns:minmax(0,1fr)}
+[data-large] .half+.half{padding:12px 0 0;border-left:0;border-top:1px solid var(--line)}
+.gauge>.fill{font-size:.8824em;color:var(--text2)}
+.w0{width:0}.w5{width:5%}.w10{width:10%}.w15{width:15%}.w20{width:20%}.w25{width:25%}.w30{width:30%}
+.w35{width:35%}.w40{width:40%}.w45{width:45%}.w50{width:50%}.w55{width:55%}.w60{width:60%}.w65{width:65%}
+.w70{width:70%}.w75{width:75%}.w80{width:80%}.w85{width:85%}.w90{width:90%}.w95{width:95%}.w100{width:100%}
+.hz{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:14px;
+  overflow:hidden;font-variant-numeric:tabular-nums}
+.hz th,.hz td{padding:8px;border-top:1px solid var(--line);overflow-wrap:anywhere}
+.hz td{text-align:right}
+.hz thead td,.hz thead th{border-top:0;font-size:.8824em;color:var(--text2);text-align:right}
+.hz tbody th{text-align:left}
+.hz td.ls{color:var(--red);font-weight:700}
+.hz tr.unassessed>td{text-align:left;background:var(--miss)}
+.hz .h{font-weight:700}
+.ready{list-style:none;padding:0}
+.ready>li{padding:8px 0;border-top:1px solid var(--line)}
+.ready>li:first-child{border-top:0}
+.use-calc{display:none}
+[data-mode=event] .gauge{box-shadow:inset 0 0 0 2px var(--red-mark);background:var(--red-bg)}
+[data-mode=event] .use-calc{display:block;font-weight:600}
+
+/* To do and To buy: their headings with their emoji are the group labels. The first three are
+   cards of one padding, 14 px corners: the category's emoji in a fixed box, the task, and one
+   line with the date, Life-safety and the cost tag (99 px tags); a card opens to its other tags
+   and its reason. The "All" fold holds the rest: To do's numbered on from
+   the cards (from 4), To buy's by category, each numbered by its place in the whole list */
+#panel-todo,#panel-tobuy{display:flex;flex-direction:column}
+#panel-todo>h2,#panel-tobuy>h2{order:-2;display:flex;align-items:center}
+.tasks{display:flex;flex-direction:column;gap:8px}
+.task-card{margin:0;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.task-card>summary{display:flex;align-items:flex-start;gap:8px;padding:12px;font-weight:400;list-style:none}
+.task-card>summary::-webkit-details-marker{display:none}
+.task-card>summary::after{content:"";flex:none;align-self:center;width:.45em;height:.45em;margin:0 4px 0 0;
+  border:solid var(--edge);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.task-card[open]>summary::after{transform:rotate(-135deg)}
+.task-card>summary>.em{display:flex;align-items:center;justify-content:center;width:36px;height:36px;
+  border-radius:12px;background:var(--bg);font-size:20px}
+.task-card>summary>.t{display:flex;flex-direction:column;gap:4px;flex:1;min-width:0}
+.task-card>summary>.t>b{font-weight:600;line-height:1.3}
+.meta{display:flex;flex-wrap:wrap;gap:4px;font-size:.8824em;color:var(--text2)}
+.meta>span{padding:0 8px;border:1px solid var(--edge);border-radius:99px}
+.meta>.due{margin:0;border-color:transparent;padding:0}
+.meta>.due.overdue{color:var(--caution)}
+.meta>.life{border-color:var(--fill);background:var(--fill);color:var(--on-fill);font-weight:700}
+.meta>.cost{border-width:2px}
+.task-card>.more{display:flex;flex-direction:column;gap:8px;margin:0;padding:0 12px 12px}
+.task-card>.more>.tags{margin:0}
+.task-card>:last-child{margin-bottom:0}
+.list{list-style:none;padding:0;margin:8px 0 0;counter-reset:n}
+.list[start="4"]{counter-reset:n 3}
+.list>li{display:flex;flex-direction:column;gap:4px;padding:12px 0;border-top:1px solid var(--line);
+  counter-increment:n}
+.list>li:first-child{padding-top:4px;border-top:0}
+.task{font-weight:600}
+.list>li>.task::before{content:counter(n) ". "}
+#panel-tobuy .list>li>.task::before{content:attr(data-n) ". "}
+.list>li>.due{order:1}
+.list>li>.tags{order:2}
+.list>li>.why{order:3}
+.tags{display:flex;flex-wrap:wrap;gap:4px}
+.tags>span{padding:0 8px;border:1px solid var(--edge);border-radius:99px;font-size:.8824em;line-height:1.3}
+.tags>.life{border-color:var(--fill);background:var(--fill);color:var(--on-fill);font-weight:700}
+.tags>.cost{border-width:2px}
+.why{font-size:.8824em;color:var(--text2)}
+.due{display:block;font-size:.8824em;font-weight:600}
+.due.overdue{color:var(--caution)}
+
+/* Folds: native details only */
+details{margin-top:12px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+summary{min-height:48px;padding:12px 16px;font-weight:700;cursor:pointer}
+details>:not(summary){margin-left:16px;margin-right:16px}
+/* .items' own margin:0 outranks the line above: a notice's list ran over its fold's edge */
+details>.items{margin-left:16px;margin-right:16px}
+details>:last-child{margin-bottom:12px}
+details details{margin-top:8px}
+details.warn,details.warn.box,#panel-notices details.warn{padding:0}
+/* The readings fold and its rows, and the notices and news folds: each summary carries its
+   panel's heading (a row's, with the panel's first line), so the panel inside drops its own
+   heading and frame. Over them, the group label Details, as Conditions sits over the chips */
+.fold{margin:0;border:1px solid var(--line);border-radius:14px}
+.fold>summary,.row>summary,.ev-fold>summary,details:not([class])>summary,details.full>summary,.ages>summary,
+.day-hours>summary{
+  display:flex;align-items:center;gap:8px;min-height:48px;padding:12px 16px;list-style:none}
+.fold>summary::-webkit-details-marker,.row>summary::-webkit-details-marker,.ev-fold>summary::-webkit-details-marker,
+details:not([class])>summary::-webkit-details-marker,details.full>summary::-webkit-details-marker,
+.ages>summary::-webkit-details-marker,.day-hours>summary::-webkit-details-marker{display:none}
+.fold>summary::after,.row>summary::after,.ev-fold>summary::after,details:not([class])>summary::after,
+details.full>summary::after,.ages>summary::after,.day-hours>summary::after{
+  content:"";flex:none;width:.45em;height:.45em;margin:0 4px 0 auto;
+  border:solid var(--edge);border-width:0 2px 2px 0;transform:rotate(45deg)}
+.fold[open]>summary::after,.row[open]>summary::after,.ev-fold[open]>summary::after,details:not([class])[open]>summary::after,
+details.full[open]>summary::after,.ages[open]>summary::after,.day-hours[open]>summary::after{
+  transform:rotate(-135deg)}
+.fold>:not(summary){margin:0}
+.row{margin:0;border:0;border-top:1px solid var(--line);border-radius:0}
+.row>summary{font-weight:400}
+.row>summary>.t{flex:1;min-width:0}
+.first{display:block;font-size:.8824em;color:var(--text2)}
+.row:target>summary{background:var(--miss);box-shadow:inset 4px 0 0 var(--link)}
+.fold>.row:last-child:not([open])>summary{border-radius:0 0 13px 13px}
+.fold>.panel,.row>.panel{margin:0;padding:0 16px 16px;border:0;border-radius:0;background:none}
+.fold>.panel>h2,.row>.panel>h2{display:none}
+
+/* The folds event mode closes (ruling R8): the forecast strip, the other conditions, the
+   readiness table and To do. In normal mode they are open, with no summary and no frame */
+.ev-fold{margin:0;border:0;border-radius:0;background:none}
+.ev-fold>:not(summary){margin:0}
+#conditions:not([data-mode=event]) .ev-fold>summary{display:none}
+
+/* What to do now: picture buttons, two across, one width per column and one height per row; a
+   long name (over 32 characters, 24 in event mode: .wide, .ewide), a lead or a lone one takes its row;
+   a half-width button has its emoji above its words, so the words have its whole width. Compact on a calm day; big
+   in event mode, four across on the Mac (four short names make a row of quarters, any other
+   button takes half a row: .q, .end), the event's own guide with a heavier red edge and first
+   aid's three red-edged. A name with no page (the Mac's own page) has no link: a dashed edge.
+   Every page not on the face folds under More guides (the Today redesign's ruling 10), a line
+   like a row, the long outage's pages under their own heading in it */
+/* In the page it stands right after the band, so VoiceOver, Voice Control and a reader with no script reach it early
+   (B2-17); order 1 keeps it on screen where it was: after everything at order 0 in normal mode, and ahead of the forecast and the other conditions' folds in event mode */
+#panel-now{order:1;display:flex;flex-direction:column;gap:8px}
+#panel-now>*{margin:0}
+#panel-now>h2{order:-2}
+.go{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;list-style:none;padding:0}
+.go>li{display:flex;min-width:0}
+.go>li.lead,.go>li:only-child,#conditions:not([data-mode=event]) .go>li.wide,[data-mode=event] .go>li.ewide{
+  grid-column:1/-1}
+.go a{display:flex;flex:1;align-items:center;gap:8px;min-width:0;min-height:48px;padding:8px 12px;
+  border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--text);font-size:.8824em;
+  font-weight:600;line-height:1.3;text-decoration:none;overflow-wrap:anywhere}
+.go a:not([href]){border-style:dashed}
+#conditions:not([data-mode=event]) .go>li:not(.wide):not(.lead):not(:only-child)>a,
+[data-mode=event] .go>li:not(.ewide):not(.lead):not(:only-child)>a{flex-direction:column;justify-content:center;
+  text-align:center}
+.go .em{font-size:20px}
+.also{font-size:.8824em}
+
+/* The Mac: two columns from 900 px (spec section 7), the answer, problems, forecast, chips, What
+   to do now and the details on the left, the supplies and lists on the right, both starting on the
+   same line (What to do now moved left: owner, 2026-10-08). Its region stands right after the band
+   in the page (B2-17) and the grid places it under the chips;
+   the details' row takes what the right column has over the left's first two parts */
+@media (min-width:760px){
+  html:not([data-large]) #conditions:not([data-mode=event]) .cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);
+    grid-template-rows:auto 1fr;grid-template-areas:"a b" "n b";gap:16px 24px;align-items:start}
+  html:not([data-large]) #conditions:not([data-mode=event]) :is(.col-a,.col-b,.now-region){display:flex;
+    flex-direction:column;gap:16px;min-width:0}
+  .col-a{grid-area:a}.col-b{grid-area:b}.now-region{grid-area:n}
+  /* The Mac's tiles (spec section 5): the condition rows and the count rows as tiles on an em grid, so they reflow
+     under page zoom; a tile opened takes the grid's width. Only in the Mac app (its mark), never by width */
+  [data-host=mac-app] #conditions:not([data-mode=event]) :is(#fold-conds>.conds,.conds.lists){display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(15em,1fr));gap:8px;padding:0;border:0;background:none;
+    overflow:visible}
+  [data-host=mac-app] #conditions:not([data-mode=event]) :is(#fold-conds>.conds,.conds.lists)>.row{margin:0;
+    border:1px solid var(--line);border-radius:14px;background:var(--panel);box-shadow:none}
+  [data-host=mac-app] #conditions:not([data-mode=event]) :is(#fold-conds>.conds,.conds.lists)>.row[open]{
+    grid-column:1/-1}
+  [data-host=mac-app] #conditions:not([data-mode=event]) :is(#fold-conds>.conds,.conds.lists)>.row>summary{
+    padding:12px}
+}
+
+/* Event mode (spec section 4; the Today redesign's event wireframe): the same regions, every
+   wrapper vanished, sorted by order: the date, the band (its guide button), the answer, the
+   problem cards and worth a look, What to do now's big buttons, the forecast and the other
+   conditions folded, the household, the notices, the quiet notes. To buy is hidden; the top
+   link too, but only from sight: it stays first for a keyboard or screen reader, and while it
+   holds the focus it shows at the top, with the band's order (ahead of the band, as in the page) */
+/* Look 3 (spec section 4): the red band carries the same contour lines as the calm one; its words and order stay */
+[data-mode=event] .band{order:-4;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;
+  gap:8px 12px;padding:16px;border-radius:14px;color:var(--ev-text);
+  background:var(--ev) var(--contour) right -150px top -170px/640px 500px no-repeat}
+[data-mode=event] .band>.marks{display:flex;flex-wrap:wrap;gap:4px}
+[data-mode=event] .band .em{width:48px;font-size:36px}
+/* The warning in the order a reader under stress needs it (beta run 2, R9.1; mockup 1, the owner's pick): each
+   warning's headline beside its own event mark (the marks' row hides that warning's mark while it shows, and gives
+   way only when no other mark is left in it, the outage's and the switch's staying: checkpoint 4), the Weather
+   Service's own instruction under it across the band, then the first-screen buttons, the rally line, and the quieter
+   event line, link and directions. The page's own order */
+[data-mode=event] .band>.alert{display:contents;font-size:1.235em;font-weight:800;line-height:1.2}
+[data-mode=event] .band>.alert>.mark{grid-column:1;font-size:28px}
+/* The warning's headline in the book typeface, a title (spec section 2); its instruction stays in the body's */
+[data-mode=event] .band>.alert>span:not(.em,.do){font-family:var(--serif)}
+.band:has(>.alert[data-band-kind=tornado]:not([hidden]))>.marks>[data-kind=tornado],
+.band:has(>.alert[data-band-kind=flash-flood]:not([hidden]))>.marks>[data-kind=flash-flood],
+.band:has(>.alert[data-band-kind=hurricane]:not([hidden]))>.marks>[data-kind=hurricane],
+.band:has(>.alert[data-band-kind=evacuation]:not([hidden]))>.marks>[data-kind=evacuation]{display:none}
+.band:has(>.alert:not([hidden])):not(
+  :has(>.marks>[data-kind=tornado]:not([hidden])):not(:has(>.alert[data-band-kind=tornado]:not([hidden]))),
+  :has(>.marks>[data-kind=flash-flood]:not([hidden])):not(:has(>.alert[data-band-kind=flash-flood]:not([hidden]))),
+  :has(>.marks>[data-kind=hurricane]:not([hidden])):not(:has(>.alert[data-band-kind=hurricane]:not([hidden]))),
+  :has(>.marks>[data-kind=evacuation]:not([hidden])):not(:has(>.alert[data-band-kind=evacuation]:not([hidden]))),
+  :has(>.marks>[data-kind=outage]:not([hidden])),:has(>.marks>[data-kind=switch]:not([hidden])))>.marks{display:none}
+/* A row still shown beside a warning (an outage's or the switch's mark; the lead's ruling on checkpoint 4) comes after
+   the rally line, so the warning, first aid and the rally line keep the SE's first screen; the event line, the link,
+   the directions and the banner after it. Only the style moves it: the page keeps the row first, its marks hidden from
+   VoiceOver, so a reader still meets the warning first */
+[data-mode=event] .band:has(>.alert:not([hidden]))>.marks{order:1}
+[data-mode=event] .band:has(>.alert:not([hidden]))>#event-line,
+[data-mode=event] .band:has(>.alert:not([hidden]))>.aid-go,
+[data-mode=event] .band:has(>.alert:not([hidden]))>.dir,
+[data-mode=event] .band:has(>.alert:not([hidden]))>#band-banner{order:2}
+[data-mode=event] .band>.alert>.do{grid-column:1/-1;display:block;font-size:.8824em;font-weight:700;line-height:1.3}
+[data-mode=event] .band>.alert>.do>.more{font-size:.8824em;font-weight:400}
+[data-mode=event] .band>.sos,[data-mode=event] .band>.rally,[data-mode=event] #event-line,
+[data-mode=event] .band>.dir{grid-column:1/-1}
+[data-mode=event] #event-line{padding:0;border:0;border-radius:0;background:none;font-weight:400}
+[data-mode=event] #event-line>.ev-first{display:block;font-weight:700}
+[data-mode=event] #band-banner{grid-column:1/-1;display:block;padding:8px 12px;border:2px solid currentColor;
+  border-radius:12px;font-weight:700}
+[data-mode=event] #band-banner:empty{display:none}
+/* An ended warning's line (B2-27), set by the script below the band: quiet, never in the red box; in every mode, so
+   App Store Kiwix and a printout read an ended warning as ended (the owner's click, 2026-10-21), and in event mode
+   right under the band */
+.ended-head{display:block;margin:0;padding:4px 4px 0;color:var(--text2);font-weight:600}
+[data-mode=event] .ended-head{order:-3}
+/* "Not in the library yet: …" is a note for the owner (B2-26; the Mac's Household pages screen lists them) */
+#conditions[data-mode=event] .missing{display:none}
+/* First aid's three and each event's guide (R9.1): big light buttons on the red, two across, a lone last one across
+   the row (flex, so one the packer couldn't link, left empty and hidden, never counts) */
+[data-mode=event] .band>.sos{display:flex;flex-wrap:wrap;gap:8px}
+.sos>p{display:flex;flex:1 1 40%;min-width:0;margin:0}
+.sos>p:empty{display:none}
+[data-mode=event] .band>.sos a{display:flex;flex:1;align-items:center;gap:8px;min-width:0;min-height:56px;
+  padding:4px 12px;border-radius:12px;background:var(--ev-text);color:var(--ev);font-size:1.118em;font-weight:800;
+  line-height:1.2;text-decoration:none;overflow-wrap:break-word}
+[data-mode=event] .band>.sos .em{width:auto;font-size:28px}
+/* Where the household meets (R9.1): an outlined line, not a first-aid button; only in the apps, where the street
+   map is (the phone app's script links it and names the place) */
+[data-host=phone] [data-mode=event] .rally,[data-host=phone-readonly] [data-mode=event] .rally,[data-host=mac-app] [data-mode=event] .rally{display:flex}
+[data-mode=event] .rally{align-items:center;gap:8px;min-height:48px;padding:8px 12px;
+  border:2px solid currentColor;border-radius:12px;font-weight:700;line-height:1.3}
+.rally>a{display:flex;flex:1;align-items:center;gap:8px;min-width:0;text-decoration:none}
+[data-mode=event] .band>.rally .em{width:auto;font-size:28px}
+[data-mode=event] .band>.aid-go{grid-column:1/-1;display:block}
+[data-mode=event] .band>.aid-go>a{display:flex;align-items:center;gap:8px;min-height:48px;font-weight:700;
+  line-height:1.3;text-decoration:underline;text-underline-offset:.2em}
+[data-mode=event] .band>.aid-go .em{width:1.5em;font-size:20px}
+/* Red night (the app's red layer keeps only each color's red part, on the dark tokens and a black ground): the
+   warning's headline stays the band's brightest (--ev-text); the buttons turn dark with danger's words (--red, at
+   least 4.5:1 on the black there) and an edge; the rest of the band's words are danger's too (PaletteTests). The band
+   itself stands on the black ground with a danger edge: on --ev's dark red the instruction and its pointer reached
+   only about 3.5:1 (checkpoint 4) */
+[data-pm-red] [data-mode=event] .band{color:var(--red);background:var(--bg);box-shadow:inset 0 0 0 2px var(--red)}
+[data-pm-red] [data-mode=event] .band>.alert{color:var(--ev-text)}
+[data-pm-red] [data-mode=event] .band>.alert>.do{color:var(--red)}
+[data-pm-red] [data-mode=event] .band>.sos a{background:var(--bg);color:var(--red);box-shadow:inset 0 0 0 2px var(--red)}
+/* The largest text sizes (B2-14): the phone app marks the page data-large when its text is scaled to 150% or more
+   (TextSizeZoom.script). The band then drops its marks and the where-to-switch directions, stands as one column, and
+   shows the headline, the buttons and the rally line before the instruction (the lead's ruling, R9.1 fix round 1:
+   at three times the text the instruction alone is taller than an SE's screen), the rest after it. VoiceOver keeps
+   the page's own order: the headline, the instruction, then the buttons */
+[data-large] [data-mode=event] .band>.marks,[data-large] [data-mode=event] .band>.dir,
+[data-large] [data-mode=event] .band>.alert>.mark{display:none}
+[data-large] [data-mode=event] .band{grid-template-columns:minmax(0,1fr)}
+[data-large] [data-mode=event] .band>.alert>.do{order:1}
+[data-large] [data-mode=event] .sos>p{flex-basis:100%}
+[data-large] [data-mode=event] .band>.sos a{overflow-wrap:anywhere}
+[data-large] [data-mode=event] #event-line,[data-large] [data-mode=event] .band>.aid-go,
+[data-large] [data-mode=event] #band-banner{order:2}
+/* and "Today" and the date, which the app's own title bar already says, leave the sight (not VoiceOver's), so the
+   warning starts at the top of the screen */
+[data-large] body:has(#conditions[data-mode=event])>h1,[data-large] [data-mode=event] .date-line{position:absolute;
+  width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+[data-mode=event] .band a{color:inherit}
+[data-mode=event] .date-line{order:-5}
+[data-mode=event] .now-link:not(:focus-within){position:absolute;width:1px;height:1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap}
+[data-mode=event] .now-link:focus-within{order:-4}
+[data-mode=event] #panel-now{border:2px solid var(--red-mark)}
+[data-mode=event] .quiet>#banner{display:none}
+[data-mode=event] .answer{order:-1}
+[data-mode=event] #fold-strip,[data-mode=event] #fold-conds{order:1}
+[data-mode=event] .household{order:2}
+[data-mode=event] .notices-region{order:5}
+[data-mode=event] .quiet{order:6}
+[data-mode=event] #panel-tobuy,[data-mode=event] #row-tobuy{display:none}
+[data-mode=event] .ev-fold{border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+[data-mode=event] .ev-fold>:not(summary){margin:0 16px 16px}
+[data-mode=event] .ev-fold>.panel{padding:0;border:0;border-radius:0;background:none}
+[data-mode=event] .ev-fold>.panel>h2{display:none}
+[data-mode=event] .go a{min-height:64px;padding:12px;border-color:var(--edge);font-size:1.118em;font-weight:700}
+[data-mode=event] .go .em{font-size:28px}
+[data-mode=event] .go>li.fa>a{border:2px solid var(--red-mark)}
+[data-mode=event] .go>li.lead>a{min-height:72px;border:2px solid var(--red-mark);
+  box-shadow:inset 0 0 0 1px var(--red-mark);font-size:1.235em}
+[data-mode=event] .go>li.lead .em{font-size:36px}
+@media (min-width:900px){
+  [data-mode=event] .go{grid-template-columns:repeat(4,minmax(0,1fr))}
+  #conditions[data-mode=event] .go>li{grid-column:span 2}
+  #conditions[data-mode=event] .go>li.q{grid-column:auto}
+  #conditions[data-mode=event] .go>li.end,#conditions[data-mode=event] .go>li.lead:first-child,
+  #conditions[data-mode=event] .go>li:only-child{grid-column:1/-1}
+  #conditions[data-mode=event] .go>li>a{flex-direction:row;justify-content:flex-start;text-align:left}
+  #conditions[data-mode=event] .go>li.q>a{flex-direction:column;justify-content:center;text-align:center}
+}
+
+/* The quiet notes, small and together at the end */
+.quiet{display:flex;flex-direction:column;gap:4px}
+.quiet>.note{margin:0}
+
+/* Mac page only */
+.phones{margin-top:4px;font-weight:600}
+.phones.is-old{color:var(--caution)}
+.attn{padding:16px;border:2px solid var(--edge);border-radius:12px;background:var(--panel)}
+
+/* The packer's own markup: the Built and age lines end every page, right after the block on Today
+   as the last of its quiet notes (the notes' own 4 px apart), and after the list on the guide list's
+   own pages (the owner's required fixes, fix 4, 2026-10-16) */
+.built{margin-top:16px}
+#conditions+.built{margin-top:4px}
+#age.is-old{color:var(--caution);font-weight:600}
+/* Look 3 (plan Task 3.1): a page's teal band, its heading and the legend in it, the contour lines behind them; the
+   guide list's, and its side pages' (build._side_page). Never a fixed height: its lines wrap and it grows */
+.page-band{display:flex;flex-direction:column;gap:4px;margin:0 0 12px;padding:16px;border-radius:14px;color:var(--band-text);background:var(--band) var(--contour) right -150px top -170px/640px 500px no-repeat}
+.page-band>h1{margin:0}
+.page-band>.note{margin:0;color:inherit}
+.page-band a{color:inherit}
+.page-band a:focus-visible{outline-color:var(--band-text)}
+[data-pm-red] .page-band{background-color:var(--bg);box-shadow:inset 0 0 0 2px var(--line)}
+/* On paper (the Mac's Print, games plan phase 5, 2026-11-14): no tint is printed, so the band's light words would
+   print pale; there it is a plain heading */
+@media print{.page-band{background:none;box-shadow:none;color:var(--text);padding:0}}
+/* New guides: the first row under the band, in the teal of what you can press, a › at its end */
+.new-btn{display:flex;align-items:center;gap:12px;min-height:48px;margin:0 0 12px;padding:12px 16px;
+  border-radius:12px;background:var(--id-tint);color:var(--link);font-weight:700;text-decoration:none}
+.new-btn::after{content:"";flex:none;width:.45em;height:.45em;margin:0 4px 0 auto;border:solid var(--link);
+  border-width:0 2px 2px 0;transform:rotate(-45deg)}
+/* The groups: rows in one panel on a phone, each a fold that opens in place (spec section 4) */
+.groups{border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.groups>details{margin:0;border:0;border-top:1px solid var(--line);border-radius:0;background:none}
+.groups>details:first-child{border-top:0}
+.groups>details>summary>.em{display:inline-flex;align-items:center;justify-content:center;width:1.6em;height:1.6em;
+  border-radius:12px;background:var(--id-tint)}
+.page-band~ul{list-style:none;padding:0;margin:12px 0 0;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+.page-band~ul>li+li{border-top:1px solid var(--line)}
+.page-band~ul a{display:block;min-height:44px;padding:12px 16px}
+/* A guide in a fold of the guide list: a whole row too (F17, Task 8.5; a category page's: build.SIDE_STYLE) */
+.guides-page details ul{list-style:none;padding:0;margin:8px 0 0;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+.guides-page details ul>li+li{border-top:1px solid var(--line)}
+.guides-page details ul a{display:block;min-height:44px;padding:12px 16px}
+/* A list of guides (the guide list's folds, a category page, New guides): whole rows on every screen, the row the
+   link, a › at its end as a Mac or iPhone list has, no underline (owner, 2026-10-24) */
+ul.rows{list-style:none;padding:0;margin:8px 0 0;border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+ul.rows>li{margin:0}
+ul.rows>li+li{border-top:1px solid var(--line)}
+ul.rows>li>a{display:flex;align-items:center;gap:12px;min-height:44px;padding:12px 16px;text-decoration:none}
+ul.rows>li>a::after{content:"";flex:none;width:.45em;height:.45em;margin:0 4px 0 auto;border:solid var(--edge);
+  border-width:0 2px 2px 0;transform:rotate(-45deg)}
+/* The guide list and its side pages (body.wide: a category page, New guides, Help, News) on a wide window: Today's
+   width (owner, 2026-10-24), from Today's 760 px (look 3). The guide list's groups two columns of rows on the iPad
+   (the phone app, spec section 4) and a grid of tiles elsewhere (the Mac, section 5), an opened one across them with
+   its guides in two columns of rows; a category page's sub-categories and Help's
+   sections in two columns */
+@media (min-width:760px){
+body.wide{max-width:80rem;padding:16px 24px 48px}
+ul.rows>li>a:hover{background:var(--miss)}
+.groups{display:grid;grid-template-columns:1fr 1fr;gap:8px;align-items:start;border:0;background:none}
+.groups>details,.groups>details:first-child{border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.groups>details[open]{grid-column:1/-1}
+:root:not([data-host^=phone]) .groups{grid-template-columns:repeat(auto-fill,minmax(15em,1fr))}
+:root:not([data-host^=phone]) .groups>details:not([open])>summary{position:relative;flex-direction:column;
+  align-items:flex-start;justify-content:flex-end;gap:8px;min-height:7em;padding:16px;font-family:var(--serif)}
+:root:not([data-host^=phone]) .groups>details:not([open])>summary>.em{width:1.8em;height:1.8em;font-size:1.412em}
+:root:not([data-host^=phone]) .groups>details:not([open])>summary::after{position:absolute;top:24px;right:16px;
+  margin:0}
+.groups ul.rows,body.wide>ul.rows{display:grid;grid-template-columns:1fr 1fr}
+.groups ul.rows>li,body.wide>ul.rows>li{border-top:1px solid var(--line)}
+.groups ul.rows>li:nth-child(-n+2),body.wide>ul.rows>li:nth-child(-n+2){border-top:0}
+.groups ul.rows>li:nth-child(odd),body.wide>ul.rows>li:nth-child(odd){border-right:1px solid var(--line)}
+.subs,.wide .help{columns:2;column-gap:24px}
+.sub{break-inside:avoid;padding-bottom:24px}
+body .subs>.sub>h2{margin:0 0 8px}
+.wide .help>*{break-inside:avoid}
+.wide .help>h2{break-after:avoid}
+}
+</style>
+<div class="day-band">
+<p class="date-line" id="date-line">Tuesday, October 6</p>
+<p class="now-link"><a href="#panel-now"><span class="em" aria-hidden="true">⛑️</span>Something happening now? What to do</a></p>
+</div>
+<div class="band" id="band">
+<p class="marks"><span class="em" aria-hidden="true" data-kind="tornado">🌪️</span><span class="em" aria-hidden="true" data-kind="outage" hidden>⚡</span></p>
+<p class="alert" data-band-of="home-alerts" data-band-kind="tornado"><span class="em mark" aria-hidden="true">🌪️</span><span data-expires="2026-10-06T13:00:00-04:00" data-ended="This alert&#x27;s own end time, {time}, has passed." data-ended-head="Ended: {event} (until {time})">Tornado Warning</span> <span class="do">TAKE COVER NOW! Move to a basement or an interior room on the lowest floor of a sturdy building. Avoid windows. <span class="more">More in the full text below.</span></span></p>
+<div class="sos" id="sos"><p class="fa"><a href="severe-bleeding.html"><span class="em" aria-hidden="true">🩸</span>Stop bleeding</a></p><p class="fa"><a href="cpr-recovery.html"><span class="em" aria-hidden="true">❤️</span>CPR</a></p><p class="fa"><a href="burns.html"><span class="em" aria-hidden="true">🩹</span>Burns</a></p><p class="guide-go" data-kind="tornado"><a href="tornado.html"><span class="em" aria-hidden="true">🌪️</span>Tornado guide</a></p></div>
+<p class="rally" id="rally-line"><span class="em" aria-hidden="true">📍</span>Where we meet: Maps › Street map</p>
+<p id="event-line"><span class="ev-first">Event mode is on: a Tornado Warning for home.</span></p>
+<p class="aid-go"><a href="#panel-now"><span class="em" aria-hidden="true">⛑️</span>First aid and what to do now</a></p>
+<p class="dir" id="event-dir"><span class="d-any">To change it: Event mode, on the Mac or an adult&#x27;s phone.</span><span class="d-phone">To change it: Inventory › Lists › Event mode.</span><span class="d-ro">An adult can change it: Inventory › Lists › Event mode on their phone, or the sidebar&#x27;s Event mode on the Mac.</span><span class="d-mac">To change it: the sidebar&#x27;s Event mode.</span></p>
+<p class="band-banner mk-old" id="band-banner"></p>
+</div>
+</section></body></html>

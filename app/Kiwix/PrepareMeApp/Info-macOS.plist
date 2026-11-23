@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- USDA's key for the barcode lookup (owner, 2026-10-22): project.yml's DEMO_KEY, or the owner's at install -->
+	<key>PrepareMeUSDAKey</key>
+	<string>$(PREPAREME_USDA_KEY)</string>
+	<!-- UPC Database's key for the barcode lookup (owner, 2026-10-23): empty, or the owner's at install -->
+	<key>PrepareMeUPCDBKey</key>
+	<string>$(PREPAREME_UPCDB_KEY)</string>
+	<key>HIDE_DONATION</key>
+	<true/>
+	<!-- look 3, change 1: no Random Page (the dice) on the Mac -->
+	<key>HIDE_RANDOM_BUTTON</key>
+	<true/>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
+	<!-- Search suggests the right word for a misspelling ("bleding": bleeding), from a spelling index Kiwix builds
+	     from each library in the app's caches on its first search (the beta run's F05, 2026-10-16) -->
+	<key>SHOW_SEARCH_SUGGESTIONS_SPELLCHECKED</key>
+	<true/>
+	<!-- KML, as Organic Maps declares it (its OMaps.plist, read 2026-10-19), so the rally points' file goes out as that
+	     type and Organic Maps is offered in the share sheet (the owner's report, 2026-10-19: it wasn't); GPX the same
+	     way, for other map apps (the street map fixes plan, task 3.5) -->
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.google.earth.kml</string>
+			<key>UTTypeDescription</key>
+			<string>KML map file</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.xml</string>
+			</array>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>kml</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/vnd.google-earth.kml+xml</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.topografix.gpx</string>
+			<key>UTTypeDescription</key>
+			<string>GPX map file</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.xml</string>
+			</array>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>gpx</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/gpx+xml</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

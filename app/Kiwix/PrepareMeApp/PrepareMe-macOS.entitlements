@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- The Mac's PrepareMe (plan phase 6): sandboxed as Kiwix is, with exceptions under the real home that the App Store
+     would refuse; this build is for this Mac only. It reads the packer's local folder (delivery) and the jobs' run
+     records (jobs: the hourly job's skips, whether the scheduler still runs the phones' service), and touches the
+     dashboard job's request files (requests), as Kiwix (PrepareMe) does. Plan phase 7: it edits the inventory file
+     (inventory, read-write), and runs the lists job's ID check with the venv's Python (.venvs/prepareme-app and uv's
+     Python folder, read-only). Plan phase 8: it keeps its checked downloads from Kiwix's library (downloads,
+     read-write), which the packer offers on. Plan phase 10: it asks the phones' service to pair or unpair a phone
+     through the pairing folder (read-write; PairingDesk), never touching the service's own folder. Mac sidebar plan,
+     task 12: location, for the street map's Where am I (Wi-Fi; macOS still asks the owner once; build.sh checks the
+     signed app carries it). Concept-doc plan, phase A: the iCloud backup writes iCloud Drive › PrepareMe Backup only
+     (read-write; the owner makes and shares it, the app never does) and its status record and manifest mirror in
+     backup (read-write), which the failure notice reads. Top-ten plan, phase 7: it keeps the equipment manuals the
+     packer builds into their library (item-manuals, read-write) and reads the packer's report on them, beside that
+     folder (item-manuals-report.json, read-only). Concept-doc plan, phase C: Household pages writes the household's
+     own pages and their photos (Household Private › Library › daily), their videos (› Library › media) and what it
+     sets aside (› Backups › Household pages), read-write, never Household Private as a whole (its settings.toml and
+     equipment.md stay out of reach). Printable References (2026-10-21): the card file in Household Private › Plans
+     (read-write; the app touches only card.toml and its temporary file) and the PDFs the paper job makes in › Print
+     (read-only). Step 8a: network.client also carries the item form's barcode lookup
+     (ProductLookup.hosts: Open Food Facts, then UPCitemdb; only the code is sent). Essential Documents (2026-10-24): its
+     encrypted store (documents, read-write; docs/documents.md), and phase 4's iCloud copy of it, still encrypted
+     (Household Private › Backups › Documents, read-write). No network server: the phones' service is its own part
+     (PrepareMeService.entitlements). kiwix-mac/build.sh's check build swaps the home's paths for a scratch folder's.
+     -->
+<plist version="1.0">
+<dict>
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<key>com.apple.security.files.user-selected.read-write</key>
+	<true/>
+	<key>com.apple.security.network.client</key>
+	<true/>
+	<key>com.apple.security.personal-information.location</key>
+	<true/>
+	<key>com.apple.security.print</key>
+	<true/>
+	<key>com.apple.security.temporary-exception.files.home-relative-path.read-only</key>
+	<array>
+		<string>/Library/Application Support/PrepareMe/delivery/</string>
+		<string>/Library/Application Support/PrepareMe/jobs/</string>
+		<string>/Library/Application Support/PrepareMe/item-manuals-report.json</string>
+		<string>/Library/Mobile Documents/com~apple~CloudDocs/Household Private/Print/</string>
+		<string>/.venvs/prepareme-app/</string>
+		<string>/.local/share/uv/python/</string>
+	</array>
+	<key>com.apple.security.temporary-exception.files.home-relative-path.read-write</key>
+	<array>
+		<string>/Library/Application Support/PrepareMe/requests/</string>
+		<string>/Library/Application Support/PrepareMe/inventory/</string>
+		<string>/Library/Application Support/PrepareMe/downloads/</string>
+		<string>/Library/Application Support/PrepareMe/pairing/</string>
+		<string>/Library/Application Support/PrepareMe/backup/</string>
+		<string>/Library/Application Support/PrepareMe/item-manuals/</string>
+		<string>/Library/Application Support/PrepareMe/documents/</string>
+		<string>/Library/Mobile Documents/com~apple~CloudDocs/PrepareMe Backup/</string>
+		<string>/Library/Mobile Documents/com~apple~CloudDocs/Household Private/Library/daily/</string>
+		<string>/Library/Mobile Documents/com~apple~CloudDocs/Household Private/Library/media/</string>
+		<string>/Library/Mobile Documents/com~apple~CloudDocs/Household Private/Backups/Household pages/</string>
+		<string>/Library/Mobile Documents/com~apple~CloudDocs/Household Private/Backups/Documents/</string>
+		<string>/Library/Mobile Documents/com~apple~CloudDocs/Household Private/Plans/</string>
+	</array>
+</dict>
+</plist>

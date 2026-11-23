@@ -1,0 +1,141 @@
+{
+ "data_date": "2026-10-29",
+ "left_out": [
+  {
+   "mark": 3,
+   "travel": "foot",
+   "why": "farther than the router goes for this way of travel"
+  }
+ ],
+ "lists": [
+  {
+   "mark": 1,
+   "miles": 0.78,
+   "minutes": 10,
+   "travel": "car",
+   "turns": [
+    {
+     "miles": 0.78,
+     "say": "Drive east on Made-up Street."
+    },
+    {
+     "miles": 0.0,
+     "say": "You have arrived at your destination."
+    }
+   ]
+  },
+  {
+   "mark": 1,
+   "miles": 0.78,
+   "minutes": 10,
+   "travel": "foot",
+   "turns": [
+    {
+     "miles": 0.78,
+     "say": "Drive east on Made-up Street."
+    },
+    {
+     "miles": 0.0,
+     "say": "You have arrived at your destination."
+    }
+   ]
+  },
+  {
+   "mark": 2,
+   "miles": 0.78,
+   "minutes": 10,
+   "travel": "car",
+   "turns": [
+    {
+     "miles": 0.78,
+     "say": "Drive east on Made-up Street."
+    },
+    {
+     "miles": 0.0,
+     "say": "You have arrived at your destination."
+    }
+   ]
+  },
+  {
+   "mark": 2,
+   "miles": 0.78,
+   "minutes": 10,
+   "travel": "foot",
+   "turns": [
+    {
+     "miles": 0.78,
+     "say": "Drive east on Made-up Street."
+    },
+    {
+     "miles": 0.0,
+     "say": "You have arrived at your destination."
+    }
+   ]
+  },
+  {
+   "mark": 3,
+   "miles": 0.78,
+   "minutes": 10,
+   "travel": "car",
+   "turns": [
+    {
+     "miles": 0.78,
+     "say": "Drive east on Made-up Street."
+    },
+    {
+     "miles": 0.0,
+     "say": "You have arrived at your destination."
+    }
+   ]
+  }
+ ],
+ "made_at": "2026-10-07T18:07:00Z",
+ "marks": [
+  {
+   "kind": "rally",
+   "mark": 1,
+   "points": [
+    [
+     -76.9925,
+     38.8905
+    ]
+   ]
+  },
+  {
+   "kind": "route",
+   "mark": 2,
+   "points": [
+    [
+     -77.007,
+     38.8912
+    ],
+    [
+     -76.9925,
+     38.8905
+    ]
+   ]
+  },
+  {
+   "kind": "rally",
+   "mark": 3,
+   "points": [
+    [
+     -76.9925,
+     38.8905
+    ]
+   ]
+  },
+  {
+   "kind": "start",
+   "mark": 5,
+   "points": [
+    [
+     -77.007,
+     38.8912
+    ]
+   ]
+  }
+ ],
+ "start": 5,
+ "why_none": null
+}

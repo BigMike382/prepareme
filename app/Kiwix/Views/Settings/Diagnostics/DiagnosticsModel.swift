@@ -1,0 +1,293 @@
+// This file is part of Kiwix for iOS & macOS.
+//
+// Kiwix is free software; you can redistribute it and/or modify it
+// under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 3 of the License, or
+// any later version.
+//
+// Kiwix is distributed in the hope that it will be useful, but
+// WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+// General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with Kiwix; If not, see https://www.gnu.org/licenses/.
+
+import Foundation
+import Defaults
+import OSLog
+import Combine
+import SwiftUI
+
+struct DiagnosticItem: Identifiable, Equatable {
+    let id: Identifier
+    var title: String
+    var status: Status
+    
+    init(id: Identifier, title: String? = nil, status: Status = .initial) {
+        self.id = id
+        if let title {
+            self.title = title
+        } else {
+            self.title = id.defaultTitle
+        }
+        self.status = status
+    }
+    
+    enum Status: Equatable {
+        case initial
+        case inProgress
+        case complete(Bool)
+        
+        var isComplete: Bool {
+            if case .complete = self {
+                return true
+            }
+            return false
+        }
+        
+        var systemImage: String {
+            switch self {
+            case .initial: "circle"
+            case .inProgress: "circle.dashed"
+            case .complete: "checkmark.circle.fill"
+            }
+        }
+        var tintColor: Color {
+            switch self {
+            case .initial: .gray
+            case .inProgress: .orange
+            case .complete: .green
+            }
+        }
+        
+        static func from(checkState: ZimIntegrityModel.CheckState) -> Self {
+            switch checkState {
+            case .enqued: Status.initial
+            case .running: Status.inProgress
+            case .complete(let isValid): Status.complete(isValid)
+            }
+        }
+    }
+    
+    enum Identifier: Hashable {
+        case integrityCheck
+        case integrityZIM(UUID)
+        case applicationLogs
+        case languageSettings
+        case listOfZimFiles
+        case deviceDetails
+        case fileSystemDetails
+        
+        var defaultTitle: String {
+            switch self {
+            #if PREPAREME_APP  // the household calls them library files (Mac Settings plan, 2026-11-14)
+            case .integrityCheck: "Integrity check of library files"
+            case .integrityZIM: "Integrity check of library files"
+            #else
+            case .integrityCheck: "Integrity check of ZIM files"
+            case .integrityZIM: "Integrity check of ZIM files"
+            #endif
+            case .applicationLogs: "Application logs"
+            case .languageSettings: "Your language settings"
+            #if PREPAREME_APP
+            case .listOfZimFiles: "List of your library files"
+            #else
+            case .listOfZimFiles: "List of your ZIM files"
+            #endif
+            case .deviceDetails: "Device details"
+            case .fileSystemDetails: "File system details"
+            }
+        }
+    }
+}
+
+private enum Const {
+    static let defaultItems: [DiagnosticItem] = [
+        DiagnosticItem(id: .listOfZimFiles),
+        DiagnosticItem(id: .integrityCheck),
+        DiagnosticItem(id: .applicationLogs),
+        DiagnosticItem(id: .languageSettings),
+        DiagnosticItem(id: .deviceDetails),
+        DiagnosticItem(id: .fileSystemDetails)
+    ]
+}
+
+@MainActor
+final class DiagnosticsModel: ObservableObject {
+    
+    @Published
+    var items: [DiagnosticItem] = Const.defaultItems
+    
+    private var integrityModel = ZimIntegrityModel()
+    private var cancellable: AnyCancellable?
+    
+    func cancel() {
+        cancellable?.cancel()
+        integrityModel.reset()
+        items = Const.defaultItems
+        integrityModel = ZimIntegrityModel()
+    }
+    
+    func start(using zimFiles: [ZimFile]) async -> [String] {
+        updateItemBy(id: .listOfZimFiles, status: .complete(true))
+        updateItemBy(id: .integrityCheck, status: .inProgress)
+        cancellable = integrityModel.$checks.sink(receiveValue: { [weak self] (infos: [ZimIntegrityModel.Info]) in
+            self?.didReceive(checkInfos: infos)
+        })
+        
+        await integrityModel.check(zimFiles: zimFiles)
+        guard !Task.isCancelled else { return [] }
+        updateItemBy(id: .applicationLogs, status: .inProgress)
+        guard !Task.isCancelled else { return [] }
+        let entries = await Diagnostics.entriesSeparated()
+        guard !Task.isCancelled else { return [] }
+        updateItemBy(id: .applicationLogs, status: .complete(true))
+        updateItemBy(id: .languageSettings, status: .complete(true))
+        updateItemBy(id: .deviceDetails, status: .complete(true))
+        updateItemBy(id: .fileSystemDetails, status: .complete(true))
+        return entries
+    }
+    
+    private func integrityCheckProgress(title: String) {
+        items = items.map { item in
+            if item.id == .integrityCheck {
+                var newItem = item
+                newItem.title = title
+                newItem.status = .inProgress
+                return newItem
+            } else {
+                return item
+            }
+        }
+    }
+    
+    private func updateItemBy(id: DiagnosticItem.Identifier, status: DiagnosticItem.Status) {
+        items = items.map { item in
+            if item.id == id {
+                var newItem = item
+                newItem.status = status
+                return newItem
+            } else {
+                return item
+            }
+        }
+    }
+    
+    private func didReceive(checkInfos: [ZimIntegrityModel.Info]) {
+        if let integrityIndex = items.firstIndex(where: { $0.id == .integrityCheck }) {
+            items.remove(at: integrityIndex)
+        }
+        for check in checkInfos {
+            if let index = items.firstIndex(where: { $0.id == .integrityZIM(check.id) }) {
+                var item: DiagnosticItem = items[index]
+                item.status = .from(checkState: check.state)
+                items[index] = item
+            } else {
+                let title = LocalString.zim_file_integrity_check_in_progress(withArgs: check.zimFile.name)
+                let newItem = DiagnosticItem(id: .integrityZIM(check.id),
+                                             title: title,
+                                             status: .from(checkState: check.state))
+                let insertIndex: Int = items.firstIndex(where: { $0.id == .applicationLogs }) ?? 0
+                items.insert(newItem, at: insertIndex)
+            }
+        }
+    }
+}
+
+enum Diagnostics {
+    
+    /// Log the os and app related infos
+    static func start() async {
+        let device = await MainActor.run { Device.current }
+        Log.Environment.notice("app: \(appVersion(), privacy: .public)")
+        Log.Environment.notice("os: \(osName(device: device), privacy: .public)")
+        Log.Environment.notice("\(languageCurrent(), privacy: .public)")
+        Log.Environment.notice("\(libraryLanguageCodes(), privacy: .public)")
+        let available = await freeSpace()
+        Log.Environment.notice("free space: \(available, privacy: .public)")
+    }
+    
+    static func entriesSeparated() async -> [String] {
+#if os(macOS)
+        guard !Task.isCancelled else { return [] }
+        MacUser.name()
+        await MacUser.isUserAdmin()
+#endif
+        guard !Task.isCancelled else { return [] }
+        Log.Environment.notice("ProcessInfo.environment:\n\(processInfoEnvironment(), privacy: .public)")
+        DownloadDiagnostics.path()
+        DownloadDiagnostics.testWritingAFile()
+        
+        guard !Task.isCancelled else { return [] }
+        guard let logStore = try? OSLogStore(scope: .currentProcessIdentifier),
+              let entries = try? logStore.getEntries(
+                matching: NSPredicate(format: "subsystem == %@", KiwixLogger.subsystem)
+              ) else {
+            Log.Environment.error("couldn't collect logs")
+            return []
+        }
+        
+        var logs: [String] = []
+        for entry in entries.makeIterator() {
+            logs.append("\(entry.date.ISO8601Format()); \(entry.composedMessage)")
+        }
+        return logs
+    }
+    
+    public static func fileName(using date: Date) -> String {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withDashSeparatorInDate, .withFullDate]
+        let dateString = formatter.string(from: date)
+        return "kiwix_diagnostic_\(dateString)"
+    }
+    
+    private static func appVersion() -> String {
+        let unknown = "unknown"
+        let bundle = Bundle.main
+        let infoDict = bundle.infoDictionary
+        
+        let bundleIdentifier = bundle.bundleIdentifier ?? unknown
+        let releaseVersion = (infoDict?["CFBundleShortVersionString"] as? String) ?? unknown
+        let buildNumber = (infoDict?["CFBundleVersion"] as? String) ?? unknown
+        
+        return "\(bundleIdentifier): \(releaseVersion) (\(buildNumber))"
+    }
+    
+    private static func osName(device: Device) -> String {
+        let deviceType = device.rawValue
+        let osVersion = ProcessInfo.processInfo.operatingSystemVersionString
+        return "\(deviceType): \(osVersion)"
+    }
+    
+    private static func processInfoEnvironment() -> String {
+        var result = "[\n"
+        let environment = ProcessInfo().environment
+        for key in environment.keys.sorted() {
+            let value = environment[key] ?? "null"
+            result.append("\(key): \(value)\n")
+        }
+        return result.appending("]")
+    }
+    
+    private static func languageCurrent() -> String {
+        let current = Locale.current.language.languageCode?.identifier ?? "unknown"
+        return "Current language: \(current)"
+    }
+    
+    private static func libraryLanguageCodes() -> String {
+        let languageCodes: [String] = Defaults[.libraryLanguageCodes]
+        return "Library language codes: \(languageCodes.joined(separator: ", "))"
+    }
+    
+    private static func freeSpace() async -> String {
+        let freeSpace: Int64? = try? FileManager.default
+            .urls(for: .documentDirectory, in: .userDomainMask)
+            .first?.resourceValues(forKeys: [.volumeAvailableCapacityForImportantUsageKey])
+            .volumeAvailableCapacityForImportantUsage
+        guard let freeSpace else {
+            return "unknown"
+        }
+        return ByteCountFormatter().string(fromByteCount: freeSpace)
+    }
+}
